@@ -313,6 +313,10 @@ h3 {
   color: var(--tk-green);
 }
 
+.booking-title {
+  color: var(--tk-green);
+}
+
 .glance-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
