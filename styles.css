@@ -359,6 +359,22 @@ h3 {
   font-weight: 700;
 }
 
+.text-link-button {
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(4, 120, 87, 0.12), rgba(16, 185, 129, 0.2));
+  border: 1px solid rgba(4, 120, 87, 0.2);
+  color: var(--tk-green);
+  box-shadow: 0 10px 24px rgba(4, 120, 87, 0.1);
+}
+
+.text-link-button:hover {
+  box-shadow: 0 14px 28px rgba(4, 120, 87, 0.16);
+}
+
 .section {
   padding: 46px 0;
 }
