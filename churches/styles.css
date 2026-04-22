@@ -154,6 +154,13 @@
   display: none;
 }
 @media (max-width: 760px) {
+  /* Mobile: un-pin the header so it scrolls away with the page (reclaims fold space) */
+  .topbar {
+    position: static;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .mobile-sticky-cta {
     position: fixed;
     left: 0;
