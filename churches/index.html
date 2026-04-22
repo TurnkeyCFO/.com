@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- HIDDEN FROM SEARCH — PPC landing page only -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  <title>Church Bookkeeping, Payroll &amp; Housing Allowance | TurnkeyCFO</title>
+  <meta name="description" content="Bookkeeping built for churches. Clean books, payroll with clergy housing allowance, 1099s, bill pay, designated-fund tracking, and 990 coordination — with live dashboards your elders can actually use.">
+  <!-- Intentional: no canonical (hidden LP, not indexed) -->
+
+  <!-- Open Graph (for when the link gets shared directly) -->
+  <meta property="og:title" content="Bookkeeping Built for Churches | TurnkeyCFO">
+  <meta property="og:description" content="Clean books, payroll with housing allowance, designated-fund tracking, and live dashboards — so your elders see real numbers, not month-old PDFs.">
+  <meta property="og:type" content="website">
+
+  <!-- ⚠️ DEPLOY GATE — DO NOT GO LIVE UNTIL THIS IS WIRED ⚠️
+       Replace GTM-XXXXXX with the real TurnkeyCFO GTM container ID,
+       uncomment the block below AND the matching <noscript> in <body>,
+       then verify in GTM Preview that calendly_booking_complete fires
+       before any Google Ads spend is authorized. See DEPLOY.md. -->
+  <!--
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Reuse parent site design tokens + component system -->
+  <link rel="stylesheet" href="./parent-styles.css">
+  <!-- Churches-specific additions layered on top -->
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  <!-- Schema.org — AccountingService for Google Ads / Quality Score -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "TurnkeyCFO — Church Bookkeeping",
+    "description": "Bookkeeping built for churches: clergy housing allowance, designated and donor-restricted fund tracking, 1099s for speakers and musicians, bill pay, and live fund-level dashboards. We coordinate with your CPA on Form 990 (when applicable) and tax filings.",
+    "url": "https://turnkeycfo.github.io/churches/",
+    "email": "Ricky@turnkeycfo.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "areaServed": "United States",
+    "priceRange": "$$",
+    "knowsAbout": [
+      "Church bookkeeping",
+      "Clergy housing allowance",
+      "Designated and donor-restricted fund accounting",
+      "Payroll for churches",
+      "1099-NEC for guest speakers and musicians",
+      "Form 990 coordination"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- GTM noscript: paste container ID here before deploy -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+  <!-- Liquid Glass SVG Filter (matches parent) -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass-filter" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence"/>
+        <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise"/>
+        <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced"/>
+        <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur"/>
+        <feComposite in="finalBlur" in2="finalBlur" operator="over"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="site-shell">
+    <div class="pulse-field" aria-hidden="true"></div>
+
+    <!-- Intentionally minimal header: no main-site nav — keep PPC visitors focused.
+         Logo links to the LP itself, not back to turnkeycfo.com. -->
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand-lockup" href="./index.html" aria-label="TurnkeyCFO — Church bookkeeping">
+          <img src="./assets/tk-logo.png" alt="TurnkeyCFO logo" class="brand-logo">
+        </a>
+        <nav class="desktop-nav" aria-label="Primary actions">
+          <a href="https://turnkeycfo.github.io/Instant_Estimate/" target="_blank" rel="noreferrer" class="button button-estimate-glow header-estimate-btn" data-cta="estimate-header"><span>Instant Estimate</span></a>
+          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-header">
+            <div class="liquid-shadow"></div>
+            <div class="liquid-backdrop"></div>
+            <span class="liquid-content">Book a Call</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Trust bar — church-specific -->
+    <div class="locality-bar" aria-label="Trusted by churches nationwide">
+      <div class="container locality-inner">
+        <span class="locality-pin" aria-hidden="true">✦</span>
+        <span>Trusted by churches across the U.S. — <strong>Heirloom Church</strong> · <strong>Kingdom City Church (Atlanta)</strong></span>
+      </div>
+    </div>
+
+    <main>
+      <!-- ═══════════ 1. HERO ═══════════ -->
+      <section class="hero">
+        <div class="container hero-layout">
+          <div class="hero-copy reveal">
+            <p class="kicker">Bookkeeping for churches</p>
+            <h1>Bookkeeping built for <span class="shimmer-text">churches.</span></h1>
+            <p class="lede">Clergy housing allowance, designated and donor-restricted funds, guest-speaker 1099s, bill pay, and a live fund-level dashboard your elders can actually read.</p>
+
+            <div class="hero-actions hero-actions-primary">
+              <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-hero">
+                <div class="liquid-shadow"></div>
+                <div class="liquid-backdrop"></div>
+                <span class="liquid-content">Book Your 15-Min Intro Call</span>
+              </a>
+              <a href="#estimate" class="button button-secondary" data-cta="estimate-hero">Get Your Instant Estimate</a>
+            </div>
+
+            <!-- Founder strip (moved below CTAs — credibility layer, not hero gate) -->
+            <div class="founder-strip">
+              <div class="founder-avatar">
+                <img src="./assets/headshot/hshot.png" alt="Ricky West, Founder of TurnkeyCFO">
+              </div>
+              <div class="founder-copy">
+                <strong>Ricky West — Founder, TurnkeyCFO</strong>
+                <p>We work closely with church finance teams — from 50-member plants to multi-site congregations — on bookkeeping, payroll with housing allowance, designated-fund tracking, and board-ready reporting. We coordinate with your CPA on tax filings as needed.</p>
+              </div>
+            </div>
+
+            <div class="fact-row">
+              <div><strong>50–2k+</strong><span>congregation sizes</span></div>
+              <div><strong>100%</strong><span>client retention</span></div>
+              <div><strong>Fast</strong><span>response times</span></div>
+            </div>
+            <p class="trust-strip">QuickBooks Online · Gusto · Ramp — professional liability insured — month-to-month, 30-day notice</p>
+          </div>
+
+          <div class="hero-booking reveal">
+            <img src="./assets/tk-logo.png" alt="" class="hero-watermark">
+            <div class="booking-shell hero-booking-shell">
+              <div class="booking-copy">
+                <h2 class="booking-title">Book your 15-minute intro call.</h2>
+                <p>Pick a time right here. Want a ballpark first? Scroll down to the instant estimate — takes about 60 seconds.</p>
+                <div class="booking-actions">
+                  <a href="#estimate" class="button button-secondary" data-cta="estimate-booking">Open Instant Estimate</a>
+                </div>
+              </div>
+              <div class="calendly-inline-widget" data-url="https://calendly.com/ricky-turnkeycfo/15min-intro-call?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=00e676" style="min-width:320px;height:700px;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 2. DIFFERENTIATION ═══════════ -->
+      <section class="section section-tight">
+        <div class="container reveal">
+          <div class="section-head">
+            <h2><span class="shimmer-text">Generic bookkeepers</span> miss what matters in church finance.</h2>
+            <p>Churches have bookkeeping needs most firms have never touched. Designated funds. Restricted giving. Clergy housing allowance. Love offerings. Benevolence funds. 1099s for guest speakers and worship leaders. Our books account for every one.</p>
+          </div>
+          <div class="hero-glance">
+            <p class="glance-label">What changes with TurnkeyCFO</p>
+            <div class="glance-grid">
+              <div class="featured-side">
+                <span>What TurnkeyCFO handles</span>
+                <ul class="check-list">
+                  <li>Housing allowance recorded and reported correctly (board designates in advance; we document)</li>
+                  <li>Donor-restricted and board-designated funds tracked as distinct net-asset classes</li>
+                  <li>Love offerings classified as compensation to clergy per IRS guidance and run through payroll; benevolence paid under a board-adopted written policy with documented need</li>
+                  <li>Speaker and musician 1099s tracked from day one (W-9 at booking, 1099-NEC filed by Jan 31)</li>
+                  <li>Live dashboard: giving, spending, fund balances by class</li>
+                </ul>
+              </div>
+              <div>
+                <span>What most bookkeepers miss</span>
+                <ul class="x-list">
+                  <li>Housing allowance set up wrong (or not at all)</li>
+                  <li>Designated gifts lumped into general fund</li>
+                  <li>Love offerings booked as tax-free — risky</li>
+                  <li>Guest speakers paid without 1099 tracking</li>
+                  <li>Monthly PDF with no fund-level visibility</li>
+                </ul>
+              </div>
+            </div>
+            <div class="live-link-row">
+              <p>Every church we serve gets a custom financial dashboard built around their fund structure — not a generic chart of accounts. We'll walk you through a live example on the intro call.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 3. SERVICES GRID ═══════════ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Everything your church needs. <span class="shimmer-text">Nothing it doesn't.</span></h2>
+            <p>Every service below is built for how churches actually run — tithes, funds, clergy, volunteers, board accountability.</p>
+          </div>
+          <div class="service-list reveal">
+            <article class="service-row">
+              <div class="service-meta">Core</div>
+              <div class="service-body">
+                <h3>Church bookkeeping &amp; monthly close</h3>
+                <p>Accurate categorization for tithes, offerings, designated gifts, and program expenses. Full monthly close package with P&amp;L, balance sheet, fund balances, and written commentary your elders and finance team can actually use.</p>
+              </div>
+            </article>
+            <article class="service-row">
+              <div class="service-meta">Church-specific</div>
+              <div class="service-body">
+                <h3>Payroll with clergy housing allowance</h3>
+                <p>Pastoral payroll set up correctly from day one — housing allowance designated before payment, clergy dual-status handled, quarterly 941 coordination with Gusto or your existing payroll provider.</p>
+              </div>
+            </article>
+            <article class="service-row">
+              <div class="service-meta">Church-specific</div>
+              <div class="service-body">
+                <h3>1099s for speakers, musicians &amp; contractors</h3>
+                <p>Guest speakers, worship leaders, and contractors tracked from the first payment. W-9s collected, thresholds monitored, and year-end 1099-NEC information returns prepared and filed on the church's behalf — separate from income-tax filings, which stay with your CPA.</p>
+              </div>
+            </article>
+            <article class="service-row">
+              <div class="service-meta">Ops</div>
+              <div class="service-body">
+                <h3>Bill pay &amp; AP/AR</h3>
+                <p>Vendor bills, facility costs, ministry reimbursements, and receivables handled so your admin team isn't chasing approvals and the books close on time every month.</p>
+              </div>
+            </article>
+            <article class="service-row">
+              <div class="service-meta">Core</div>
+              <div class="service-body">
+                <h3>Designated &amp; donor-restricted funds</h3>
+                <p>Donor-restricted gifts (missions, building fund) tracked as net assets with donor restrictions per ASU 2016-14. Board-designated funds (benevolence reserve, capital reserve) tracked separately within net assets without donor restrictions. Release-from-restriction entries recorded as purposes are fulfilled — so your board sees every fund's live balance, not a quarter-late spreadsheet.</p>
+              </div>
+            </article>
+            <article class="service-row">
+              <div class="service-meta">Coordinated</div>
+              <div class="service-body">
+                <h3>Form 990 coordination (when applicable)</h3>
+                <p>Most churches are exempt from filing Form 990 under IRC §6033(a)(3)(A)(i). If your ministry runs a school, a separate 501(c)(3), or another entity that does file, we keep books 990-ready year-round and hand a clean package to your CPA — governance info, program-expense allocations, and schedule support included.</p>
+              </div>
+            </article>
+            <article class="service-row">
+              <div class="service-meta">Most popular</div>
+              <div class="service-body">
+                <h3>Live financial dashboard</h3>
+                <p>A custom command center for your senior pastor, elders, and finance team — real-time giving, spending, fund balances, and KPIs. Mobile-ready so your leadership sees the numbers before the monthly elder meeting, not after.</p>
+              </div>
+            </article>
+          </div>
+          <p class="service-note">Tax filings (990 series) and legal matters — coordinated with your CPA or attorney. TurnkeyCFO does not provide tax or legal advice; we keep your books filing-ready and support the process end-to-end.</p>
+        </div>
+      </section>
+
+      <!-- ═══════════ 4. CHURCH-FINANCE EXPERTISE ═══════════ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Deep working knowledge of <span class="shimmer-text">church finance.</span></h2>
+            <p>The day-to-day realities most bookkeepers have never touched. We have.</p>
+          </div>
+          <div class="expertise-grid reveal">
+            <article class="expertise-card">
+              <h3>Clergy housing allowance</h3>
+              <p class="expertise-lead">Designated in advance, capped at the lesser of three values, SE-taxable.</p>
+              <p>Excluded from W-2 Box 1 wages up to the <strong>lesser of</strong> (a) the amount designated, (b) actual housing expenses, or (c) fair rental value of the home, plus furnishings and utilities. Full designated amount is still subject to SE tax (Social Security &amp; Medicare) unless the pastor has an approved Form 4361. Any designated-but-unspent portion becomes taxable income on the pastor's return — we track actuals monthly.</p>
+            </article>
+            <article class="expertise-card">
+              <h3>Clergy dual status</h3>
+              <p class="expertise-lead">W-2 for income tax, self-employed for SECA.</p>
+              <p>Ministerial earnings aren't subject to FICA — clergy pay SECA on the self-employed side. Payroll is configured accordingly, housing allowance is recorded separately from W-2 Box 1 wages, and pastors often elect voluntary income-tax withholding on a W-4 (sometimes extra withholding to cover SECA) — we set that up. Form 4361 SECA exemption (narrow, irrevocable) coordinated if applicable.</p>
+            </article>
+            <article class="expertise-card">
+              <h3>Donor-restricted vs. board-designated</h3>
+              <p class="expertise-lead">Two different net-asset classes — per ASU 2016-14.</p>
+              <p>Donor-restricted gifts (missions, building fund) tracked as <em>net assets with donor restrictions</em>. Board-designated reserves tracked within <em>net assets without donor restrictions</em>. Release entries recorded as purposes are fulfilled.</p>
+            </article>
+            <article class="expertise-card">
+              <h3>Love offerings &amp; benevolence</h3>
+              <p class="expertise-lead">Compensation to clergy. Policy-driven for members.</p>
+              <p>Personal gifts to clergy are generally treated as compensation when the church collects, processes, or encourages them — added to W-2 wages and run through payroll. Truly private person-to-person gifts not handled by the church are a separate matter the donor and recipient should discuss with their CPA. Benevolence to members in need follows a board-adopted written policy with case-by-case documentation.</p>
+            </article>
+            <article class="expertise-card">
+              <h3>Guest speaker &amp; musician 1099s</h3>
+              <p class="expertise-lead">W-9 at booking. 1099-NEC by Jan 31. 24% backup withholding if W-9 missing.</p>
+              <p>Payments tracked against the $600 threshold; when a vendor refuses or fails to furnish a valid W-9, we flag the payment for 24% backup withholding and coordinate remittance through payroll/AP. 1099-NEC filed by January 31 to both the recipient and the IRS.</p>
+            </article>
+            <article class="expertise-card">
+              <h3>Fund accounting &amp; board reporting</h3>
+              <p class="expertise-lead">Budget vs. actuals by fund. Elder-ready every month.</p>
+              <p>Chart of accounts built around your fund structure, monthly budget-vs.-actuals by fund, and elder-ready dashboards. Bank and giving-platform reconciliation (Planning Center, Pushpay, Tithe.ly, Subsplash) so every deposit ties to a class.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 5. SOCIAL PROOF — single banner testimonial ═══════════ -->
+      <section class="section">
+        <div class="container">
+          <div class="testimonial-banner reveal">
+            <div class="testimonial-stars" aria-label="5 out of 5 star rating">★★★★★</div>
+            <p class="testimonial-quote">"Phenomenal working with TurnkeyCFO — our finances have never been clearer."</p>
+            <p class="testimonial-attribution">
+              <strong>Dakota</strong> · Lead Pastor, Heirloom Church
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 6. HOW IT WORKS ═══════════ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Onboarding takes <span class="shimmer-text">days, not months.</span></h2>
+            <p>Simple, fast, and designed not to burden your finance team.</p>
+          </div>
+          <div class="process-grid reveal">
+            <article>
+              <span>01</span>
+              <h3>15-min intro call</h3>
+              <p>We learn your church — size, staff, fund structure, current software, pain points. No sales pitch.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Books &amp; access review</h3>
+              <p>We connect to QuickBooks (or your platform), clean historical data, and map your fund structure.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Live visibility</h3>
+              <p>Monthly close package, custom church dashboard, and housing allowance / 1099 / close workflows running clean.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 7. FAQ ═══════════ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Questions churches ask us first</h2>
+          </div>
+          <div class="faq-list reveal">
+            <details class="faq-item">
+              <summary>Do you replace our CPA?</summary>
+              <p>No — we work alongside your CPA. We keep books clean and filing-ready year-round so your CPA can file Form 990, 990-EZ, or 990-N without a month of cleanup. If you don't have a CPA, we can recommend one who understands churches.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can you file our 990?</summary>
+              <p>Most churches are exempt from filing Form 990 under IRC §6033(a)(3)(A)(i), so the church itself typically doesn't file. If your ministry operates a school, a separate 501(c)(3), or generates unrelated business income that does trigger a filing, we don't file taxes — we keep books 990-ready year-round and hand a clean package to your CPA.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What about small churches or tight budgets?</summary>
+              <p>We serve churches starting at 50-member plants. If the budget is tight, we scope to what actually moves the needle — typically monthly bookkeeping, payroll with housing allowance, and a lightweight dashboard — and grow from there. The Instant Estimate below gives you a real range before any call.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How does the transition from our current bookkeeper work?</summary>
+              <p>We handle it. 15-minute intro call, then we connect to QuickBooks, review historical data, map your fund structure, and run in parallel for one month if there's active cleanup. Most churches are fully transitioned within 2-3 weeks without a gap in the books.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Is our data secure?</summary>
+              <p>Yes. Everything lives in QuickBooks Online, Gusto, and Ramp — the same enterprise-grade platforms thousands of churches already use. Access is role-scoped per team member, credentials are never shared by email, and we maintain professional liability insurance.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can we cancel?</summary>
+              <p>Month-to-month engagement, 30-day notice. No multi-year contracts. We keep clients because the work is good, not because the paperwork traps them.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How does housing allowance work with your payroll?</summary>
+              <p>The board designates it in writing before payment. We record it outside W-2 Box 1 wages up to the lesser of the designated amount, actual housing expenses, or fair rental value of the home plus furnishings and utilities. It remains subject to SE tax unless the pastor has an approved Form 4361. Clergy wages aren't subject to mandatory income-tax withholding; voluntary withholding can be elected on a W-4. We work with Gusto and most major payroll providers.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What about quarterly 941 filings?</summary>
+              <p>Gusto (or your payroll provider) files the 941 each quarter. We make sure wages, clergy treatment, and housing allowance feed the return correctly and we reconcile it to the books — bookkeeping and payroll operations, not tax preparation.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How do you track designated and restricted giving?</summary>
+              <p>Each designated purpose — building fund, missions, benevolence, youth — is tracked as its own net-asset class with a live fund balance. Your board sees exactly what's given, spent, and remaining in each fund at any time.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What software do you work with?</summary>
+              <p>QuickBooks Online is our primary platform. We also work alongside Gusto for payroll, Ramp for expense management, and the church giving platform of your choice (Pushpay, Tithe.ly, Planning Center, etc.).</p>
+            </details>
+            <details class="faq-item">
+              <summary>How much does this cost?</summary>
+              <p>Our instant estimate takes about 60 seconds and gives you a real price range based on your church size, staff count, and complexity — not a generic number. Scroll down to use it.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 8. INSTANT ESTIMATE (PRIMARY CTA #2) ═══════════ -->
+      <section class="section section-estimate" id="estimate">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Get your <span class="shimmer-text">instant estimate.</span></h2>
+            <p>Takes about 60 seconds. You'll get a real monthly range for your church — not "contact us for pricing."</p>
+            <div class="estimate-cta-wrap reveal">
+              <a href="https://turnkeycfo.github.io/Instant_Estimate/" target="_blank" rel="noreferrer" class="button button-estimate-glow" data-cta="estimate-section">
+                <span>Open Instant Estimate →</span>
+              </a>
+              <p class="estimate-cta-note">Opens in a new tab · no email required to see your price range</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 9. FINAL BOOK CTA ═══════════ -->
+      <section class="section section-book" id="book">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Ready to clean this up?</h2>
+            <p>Use the estimate above to see a real price range, then book a 15-minute call to talk through fit and scope. No pressure, no sales pitch.</p>
+            <div class="hero-actions" style="margin-top:22px;">
+              <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-bottom">
+                <div class="liquid-shadow"></div>
+                <div class="liquid-backdrop"></div>
+                <span class="liquid-content">Book Your 15-Min Intro Call</span>
+              </a>
+              <a href="https://turnkeycfo.github.io/Instant_Estimate/" target="_blank" rel="noreferrer" class="button button-estimate-glow" data-cta="estimate-bottom"><span>Get Instant Estimate</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <img src="./assets/tk-logo.png" alt="TurnkeyCFO logo" class="footer-logo">
+          <p>Bookkeeping built for churches. Clean books, payroll with housing allowance, designated-fund tracking, and live dashboards — so every dollar given is tracked and reportable. Austin, TX — serving churches nationwide.</p>
+        </div>
+        <div class="footer-contact">
+          <a href="https://turnkeycfo.github.io/Instant_Estimate/" target="_blank" rel="noreferrer" data-cta="estimate-footer">Open instant estimate</a>
+          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-footer">
+            <div class="liquid-shadow"></div>
+            <div class="liquid-backdrop"></div>
+            <span class="liquid-content">Book your intro call</span>
+          </a>
+          <a href="mailto:Ricky@turnkeycfo.com">Ricky@turnkeycfo.com</a>
+          <span>Austin, Texas · Serving churches nationwide</span>
+        </div>
+      </div>
+      <div class="container footer-legal">
+        <p>By booking a call or submitting the instant estimate, you agree to be contacted by TurnkeyCFO about your request. We use Google Analytics and Google Ads cookies to measure ad performance — see <a href="https://turnkeycfo.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>. TurnkeyCFO is a bookkeeping firm; we don't provide tax or legal advice.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Sticky mobile CTA bar — always-visible conversion path on small screens -->
+  <div class="mobile-sticky-cta" aria-label="Quick actions">
+    <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="mobile-sticky-cta-primary" target="_blank" rel="noreferrer" data-cta="book-call-sticky">Book Call</a>
+    <a href="#estimate" class="mobile-sticky-cta-secondary" data-cta="estimate-sticky">Instant Estimate</a>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="./churches.js" defer></script>
+</body>
+</html>
