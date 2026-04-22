@@ -5,10 +5,10 @@
    Only church-specific additions live here.
    ============================================================ */
 
-/* Header estimate button — sized to balance liquid-glass Book a Call */
-.header-estimate-btn {
+/* Header estimate button — compact size BUT preserves glow from .button-estimate-glow */
+.button-estimate-glow.header-estimate-btn {
   min-height: 44px;
-  padding: 10px 16px;
+  padding: 10px 18px;
   font-size: 0.94rem;
 }
 
