@@ -3,16 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TurnkeyCFO | Real Financials for Growing Businesses</title>
-  <meta name="description" content="TurnkeyCFO replaces static monthly PDFs with live dashboards, monthly close support, and fractional CFO guidance for growing businesses.">
+
+  <!-- SEO -->
+  <title>Austin Bookkeeping Services | TurnkeyCFO</title>
+  <meta name="description" content="Austin-based bookkeeping for growing businesses. Clean books, payroll, 1099, AP/AR, and monthly close — with live dashboards and written commentary every month.">
+  <meta name="keywords" content="Austin bookkeeping, small business bookkeeping Austin, monthly close, bookkeeping services, Austin Texas bookkeeper, payroll, 1099">
+  <link rel="canonical" href="https://turnkeycfo.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Austin Bookkeeping Services | TurnkeyCFO">
+  <meta property="og:description" content="Clean books, monthly close, live dashboards. Austin-based bookkeeping for growing businesses.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://turnkeycfo.com/">
+
+  <!-- GTM: paste container ID here (replace GTM-XXXXXX) -->
+  <!-- Google Tag Manager
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+  End Google Tag Manager -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://t.contentsquare.net/uxa/a8e605c3c521e.js"></script>
+
+  <!-- LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "TurnkeyCFO",
+    "description": "Austin-based bookkeeping services for growing businesses.",
+    "url": "https://turnkeycfo.com",
+    "email": "Ricky@turnkeycfo.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "areaServed": "United States",
+    "priceRange": "$$"
+  }
+  </script>
 </head>
-  <body>
+<body>
+
+  <!-- GTM noscript: paste container ID here -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+  <!-- Liquid Glass SVG Filter -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass-filter" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence"/>
+        <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise"/>
+        <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced"/>
+        <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur"/>
+        <feComposite in="finalBlur" in2="finalBlur" operator="over"/>
+      </filter>
+    </defs>
+  </svg>
+
   <div class="site-shell">
     <div class="pulse-field" aria-hidden="true"></div>
 
@@ -24,41 +81,58 @@
         <nav class="desktop-nav" aria-label="Primary">
           <a href="./index.html" class="is-active">Home</a>
           <a href="https://turnkeycfo.github.io/Instant_Estimate/" target="_blank" rel="noreferrer">Pricing</a>
-          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-primary" target="_blank" rel="noreferrer">Book a Call</a>
+          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-header">
+            <div class="liquid-shadow"></div>
+            <div class="liquid-backdrop"></div>
+            <span class="liquid-content">Book a Call</span>
+          </a>
         </nav>
       </div>
     </header>
+
+    <!-- Location / service-area bar -->
+    <div class="locality-bar" aria-label="Location and service area">
+      <div class="container locality-inner">
+        <span class="locality-pin" aria-hidden="true">📍</span>
+        <span><strong>Austin, TX</strong> — serving clients nationwide</span>
+      </div>
+    </div>
 
     <main>
       <section class="hero">
         <div class="container hero-layout">
           <div class="hero-copy reveal">
-            <p class="kicker">Austin-based fractional CFO support for growing businesses</p>
-            <h1>Your business deserves <span class="shimmer-text">real financials.</span></h1>
-            <p class="lede">Most founders get a static PDF 30 to 60 days late, skim it, and still guess what to do next. TurnkeyCFO replaces that with clean books, live dashboards, monthly close support, and written CFO guidance that makes the numbers usable.</p>
+            <p class="kicker">Austin bookkeeping for growing businesses</p>
+            <h1>Clean books. <span class="shimmer-text">Clear numbers.</span></h1>
+            <p class="lede">Most founders get a static PDF 30 to 60 days late, skim it, and still guess what to do next. TurnkeyCFO gives you clean bookkeeping, monthly close, payroll, 1099, and live dashboards — so the numbers are actually useful.</p>
+
+            <!-- Founder bio block -->
+            <div class="founder-strip">
+              <div class="founder-avatar">
+                <img src="./assets/ricky-headshot.png" alt="Ricky West, Founder of TurnkeyCFO">
+              </div>
+              <div class="founder-copy">
+                <strong>Ricky West — Founder</strong>
+                <p>Austin-based operator who built TurnkeyCFO to give owners real financial clarity — clean books, fast response, and a partner who actually knows your numbers.</p>
+              </div>
+            </div>
+
             <div class="hero-actions">
-              <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-primary" target="_blank" rel="noreferrer">Book Your 15-Min Intro Call</a>
-              <a href="https://turnkeycfo.github.io/Instant_Estimate/" class="button button-secondary" target="_blank" rel="noreferrer">Get Instant Pricing</a>
+              <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-hero">
+                <div class="liquid-shadow"></div>
+                <div class="liquid-backdrop"></div>
+                <span class="liquid-content">Book Your 15-Min Intro Call</span>
+              </a>
+              <a href="https://turnkeycfo.github.io/Instant_Estimate/" class="button button-secondary" target="_blank" rel="noreferrer" data-cta="instant-pricing-hero">Get Instant Pricing</a>
             </div>
+
             <div class="fact-row">
-              <div>
-                <strong>10+</strong>
-                <span>active clients</span>
-              </div>
-              <div>
-                <strong>100%</strong>
-                <span>retention</span>
-              </div>
-              <div>
-                <strong>3.1h</strong>
-                <span>saved per week</span>
-              </div>
-              <div>
-                <strong>24hr</strong>
-                <span>response time</span>
-              </div>
+              <div><strong>10+</strong><span>active clients</span></div>
+              <div><strong>100%</strong><span>retention</span></div>
+              <div><strong>3.1h</strong><span>saved per week</span></div>
+              <div><strong>24hr</strong><span>response time</span></div>
             </div>
-            <p class="hero-note">Used by founder-led businesses, nonprofits, and service teams that need board-ready reporting, better cash visibility, and a finance partner without the full-time CFO cost.</p>
+            <p class="hero-note">Bookkeeping, payroll, 1099, AP/AR, and monthly close for founder-led businesses, nonprofits, and service teams. For tax or legal questions — talk to your CPA or attorney.</p>
           </div>
 
           <div class="hero-booking reveal">
@@ -68,10 +142,10 @@
                 <h2 class="booking-title">Book your 15-minute intro call.</h2>
                 <p>Pick a time right here. If you want a quick range before we talk, open the instant estimate first.</p>
                 <div class="booking-actions">
-                  <a href="https://turnkeycfo.github.io/Instant_Estimate/" class="button button-secondary" target="_blank" rel="noreferrer">Open Instant Estimate</a>
+                  <a href="https://turnkeycfo.github.io/Instant_Estimate/" class="button button-secondary" target="_blank" rel="noreferrer" data-cta="instant-pricing-booking">Open Instant Estimate</a>
                 </div>
               </div>
-              <div class="calendly-inline-widget" data-url="https://calendly.com/ricky-turnkeycfo/15min-intro-call?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=00c85a" style="min-width:320px;height:700px;"></div>
+              <div class="calendly-inline-widget" data-url="https://calendly.com/ricky-turnkeycfo/15min-intro-call?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=00e676" style="min-width:320px;height:700px;"></div>
             </div>
           </div>
         </div>
@@ -81,18 +155,18 @@
         <div class="container reveal">
           <div class="section-head">
             <h2><span class="shimmer-text">Stop getting PDFs.</span> Start getting answers.</h2>
-            <p>Static reports tell you what happened after the month is over. Live dashboards and monthly CFO commentary tell you what is moving now, where cash is headed, and what needs your attention next.</p>
+            <p>Static reports tell you what happened after the month is over. Live dashboards and monthly commentary tell you what is moving now, where cash is headed, and what needs your attention next.</p>
           </div>
           <div class="hero-glance">
             <p class="glance-label">What changes with TurnkeyCFO</p>
             <div class="glance-grid">
               <div>
-                <span>What most firms send</span>
+                <span>What most bookkeepers send</span>
                 <ul>
                   <li>Static PDF in your inbox</li>
                   <li>Read-only reporting delivered late</li>
                   <li>No drill-down, KPI view, or cash context</li>
-                  <li>No commentary on what to do next</li>
+                  <li>No commentary on what changed</li>
                 </ul>
               </div>
               <div class="featured-side">
@@ -101,27 +175,13 @@
                   <li>Live dashboards that stay current</li>
                   <li>Monthly close package with commentary</li>
                   <li>Trend analysis, cash flow, and KPI visibility</li>
-                  <li>Clear next steps, not just numbers</li>
+                  <li>Clean books you can actually trust</li>
                 </ul>
               </div>
             </div>
             <div class="live-link-row">
               <p>Every client gets a custom financial command center built around their business, not a generic template.</p>
               <a href="https://ricky11west.github.io/ABC-Church/" class="text-link text-link-button" target="_blank" rel="noreferrer">See a live dashboard example</a>
-            </div>
-          </div>
-          <div class="compare-flow">
-            <div class="compare-column">
-              <h3>With a PDF</h3>
-              <p>You look backward. Reporting arrives late, context is thin, and every real question turns into another email.</p>
-            </div>
-            <div class="compare-column">
-              <h3>With a dashboard</h3>
-              <p>You can check cash flow, margins, and trends during the month while decisions still matter.</p>
-            </div>
-            <div class="compare-column">
-              <h3>With TurnkeyCFO</h3>
-              <p>You get the close package, the live operating view, and commentary that tells you exactly what changed and what to do next.</p>
             </div>
           </div>
         </div>
@@ -131,14 +191,21 @@
         <div class="container">
           <div class="section-head reveal">
             <h2>Everything you need. <span class="shimmer-text">Nothing you don't.</span></h2>
-            <p>Fractional CFO support for owners who want cleaner books, better visibility, and fewer surprises.</p>
+            <p>Bookkeeping done right — clean books, clear numbers, and the monthly reporting you actually want.</p>
           </div>
           <div class="service-list reveal">
             <article class="service-row">
+              <div class="service-meta">Core</div>
+              <div class="service-body">
+                <h3>Bookkeeping &amp; monthly close</h3>
+                <p>Accurate categorization, reconciliations, and a full monthly close package — P&amp;L, balance sheet, cash flow, and trend analysis with written commentary.</p>
+              </div>
+            </article>
+            <article class="service-row">
               <div class="service-meta">Always included</div>
               <div class="service-body">
-                <h3>Monthly close package</h3>
-                <p>Your P&amp;L, balance sheet, cash flow statement, trend analysis, and written CFO commentary explaining what happened, why it matters, and what to do next.</p>
+                <h3>Payroll, 1099 &amp; AP/AR</h3>
+                <p>Payroll processing, contractor 1099 management, accounts payable, and accounts receivable — handled so you're not the one chasing it.</p>
               </div>
             </article>
             <article class="service-row">
@@ -148,14 +215,8 @@
                 <p>A custom command center updated in real time with KPI scorecards, charts, drill-down views, and mobile-ready visibility for the numbers your team actually uses.</p>
               </div>
             </article>
-            <article class="service-row">
-              <div class="service-meta">Core</div>
-              <div class="service-body">
-                <h3>Bookkeeping and clean books</h3>
-                <p>Accurate categorization, reconciliations, and clean financials so every dashboard and decision starts from numbers you can trust.</p>
-              </div>
-            </article>
           </div>
+          <p class="service-note">Tax filings and legal matters — we'll coordinate with your CPA or attorney. TurnkeyCFO doesn't give tax or legal advice.</p>
         </div>
       </section>
 
@@ -163,7 +224,7 @@
         <div class="container">
           <div class="section-head reveal">
             <h2>Why owners switch</h2>
-            <p>These are the moments that usually trigger the move away from stale PDFs and into a real financial operating system.</p>
+            <p>These are the moments that usually trigger the move away from stale PDFs and into real bookkeeping with live visibility.</p>
           </div>
           <div class="reason-list reveal">
             <div class="reason-row">
@@ -172,11 +233,11 @@
             </div>
             <div class="reason-row">
               <h3>"I finally feel like I have a finance partner."</h3>
-              <p>It stops feeling like basic bookkeeping support and starts feeling like someone is actually helping you lead with the numbers.</p>
+              <p>It stops feeling like basic bookkeeping support and starts feeling like someone actually knows your numbers.</p>
             </div>
             <div class="reason-row">
               <h3>"This feels bigger than bookkeeping."</h3>
-              <p>You still get clean books and reporting, but now you also get visibility, commentary, and a clearer path forward every month.</p>
+              <p>Clean books and reporting, plus visibility, commentary, and a clearer path forward every month.</p>
             </div>
           </div>
         </div>
@@ -186,32 +247,36 @@
         <div class="container">
           <div class="section-head reveal">
             <h2>What clients say</h2>
-            <p>TurnkeyCFO is built for operators who want clarity, speed, and confidence from their financials.</p>
+            <p>Real outcomes from founder-led businesses, nonprofits, and service teams.</p>
           </div>
           <div class="review-list reveal">
             <article class="review-row">
               <div class="review-stars" aria-label="5 star review">★★★★★</div>
-              <p>"THANK YOU SO MUCH!! I have been looking for a true finance partner like this!"</p>
+              <p class="review-quote">"THANK YOU SO MUCH!! I have been looking for a true finance partner like this!"</p>
+              <p class="review-result">Rebuilt three years of books, set up a live cash + revenue dashboard, and moved monthly close to day 5.</p>
               <strong>Lauren</strong>
-              <span>CEO | The Harbour Company</span>
+              <span>CEO · The Harbour Company</span>
             </article>
             <article class="review-row">
               <div class="review-stars" aria-label="5 star review">★★★★★</div>
-              <p>"Phenominal working with TurnkeyCFO - our finances have never been clearer"</p>
+              <p class="review-quote">"Phenomenal working with TurnkeyCFO — our finances have never been clearer."</p>
+              <p class="review-result">Unlocked visibility into giving trends, fund balances, and ministry spend we'd never had before — now we lead with insight instead of guessing.</p>
               <strong>Dakota</strong>
-              <span>Lead Pastor | Heirloom Church</span>
+              <span>Lead Pastor · Heirloom Church</span>
             </article>
             <article class="review-row">
               <div class="review-stars" aria-label="5 star review">★★★★★</div>
-              <p>"You have been unbelieveably helpful!! THANK YOU"</p>
+              <p class="review-quote">"You have been unbelievably helpful!! THANK YOU."</p>
+              <p class="review-result">Cleaned up multi-fund nonprofit books across programs and cut monthly close from 3 weeks to under a week — with donor-ready reporting.</p>
               <strong>Christy</strong>
-              <span>Director | Village of Hope Maui</span>
+              <span>Director · Village of Hope Maui</span>
             </article>
             <article class="review-row">
               <div class="review-stars" aria-label="5 star review">★★★★★</div>
-              <p>"I didn't know Bookkeepers could be this awesome!"</p>
+              <p class="review-quote">"I didn't know bookkeepers could be this awesome!"</p>
+              <p class="review-result">Stood up full bookkeeping, payroll, and 1099 workflow in week one — so the team stayed focused on shipping, not chasing receipts.</p>
               <strong>Jake</strong>
-              <span>Founder | Build AI</span>
+              <span>Founder · Build AI</span>
             </article>
           </div>
         </div>
@@ -227,17 +292,17 @@
             <article>
               <span>01</span>
               <h3>Assessment</h3>
-              <p>We learn the business, identify the financial gaps, and scope only what you need.</p>
+              <p>We learn the business, identify the bookkeeping gaps, and scope only what you need.</p>
             </article>
             <article>
               <span>02</span>
               <h3>Access</h3>
-              <p>We connect accounts, clean historical data, and get the financial foundation right.</p>
+              <p>We connect accounts, clean historical data, and get the bookkeeping foundation right.</p>
             </article>
             <article>
               <span>03</span>
               <h3>Live visibility</h3>
-              <p>You get monthly close support, dashboards, and a finance partner who knows your numbers.</p>
+              <p>You get monthly close, dashboards, and a finance partner who knows your numbers.</p>
             </article>
           </div>
         </div>
@@ -248,6 +313,14 @@
           <div class="section-head reveal">
             <h2>Ready to clean this up?</h2>
             <p>Use the pricing estimator to get a quick range, then book the call above when you're ready to talk through fit and scope.</p>
+            <div class="hero-actions" style="margin-top:22px;">
+              <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-bottom">
+                <div class="liquid-shadow"></div>
+                <div class="liquid-backdrop"></div>
+                <span class="liquid-content">Book Your 15-Min Intro Call</span>
+              </a>
+              <a href="https://turnkeycfo.github.io/Instant_Estimate/" class="button button-secondary button-glow" target="_blank" rel="noreferrer" data-cta="instant-pricing-bottom">Get Instant Pricing</a>
+            </div>
           </div>
         </div>
       </section>
@@ -257,11 +330,15 @@
       <div class="container footer-grid">
         <div>
           <img src="./assets/tk-logo.png" alt="TurnkeyCFO logo" class="footer-logo">
-          <p>Live dashboards, monthly close support, and fractional CFO clarity for growing businesses.</p>
+          <p>Clean books, monthly close, and live dashboards for growing businesses. Austin, TX — serving clients nationwide.</p>
         </div>
         <div class="footer-contact">
-          <a href="https://turnkeycfo.github.io/Instant_Estimate/" target="_blank" rel="noreferrer">Open pricing estimator</a>
-          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noreferrer">Book your intro call</a>
+          <a href="https://turnkeycfo.github.io/Instant_Estimate/" target="_blank" rel="noreferrer" data-cta="instant-pricing-footer">Open pricing estimator</a>
+          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button-liquid" target="_blank" rel="noreferrer" data-cta="book-call-footer">
+            <div class="liquid-shadow"></div>
+            <div class="liquid-backdrop"></div>
+            <span class="liquid-content">Book your intro call</span>
+          </a>
           <a href="mailto:Ricky@turnkeycfo.com">Ricky@turnkeycfo.com</a>
           <span>Austin, Texas</span>
         </div>
