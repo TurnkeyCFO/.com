@@ -81,6 +81,39 @@
   margin: 0;
 }
 
+/* Live-dashboard preview button */
+.button-dashboard-preview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  min-height: 56px;
+  padding: 16px 30px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.005em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--tk-navy) 0%, var(--tk-navy-soft) 100%);
+  border: 1px solid rgba(0, 38, 58, 0.3);
+  box-shadow:
+    0 10px 24px rgba(0, 38, 58, 0.2),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.button-dashboard-preview:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 30px rgba(0, 38, 58, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  color: #fff;
+}
+.button-dashboard-preview:active { transform: translateY(0); }
+@media (max-width: 760px) {
+  .button-dashboard-preview { width: 100%; padding: 14px 20px; font-size: 0.98rem; }
+}
+
 /* Single-banner Dakota testimonial */
 .testimonial-banner {
   margin: 0 auto;
