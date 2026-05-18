@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TurnkeyCFO gives founder-led businesses clean financials, reporting, cash flow visibility, and strategic CFO guidance without a full-time hire.">
+    <meta name="robots" content="noindex">
+    <title>TurnkeyCFO — Fractional CFO for Growing Businesses</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F2F5F8;
+            color: #0D1F2D;
+            line-height: 1.6;
+        }
+
+        section {
+            position: relative;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            background-color: rgba(255, 255, 255, 0);
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(218, 225, 233, 0.4);
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #00263A;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-cta,
+        .btn-primary,
+        .btn-white {
+            padding: 0.85rem 1.5rem;
+            background-color: #00C85A;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 200, 90, 0.15);
+        }
+
+        .nav-cta:hover,
+        .btn-primary:hover {
+            background-color: #05DD69;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 200, 90, 0.25);
+        }
+
+        .btn-secondary,
+        .text-link {
+            color: #00C85A;
+            background: none;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .btn-secondary::after,
+        .text-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #00C85A;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-secondary:hover::after,
+        .text-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #F2F5F8 0%, #FFFFFF 100%);
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-eyebrow,
+        .kicker {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: #00C85A;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.1s forwards;
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 800;
+            color: #00263A;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.2s forwards;
+        }
+
+        .hero-subhead {
+            font-size: 1.1rem;
+            color: #36576A;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            max-width: 640px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.3s forwards;
+        }
+
+        .hero-ctas,
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.4s forwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: #7A909F;
+            font-size: 0.92rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.5s forwards;
+        }
+
+        .hero-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-stats span::before {
+            content: '•';
+            color: #00C85A;
+            font-weight: 800;
+        }
+
+        .hero-stats span:first-child::before {
+            content: '';
+        }
+
+        .hero-panel {
+            background: white;
+            border: 1px solid #DAE1E9;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(13, 31, 45, 0.08);
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.35s forwards;
+        }
+
+        .mini-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #7A909F;
+            margin-bottom: 1rem;
+        }
+
+        .scorecard {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .score {
+            background: #F2F5F8;
+            border: 1px solid #DAE1E9;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .score-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #00263A;
+            margin-bottom: 0.25rem;
+        }
+
+        .score-label {
+            color: #36576A;
+            font-size: 0.92rem;
+        }
+
+        .panel-list {
+            list-style: none;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .panel-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: #36576A;
+        }
+
+        .panel-list li::before {
+            content: '✓';
+            color: #00C85A;
+            font-weight: 800;
+        }
+
+        .trust-strip {
+            background-color: #FFFFFF;
+            padding: 2.25rem 2rem;
+            border-top: 1px solid #DAE1E9;
+            border-bottom: 1px solid #DAE1E9;
+        }
+
+        .trust-content,
+        .offer-grid,
+        .value-grid,
+        .faq-grid,
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trust-content {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-pill {
+            padding: 0.75rem 1.15rem;
+            background-color: #F2F5F8;
+            color: #00263A;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            border: 1px solid #DAE1E9;
+        }
+
+        .section-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #00263A;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: #36576A;
+            font-size: 1.05rem;
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 3rem;
+        }
+
+        .pain-grid,
+        .offer-grid,
+        .value-grid,
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #DAE1E9;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 36px rgba(0, 200, 90, 0.12);
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(0, 200, 90, 0.12), rgba(5, 221, 105, 0.18));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00263A;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: #00263A;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p,
+        .card li {
+            color: #36576A;
+        }
+
+        .card ul {
+            padding-left: 1.1rem;
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .alt-section {
+            background: #FFFFFF;
+            border-top: 1px solid #DAE1E9;
+            border-bottom: 1px solid #DAE1E9;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background-color: #00263A;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.15rem;
+            color: #00263A;
+            margin-bottom: 0.75rem;
+        }
+
+        .spotlight {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2rem;
+            align-items: center;
+            background: linear-gradient(135deg, #00263A 0%, #0D1F2D 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            color: white;
+        }
+
+        .spotlight h2 {
+            font-size: 2.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .spotlight p {
+            opacity: 0.9;
+            margin-bottom: 1.25rem;
+        }
+
+        .spotlight ul {
+            list-style: none;
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .spotlight li::before {
+            content: '✓';
+            color: #00C85A;
+            font-weight: 800;
+            margin-right: 0.75rem;
+        }
+
+        .spotlight-panel {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .spotlight-panel h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #9AE6B4;
+        }
+
+        .spotlight-panel .quote {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            font-size: 0.92rem;
+            opacity: 0.85;
+        }
+
+        .faq {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #DAE1E9;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .faq-question {
+            padding: 1.35rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: #00263A;
+        }
+
+        .faq-question:hover {
+            background-color: #F2F5F8;
+        }
+
+        .faq-chevron {
+            color: #00C85A;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(90deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            background: #F2F5F8;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 320px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: #36576A;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid #DAE1E9;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .contact-card h3 {
+            color: #00263A;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-card p {
+            color: #36576A;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-cta {
+            background-color: #00263A;
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .bottom-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.85;
+        }
+
+        .btn-white {
+            background: white;
+            color: #00263A;
+            box-shadow: none;
+        }
+
+        .btn-white:hover {
+            background: #F2F5F8;
+        }
+
+        .btn-outline-white {
+            padding: 0.85rem 1.5rem;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #0D1F2D;
+            padding: 2rem;
+            text-align: center;
+            color: #7A909F;
+            font-size: 0.85rem;
+            border-top: 1px solid #36576A;
+        }
+
+        footer a {
+            color: #00C85A;
+            text-decoration: none;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero,
+            .spotlight {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.25rem;
+            }
+
+            .nav-logo {
+                font-size: 1.25rem;
+            }
+
+            .hero {
+                margin-top: 64px;
+                padding: 3rem 1.5rem;
+            }
+
+            .hero h1,
+            .section-title,
+            .bottom-cta h2 {
+                font-size: 2rem;
+            }
+
+            .section-shell {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero-ctas,
+            .cta-row {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-white,
+            .btn-outline-white,
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+            }
+
+            .scorecard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1,
+            .section-title,
+            .bottom-cta h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <div class="nav-logo">TurnkeyCFO</div>
+        <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="nav-cta">Book a Call</a>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <div class="hero-eyebrow">Fractional CFO support for founder-led businesses</div>
+            <h1>You built a real business. Now your numbers need to catch up.</h1>
+            <p class="hero-subhead">TurnkeyCFO helps growing companies turn messy books, unclear margins, and reactive decisions into clean reporting, cash visibility, and confident next moves. You get the strategic finance layer of a CFO, without the full-time cost.</p>
+            <div class="hero-ctas">
+                <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="btn-primary">Book a 15-Min Intro Call</a>
+                <a href="https://turnkeycfo.com/estimate" class="btn-secondary">Get an Instant Estimate →</a>
+            </div>
+            <div class="hero-stats">
+                <span>10+ Active Clients</span>
+                <span>100% Retention</span>
+                <span>Founder-Focused</span>
+                <span>24hr Response</span>
+            </div>
+        </div>
+
+        <div class="hero-panel">
+            <div class="mini-label">What founders usually want fixed first</div>
+            <div class="scorecard">
+                <div class="score">
+                    <div class="score-number">Clean</div>
+                    <div class="score-label">monthly close and reporting you can trust</div>
+                </div>
+                <div class="score">
+                    <div class="score-number">Clear</div>
+                    <div class="score-label">visibility into margins, cash, and growth</div>
+                </div>
+                <div class="score">
+                    <div class="score-number">Fast</div>
+                    <div class="score-label">answers before major hiring or spending moves</div>
+                </div>
+                <div class="score">
+                    <div class="score-number">Right</div>
+                    <div class="score-label">finance support sized for a sub-$10M business</div>
+                </div>
+            </div>
+            <ul class="panel-list">
+                <li>Monthly financials built for decisions, not just compliance</li>
+                <li>Cash flow forecasting so growth does not surprise you</li>
+                <li>Ongoing CFO guidance on pricing, hiring, and profitability</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="trust-strip">
+        <div class="trust-content">
+            <div class="trust-pill">QuickBooks ProAdvisor Certified</div>
+            <div class="trust-pill">Austin, TX Based</div>
+            <div class="trust-pill">No Long-Term Contracts</div>
+            <div class="trust-pill">Built for Founder-Led Companies</div>
+        </div>
+    </section>
+
+    <section class="section-shell">
+        <div class="kicker" style="text-align:center; animation:none; opacity:1;">Pain points</div>
+        <h2 class="section-title">If finance feels reactive, you are not alone</h2>
+        <p class="section-subtitle">Most companies do not need a bigger finance team first. They need better visibility, better structure, and better decision support.</p>
+        <div class="pain-grid">
+            <div class="card">
+                <div class="card-icon">01</div>
+                <h3>Your numbers arrive late or feel unreliable</h3>
+                <p>You are getting reports after the fact, cleaning things up manually, or second-guessing whether the numbers are decision-ready.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">02</div>
+                <h3>You are growing, but margin is still fuzzy</h3>
+                <p>Revenue is moving, but you still cannot clearly see what is driving profit, where expenses are creeping, or which clients or services are strongest.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">03</div>
+                <h3>Big decisions still depend on gut feel</h3>
+                <p>Hiring, compensation, pricing, and cash commitments should not feel like guesses. You need a financial lens before the decision, not after it.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-section">
+        <div class="section-shell">
+            <div class="kicker" style="text-align:center; animation:none; opacity:1;">How it works</div>
+            <h2 class="section-title">A simple CFO layer for growing businesses</h2>
+            <p class="section-subtitle">The engagement is designed to create clarity fast, then stay close enough to support the next set of decisions.</p>
+            <div class="process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Start with a short intro call</h3>
+                    <p>We talk through your business, your current finance setup, and the main bottlenecks slowing down visibility or decision-making.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Get the books and reporting structured correctly</h3>
+                    <p>We clean up the reporting foundation, define the right metrics, and build a clear monthly rhythm around close, review, and planning.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Use the numbers to run the business better</h3>
+                    <p>From there, TurnkeyCFO becomes your strategic finance partner for cash flow, profitability, pricing, forecasting, and major growth decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-shell">
+        <div class="kicker" style="text-align:center; animation:none; opacity:1;">What you get</div>
+        <h2 class="section-title">What a TurnkeyCFO engagement includes</h2>
+        <p class="section-subtitle">Everything is built around clarity, speed, and founder usefulness, not finance theater.</p>
+        <div class="offer-grid">
+            <div class="card">
+                <h3>Monthly close and management reporting</h3>
+                <p>Clean monthly financials, the right supporting views, and reporting that actually helps you understand the business.</p>
+            </div>
+            <div class="card">
+                <h3>Cash flow forecasting</h3>
+                <p>Know what is coming, where pressure may build, and what decisions matter most in the next few weeks and months.</p>
+            </div>
+            <div class="card">
+                <h3>Margin and performance visibility</h3>
+                <p>See which revenue streams, service lines, or operating choices are actually helping the business move forward.</p>
+            </div>
+            <div class="card">
+                <h3>CFO-level decision support</h3>
+                <p>Have a finance partner in the room for pricing, hiring, planning, and the tradeoffs that shape growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-shell">
+        <div class="spotlight">
+            <div>
+                <div class="kicker" style="animation:none; opacity:1; margin-bottom:0.75rem;">Why TurnkeyCFO</div>
+                <h2>More strategic than a bookkeeper, more practical than a traditional CFO firm</h2>
+                <p>TurnkeyCFO sits in the gap where a lot of founder-led businesses get stuck: you have enough complexity to need finance leadership, but not enough scale to justify a full-time CFO hire.</p>
+                <ul>
+                    <li>Built for founder-led businesses under $10M in revenue</li>
+                    <li>No bloated team, long contract, or enterprise overhead</li>
+                    <li>Decision-ready reporting paired with ongoing advisory support</li>
+                </ul>
+            </div>
+            <div class="spotlight-panel">
+                <h3>Founder perspective</h3>
+                <div class="quote">“The goal is not just cleaner books. It is better decisions, fewer surprises, and a finance function that finally helps the business move.”</div>
+                <div class="quote-author">Ricky West, Founder of TurnkeyCFO</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-section">
+        <div class="section-shell">
+            <div class="kicker" style="text-align:center; animation:none; opacity:1;">FAQ</div>
+            <h2 class="section-title">Common questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Who is this best for?</span>
+                        <div class="faq-chevron">›</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">TurnkeyCFO is best for founder-led businesses that have meaningful revenue and complexity, but do not yet need or want a full-time CFO hire.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is this bookkeeping or CFO work?</span>
+                        <div class="faq-chevron">›</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">It is a CFO engagement. That means the work is centered on reporting quality, forecasting, margin visibility, and strategic finance guidance, not just transaction processing.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do pricing and scope work?</span>
+                        <div class="faq-chevron">›</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Scope depends on your business size, complexity, and current setup. The fastest next step is the instant estimate tool, then a short intro call to confirm fit.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can we get started?</span>
+                        <div class="faq-chevron">›</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Most engagements move quickly once fit is confirmed. The first phase is usually focused on building reporting clarity and a clean operating cadence right away.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-shell">
+        <div class="kicker" style="text-align:center; animation:none; opacity:1;">Next step</div>
+        <h2 class="section-title">Pick the easiest way to start</h2>
+        <p class="section-subtitle">If you want a quick sense of fit, book the call. If you want a pricing ballpark first, use the estimate tool.</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Book a short intro call</h3>
+                <p>Talk through your current setup, what feels broken, and whether TurnkeyCFO is the right fit.</p>
+                <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="btn-primary">Book Intro Call</a>
+            </div>
+            <div class="contact-card">
+                <h3>Get an instant estimate</h3>
+                <p>See a fast pricing range based on your business size and what kind of support you need.</p>
+                <a href="https://turnkeycfo.com/estimate" class="btn-primary">Get Estimate</a>
+            </div>
+            <div class="contact-card">
+                <h3>Reach out directly</h3>
+                <p>If you already know what you need, start with a direct message and we can point you to the right next step.</p>
+                <a href="mailto:hello@turnkeycfo.com" class="text-link">hello@turnkeycfo.com</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-cta">
+        <h2>Ready for better financial visibility?</h2>
+        <p>TurnkeyCFO gives founder-led businesses the reporting, cash clarity, and strategic finance support needed to grow with confidence.</p>
+        <div class="cta-row" style="justify-content:center; margin-bottom:0; opacity:1; animation:none;">
+            <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="btn-white">Book a Call</a>
+            <a href="https://turnkeycfo.com/estimate" class="btn-outline-white">Get Instant Estimate</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 TurnkeyCFO LLC · Austin, TX · <a href="mailto:hello@turnkeycfo.com">hello@turnkeycfo.com</a> · Confidential</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call">Calendly</a> ·
+            <a href="https://turnkeycfo.com/estimate">Instant Estimate</a>
+        </p>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                faqItems.forEach(other => {
+                    if (other !== item) other.classList.remove('open');
+                });
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TurnkeyCFO Assessment · All Wheel Shine</title>
+<meta name="description" content="A plain-English look at the All Wheel Shine books, prepared by TurnkeyCFO."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TurnkeyCFO Assessment — All Wheel Shine
+   Dark-first TKCFO brand · Plus Jakarta Sans
+   ========================================================= */
+
+:root{
+  --ink:#0A0A0A;
+  --panel:#121212;
+  --panel-2:#181818;
+  --panel-3:#1E1E1E;
+  --rule:#2A2A2A;
+  --rule-2:#3A3A3A;
+  --text:#FFFFFF;
+  --text-2:#EDEDED;
+  --text-muted:#9AA097;
+  --text-faint:#6B7168;
+  --emerald:#00E676;
+  --green:#00B050;
+  --green-deep:#007A33;
+  --mint:#CCFFE5;
+  --amber:#E0B90B;
+  --flag:#FF6B5C;
+  --max:1280px;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* subtle emerald glow */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(900px 600px at 85% -10%, rgba(0,230,118,.07), transparent 60%),
+    radial-gradient(700px 500px at -10% 30%, rgba(0,122,51,.06), transparent 60%);
+}
+main,header,footer{position:relative;z-index:1}
+
+a{color:inherit;text-decoration:none}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,10,10,0.82);
+  backdrop-filter:saturate(1.4) blur(14px);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar-inner{
+  max-width:var(--max);margin:0 auto;
+  padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .tk{width:36px;height:26px;display:block}
+.brand .wordmark{font-weight:800;font-size:17px;letter-spacing:.02em;line-height:1}
+.brand .wordmark span{color:var(--emerald);font-weight:700;letter-spacing:.08em;font-size:11px;display:block;margin-top:3px}
+.brand small{color:var(--text-muted);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-left:14px;font-variant-numeric:normal}
+.navtoggle{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);
+  border:1px solid var(--rule-2);padding:8px 14px;border-radius:999px;cursor:pointer;
+  background:transparent;font-family:inherit;font-weight:700;
+}
+.navtoggle:hover{border-color:var(--emerald);color:var(--emerald)}
+.toc{max-width:var(--max);margin:0 auto;padding:0 32px;display:none}
+.toc.open{display:block;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+.toc ol{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 24px;counter-reset:toc}
+.toc li{counter-increment:toc;padding:6px 0;font-size:14px;border-top:1px dashed var(--rule)}
+.toc li a{display:flex;gap:12px;align-items:baseline;color:var(--text-2)}
+.toc li a::before{content:counter(toc,decimal-leading-zero);font-weight:700;font-size:11px;color:var(--emerald);min-width:22px;letter-spacing:.05em}
+.toc li a:hover{color:var(--emerald)}
+
+/* ---------- LAYOUT ---------- */
+main{max-width:var(--max);margin:0 auto;padding:0 32px}
+section{padding:92px 0;border-top:1px solid var(--rule);scroll-margin-top:72px}
+section:first-of-type{border-top:0;padding-top:44px}
+.kicker{
+  display:flex;align-items:center;gap:14px;
+  font-size:11px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);
+  margin-bottom:20px;
+}
+.kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 4px rgba(0,230,118,.22)}
+.kicker .num{color:var(--emerald);font-weight:800}
+
+h1,h2,h3,h4{margin:0;color:var(--text);letter-spacing:-.025em;line-height:1.04;font-weight:800}
+h1{font-size:clamp(3rem,6.5vw,6rem);font-weight:800;letter-spacing:-.04em;line-height:.94}
+h2{font-size:clamp(1.9rem,3.8vw,3.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+h3{font-size:clamp(1.2rem,1.9vw,1.55rem);font-weight:700;letter-spacing:-.015em}
+h4{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+p{margin:0 0 1em;color:var(--text-2);max-width:68ch}
+p.lede{font-size:1.25rem;line-height:1.45;color:var(--text);max-width:46ch;font-weight:500;letter-spacing:-.01em}
+
+/* ---------- COVER ---------- */
+.cover{padding:56px 0 40px}
+.cover-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end}
+.cover h1 em{font-style:normal;background:linear-gradient(135deg,var(--emerald),var(--green-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover-sub{
+  font-weight:500;font-size:1.1rem;color:var(--text-2);line-height:1.55;
+  border-left:2px solid var(--emerald);padding-left:18px;margin:28px 0 0;max-width:54ch;
+}
+.cover-meta{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px 22px;
+  margin-top:28px;padding-top:20px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--text-muted);
+}
+.cover-meta div strong{display:block;color:var(--text);font-weight:700;font-size:14px;margin-bottom:2px}
+.cover-chip{
+  background:var(--panel-2);color:var(--text);display:inline-flex;align-items:center;gap:10px;
+  padding:8px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid var(--rule-2);
+}
+.cover-chip .pulse{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 3px rgba(0,230,118,.25);animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(0,230,118,0)}}
+.cover-right{align-self:end}
+.cover-stat{
+  background:linear-gradient(180deg,var(--panel) 0%,var(--panel-2) 100%);
+  border:1px solid var(--rule-2);padding:30px;border-radius:20px;position:relative;overflow:hidden;
+}
+.cover-stat::after{
+  content:"";position:absolute;right:-70px;bottom:-70px;width:240px;height:240px;
+  background:radial-gradient(circle,rgba(0,230,118,.45),transparent 60%);pointer-events:none;
+}
+.cover-stat .label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--emerald);position:relative;z-index:1}
+.cover-stat .val{font-weight:800;font-size:3.4rem;letter-spacing:-.04em;line-height:1;margin:14px 0 6px;color:var(--text);position:relative;z-index:1}
+.cover-stat .sub{font-size:13px;color:var(--text-muted);font-weight:500;position:relative;z-index:1;line-height:1.5}
+
+/* ---------- METRIC TILES ---------- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.tile{
+  background:var(--panel);border:1px solid var(--rule);border-radius:16px;padding:22px 22px 20px;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  position:relative;overflow:hidden;
+}
+.tile:hover{transform:translateY(-2px);border-color:var(--emerald);box-shadow:0 18px 40px -24px rgba(0,230,118,.4)}
+.tile .tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted)}
+.tile .big{font-weight:800;font-size:2.2rem;letter-spacing:-.035em;line-height:1.05;margin:10px 0 6px;color:var(--text)}
+.tile .big.neg{color:var(--flag)}
+.tile .big.pos{color:var(--emerald)}
+.tile .note{font-size:13px;color:var(--text-muted);font-weight:500;line-height:1.4}
+.tile.target{background:linear-gradient(135deg,rgba(0,230,118,.14),rgba(0,122,51,.06));border-color:var(--green-deep)}
+.tile.target .tag{color:var(--emerald)}
+.tile.target .big{color:var(--emerald)}
+
+/* ---------- INSIGHT LIST ---------- */
+.insights{counter-reset:ins;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:40px;background:var(--rule);border:1px solid var(--rule);border-radius:18px;overflow:hidden}
+.insight{counter-increment:ins;background:var(--panel);padding:22px 26px;position:relative}
+.insight::before{content:counter(ins,decimal-leading-zero);display:block;font-size:11px;color:var(--emerald);font-weight:800;letter-spacing:.2em;margin-bottom:10px}
+.insight p{font-size:14.5px;margin:0;color:var(--text-2);max-width:54ch;font-weight:500;line-height:1.55}
+
+/* ---------- TABLES ---------- */
+.table-wrap{overflow-x:auto;margin-top:24px;border:1px solid var(--rule);border-radius:14px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:13px 16px;text-align:left;vertical-align:top;color:var(--text-2)}
+th{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);background:var(--panel-2);border-bottom:1px solid var(--rule)}
+tbody tr{border-top:1px solid var(--rule)}
+tbody tr:nth-child(even){background:rgba(255,255,255,.015)}
+td.n,th.n{text-align:right;font-size:13.5px;font-weight:600}
+td.tot{font-weight:800;color:var(--emerald);background:rgba(0,230,118,.08)!important;font-size:14.5px}
+tr.section-row td{background:#000!important;color:var(--emerald);font-weight:700;letter-spacing:.02em;border:0;border-top:1px solid var(--emerald)!important;border-bottom:1px solid var(--rule-2)!important}
+tr.section-row td.n{color:var(--emerald)}
+.pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.pill.hi{background:rgba(224,185,11,.18);color:#FFD95C}
+.pill.med{background:rgba(102,170,255,.15);color:#7FC2FF}
+.pill.low{background:rgba(0,230,118,.15);color:var(--emerald)}
+.new-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(224,185,11,.18);color:#FFD95C;padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.new-badge::before{content:"🟡"}
+
+/* ---------- CALLOUT ---------- */
+.callout{
+  border-left:3px solid var(--emerald);
+  background:linear-gradient(90deg,rgba(0,230,118,.1),transparent 60%);
+  padding:22px 26px;border-radius:0 14px 14px 0;
+  margin:32px 0;font-size:1.05rem;color:var(--text);line-height:1.5;max-width:72ch;font-weight:500;
+}
+.callout.big{font-size:1.25rem;font-weight:600;letter-spacing:-.015em}
+.callout.warn{border-left-color:var(--flag);background:linear-gradient(90deg,rgba(255,107,92,.12),transparent 60%)}
+.callout.caveat{border-left-color:var(--amber);background:linear-gradient(90deg,rgba(224,185,11,.1),transparent 60%);font-size:.95rem;font-weight:500}
+.callout p{margin:0;color:inherit;max-width:none}
+.callout strong{color:var(--emerald)}
+.callout.warn strong{color:var(--flag)}
+
+/* ---------- DUAL VIEW ---------- */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.view{padding:24px 26px;border-radius:16px;border:1px solid var(--rule);background:var(--panel);position:relative}
+.view.q1{background:linear-gradient(180deg,rgba(0,230,118,.1) 0%,var(--panel) 80%);border-color:var(--green-deep)}
+.view .eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted)}
+.view.q1 .eyebrow{color:var(--emerald)}
+.view h3{margin:8px 0 14px;font-size:1.45rem}
+.view .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px dashed var(--rule);font-size:14px}
+.view .row:first-of-type{border-top:0}
+.view .row .lbl{color:var(--text-muted);font-weight:500}
+.view .row .val{font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--text);white-space:nowrap}
+.view .row.big{padding:14px 0 4px}
+.view .row.big .val{font-size:1.85rem;font-weight:800;letter-spacing:-.03em}
+.view .row.big.neg .val{color:var(--flag)}
+.view .row.big.pos .val{color:var(--emerald)}
+.view .note{font-size:12.5px;color:var(--text-muted);margin-top:14px;line-height:1.5;font-weight:500}
+
+/* ---------- MARGIN BANDS ---------- */
+.bands{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+.band{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px;position:relative;transition:transform .2s ease}
+.band:hover{transform:translateY(-2px)}
+.band .range{font-weight:800;font-size:1.55rem;letter-spacing:-.03em;color:var(--text)}
+.band .tier{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:4px}
+.band p{font-size:13px;margin:10px 0 0;color:var(--text-2);font-weight:500;line-height:1.5}
+.band .bar{height:4px;border-radius:2px;background:var(--rule);margin-top:14px;position:relative;overflow:hidden}
+.band .bar::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--flag),var(--amber),var(--emerald),var(--green-deep))}
+.band[data-t="0"] .bar::before{opacity:.25}
+.band[data-t="1"] .bar::before{opacity:.4}
+.band[data-t="2"] .bar::before{opacity:.6}
+.band[data-t="3"] .bar::before{opacity:.75}
+.band[data-t="4"] .bar::before{opacity:.85}
+.band[data-t="5"] .bar::before{opacity:.95}
+.band[data-t="6"] .bar::before{opacity:1}
+.band[data-t="7"] .bar::before{opacity:1}
+.band.fy25{outline:2px solid var(--flag);outline-offset:-2px}
+.band.current{outline:2px solid var(--amber);outline-offset:-2px}
+.band.target{outline:2px solid var(--emerald);outline-offset:-2px;background:linear-gradient(180deg,rgba(0,230,118,.12),var(--panel))}
+.band .marker{position:absolute;top:10px;right:12px;font-size:9.5px;letter-spacing:.12em;font-weight:800;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.band.fy25 .marker{background:var(--flag);color:#1A0000}
+.band.current .marker{background:var(--amber);color:#1A1200}
+.band.target .marker{background:var(--emerald);color:#001A06}
+
+/* ---------- RECS ---------- */
+.rec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.rec{border:1px solid var(--rule);border-radius:16px;padding:24px 26px;background:var(--panel);position:relative;overflow:hidden;transition:border-color .25s ease,transform .25s ease}
+.rec:hover{border-color:var(--emerald);transform:translateY(-2px)}
+.rec::before{content:attr(data-n);position:absolute;top:6px;right:20px;font-weight:800;font-size:4.8rem;color:rgba(255,255,255,.04);line-height:1;letter-spacing:-.06em}
+.rec h3{font-size:1.15rem;margin-bottom:8px;padding-right:60px;position:relative;z-index:1}
+.rec p{font-size:14px;margin:0 0 14px;color:var(--text-2);font-weight:500;position:relative;z-index:1}
+.rec .impact{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald);background:rgba(0,230,118,.14);padding:5px 10px;border-radius:999px;position:relative;z-index:1;border:1px solid rgba(0,230,118,.25)}
+
+/* ---------- OWNER PANEL ---------- */
+.owner-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.owner-card{border:1px solid var(--rule);border-radius:16px;padding:24px 26px;background:var(--panel)}
+.owner-card h4{font-size:.72rem;letter-spacing:.16em;color:var(--text-muted);margin-bottom:6px}
+.owner-card .name{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.owner-card .amt{font-size:1.35rem;font-weight:800;color:var(--emerald);margin:14px 0 4px;letter-spacing:-.02em}
+.owner-card p{font-size:14px;margin:8px 0 0;color:var(--text-2);font-weight:500;line-height:1.5}
+.owner-card.kate{background:linear-gradient(180deg,rgba(255,107,92,.12) 0%,var(--panel) 70%);border-color:rgba(255,107,92,.35)}
+.owner-card.kate .amt{color:var(--flag)}
+.owner-card.total{background:linear-gradient(135deg,rgba(0,230,118,.14),rgba(0,122,51,.04));border-color:var(--green-deep)}
+
+/* ---------- HALF-YEAR CARDS ---------- */
+.monthly{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.month{padding:16px 18px;border:1px solid var(--rule);border-radius:12px;background:var(--panel)}
+.month h4{font-size:.74rem;letter-spacing:.14em;color:var(--text-muted);margin-bottom:8px}
+.month .line{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-top:1px dashed var(--rule);font-weight:600;color:var(--text)}
+.month .line:first-of-type{border-top:0}
+.month .line.neg{color:var(--flag)}
+.month .line .lbl{color:var(--text-muted);font-weight:500}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--rule);margin-top:60px;padding:34px 32px 60px;font-size:12px;color:var(--text-muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;max-width:var(--max);margin-left:auto;margin-right:auto}
+footer .mark{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:800}
+footer .mark .tk{width:26px;height:20px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 960px){
+  main{padding:0 22px}
+  section{padding:68px 0}
+  .cover-grid{grid-template-columns:1fr;gap:28px}
+  .cover-right{order:-1}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .insights{grid-template-columns:1fr}
+  .bands{grid-template-columns:repeat(2,1fr)}
+  .rec-grid,.owner-grid{grid-template-columns:1fr}
+  .monthly{grid-template-columns:1fr}
+  .dual{grid-template-columns:1fr}
+  .topbar-inner{padding:12px 22px}
+}
+@media (max-width: 560px){
+  body{font-size:15px}
+  main{padding:0 18px}
+  .tiles{grid-template-columns:1fr}
+  .cover-meta{grid-template-columns:1fr}
+  .cover-stat .val{font-size:2.6rem}
+  h1{font-size:2.6rem}
+  h2{font-size:1.8rem}
+  .table-wrap{border-radius:10px}
+  th,td{padding:10px 12px;font-size:13px}
+  .kicker{font-size:10px}
+  .topbar-inner{padding:10px 18px}
+  .brand small{display:none}
+  .rec::before{font-size:3.4rem}
+}
+
+/* ---------- PRINT ---------- */
+@page{size:Letter;margin:0.55in}
+@media print{
+  body{background:white;color:#111;font-size:10.5pt}
+  body::before{display:none}
+  .topbar,.navtoggle{display:none}
+  main{max-width:none;padding:0}
+  section{padding:24px 0;break-inside:avoid;border-top:1px solid #ccc}
+  h1,h2,h3,h4{color:#111}
+  p,.insight p,.view .row .lbl,.view .note,.band p,.rec p,.owner-card p,.month .line .lbl{color:#333!important}
+  .kicker,.kicker .num{color:#007A33!important}
+  .cover-stat{background:#F2FBF5!important;color:#0A0A0A;border:1px solid #007A33;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cover-stat::after{display:none}
+  .cover-stat .label,.cover-stat .val,.cover-stat .sub{color:#0A0A0A!important}
+  .tile,.band,.view,.rec,.owner-card,.month,.insight{background:#F8F8F5!important;border-color:#ccc;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .tile .tag,.band .tier,.view .eyebrow,.month h4,.owner-card h4{color:#007A33!important}
+  .tile .big,.view .row .val,.owner-card .name,.band .range,.month .line{color:#0A0A0A!important}
+  .tile.target{background:#E8FBEF!important}
+  .owner-card.kate{background:#FBE3DE!important}
+  .callout{background:#F2FBF5!important;color:#0A0A0A;border-left-color:#007A33;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .callout.warn{background:#FBE3DE!important}
+  .callout strong{color:#007A33!important}
+  .table-wrap,table{background:#fff!important;color:#111}
+  th,td{color:#111!important}
+  th{background:#F0F0EC!important;color:#333!important}
+  tr.section-row td{background:#0A0A0A!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  td.tot{background:#E8FBEF!important;color:#0A0A0A!important}
+  #exec,#path,#bal,#cleanup,#recs{page-break-before:always}
+}
+
+/* ---------- ANIM ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .cover h1,.cover-sub,.cover-chip,.cover-stat,.tile,.insight{
+    opacity:0;transform:translateY(14px);
+    animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .cover h1{animation-delay:.05s}
+  .cover-sub{animation-delay:.2s}
+  .cover-chip{animation-delay:.28s}
+  .cover-stat{animation-delay:.34s}
+  .tile:nth-child(1){animation-delay:.08s}
+  .tile:nth-child(2){animation-delay:.14s}
+  .tile:nth-child(3){animation-delay:.2s}
+  .tile:nth-child(4){animation-delay:.26s}
+  .tile:nth-child(5){animation-delay:.32s}
+  .tile:nth-child(6){animation-delay:.38s}
+}
+@keyframes rise{to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ====== TK MARK (inline SVG, reused) ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="tkgrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00E676"/>
+      <stop offset=".55" stop-color="#00B050"/>
+      <stop offset="1" stop-color="#007A33"/>
+    </linearGradient>
+    <symbol id="tkmark" viewBox="0 0 260 170">
+      <path d="M8 12 H116 V42 H78 V160 H46 V42 H8 Z" fill="#FFFFFF"/>
+      <path d="M130 12 L168 12 L248 86 L168 160 L130 160 L202 86 Z" fill="url(#tkgrad)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ====== TOP NAV ====== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <svg class="tk" viewBox="0 0 260 170" aria-hidden="true"><use href="#tkmark"/></svg>
+      <div class="wordmark">TURNKEY<span>CFO</span></div>
+      <small>Assessment · AWS · Apr 24, 2026</small>
+    </div>
+    <button class="navtoggle" id="tocBtn" aria-expanded="false">Contents</button>
+  </div>
+  <nav class="toc" id="toc" aria-label="Contents">
+    <ol>
+      <li><a href="#cover">Cover</a></li>
+      <li><a href="#exec">The Short Version</a></li>
+      <li><a href="#revenue">How Revenue is Growing</a></li>
+      <li><a href="#pl-fy25">2025 · Real P&amp;L</a></li>
+      <li><a href="#pl-norm">Adjusted 2025 &amp; Q1 2026 Turn</a></li>
+      <li><a href="#path">What It Looks Like At Proper Wages</a></li>
+      <li><a href="#bands">Where You Are on the Margin Ladder</a></li>
+      <li><a href="#bal">Debt Snapshot</a></li>
+      <li><a href="#cleanup">Bookkeeping To-Do</a></li>
+      <li><a href="#owner">What You Two Actually Pull Out</a></li>
+      <li><a href="#recs">Four Moves for the Next 60 Days</a></li>
+    </ol>
+  </nav>
+</header>
+
+<main>
+
+<!-- ====== 01 · COVER ====== -->
+<section id="cover" class="cover">
+  <div class="kicker"><span class="dot"></span><span class="num">01</span> · Cover</div>
+  <div class="cover-grid">
+    <div>
+      <h1>TurnkeyCFO<br/>Assessment of<br/><em>All Wheel Shine</em>.</h1>
+      <p class="cover-sub">A plain-English look at your books, Kate &amp; David.<br/>January 2025 – March 2026 · 15 months.</p>
+      <div class="cover-meta">
+        <div><strong>For</strong>Katherine &amp; David Randleman</div>
+        <div><strong>From</strong>Ricky · TurnkeyCFO</div>
+        <div><strong>Date</strong>April 24, 2026</div>
+        <div><strong>Source</strong>Your QuickBooks General Ledger</div>
+      </div>
+      <div style="margin-top:26px"><span class="cover-chip"><span class="pulse"></span>Confidential · Friendly Read</span></div>
+    </div>
+    <aside class="cover-right">
+      <div class="cover-stat">
+        <div class="label">Total Revenue · Jan 2025 – Mar 2026</div>
+        <div class="val">$76,984</div>
+        <div class="sub">Across 233 deals · 15 months of real operating activity in the books.</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ====== 02 · SHORT VERSION ====== -->
+<section id="exec">
+  <div class="kicker"><span class="dot"></span><span class="num">02</span> · The Short Version</div>
+  <h2>You're growing fast. Wages are the only thing keeping the business at zero.</h2>
+
+  <p class="lede" style="margin-top:28px">Short version: you're past the hard part. Deals are coming in, prices are up, Q1 2026 actually made money. The only reason you're not feeling it in your pockets is crew pay is eating almost everything.</p>
+
+  <p style="margin-top:20px">This doesn't look like a failing detailing business. It looks like one that figured out how to charge real money — but has to pay almost all of it back out in wages. In 2025, for every $100 the business earned, $66 went right back out to the crew (with their payroll taxes). Healthy detailing shops run that number at $35 – $45 per $100.</p>
+
+  <p>A few smaller things also need cleaning up in the books. Some of your loan balances are off, some money got coded to the wrong places, and the P&amp;L is showing a 96% profit margin that isn't real. Nothing scary — just enough that it's hard to see what's actually happening.</p>
+
+  <p>Close the wage gap and fix the book issues, and the business goes from <strong style="color:var(--flag)">losing about $4,400 in 2025</strong> to <strong style="color:var(--emerald)">earning around $27,500 a year</strong> on the same $100K of revenue you're already doing.</p>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="tag">2025 Revenue</div>
+      <div class="big">$50,999</div>
+      <div class="note">233 deals across the full year.</div>
+    </div>
+    <div class="tile">
+      <div class="tag">2025 Bottom Line</div>
+      <div class="big neg">$(4,397)</div>
+      <div class="note">Wages ran 59% of revenue on their own.</div>
+    </div>
+    <div class="tile">
+      <div class="tag">Q1 2026 Revenue</div>
+      <div class="big pos">$25,985</div>
+      <div class="note">Running like $104K/year pace.</div>
+    </div>
+    <div class="tile">
+      <div class="tag">Q1 2026 Adjusted Profit</div>
+      <div class="big pos">$2,381</div>
+      <div class="note">First real profit · 9.2% of revenue.</div>
+    </div>
+    <div class="tile target">
+      <div class="tag">What's Possible at $100K</div>
+      <div class="big">$27,495</div>
+      <div class="note">With wages sized correctly.</div>
+    </div>
+    <div class="tile">
+      <div class="tag">Total Debt</div>
+      <div class="big">$26,250</div>
+      <div class="note">Closer to ~$33,500 once corrected.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:48px">Eight things I saw in the books</h3>
+  <div class="insights">
+    <div class="insight"><p>The business is genuinely growing. Monthly revenue went from about $1,900/mo in early 2025 to $8,660/mo in Q1 2026. Average price per deal went from $227 to $456 — more than double.</p></div>
+    <div class="insight"><p>Wages are the #1 issue. Crew pay plus payroll taxes ran 66% of revenue in 2025 and 68% in Q1 2026. Detailing businesses that actually make money run that at 35 – 45%.</p></div>
+    <div class="insight"><p>The company truck ($20,361) was bought Feb 19, 2026, funded by a $20,000 loan in Kate's name through Santander.</p></div>
+    <div class="insight"><p>Roughly 30 different people have been on payroll. The top 5 took more than half the wages. Everyone else averaged under $900 each. That's a lot of turnover.</p></div>
+    <div class="insight"><p>A handful of bookkeeping slips to clean up — six savings transfers miscoded as loan payments ($6K off), $8,220 of unresolved opening-balance equity, a couple of maybe-duplicate deposits, and a ghost vehicle loan account from a weird typo.</p></div>
+    <div class="insight"><p>The P&amp;L says the business has a 96% profit margin, which is obviously wrong. Move the direct costs (wages, supplies, tools, laundry, uniforms) where they actually belong and the real 2025 margin is 9%.</p></div>
+    <div class="insight"><p>Across 15 months you two have pulled about $13,700 out combined. David started getting a $230 biweekly paycheck in January 2026. Kate doesn't take anything. Average family take-home: $910 a month.</p></div>
+    <div class="insight"><p>The family is carrying the business, not the other way around. $20,500+ in loans you personally guaranteed, another $6,400 on Kate's credit card, and all the day-to-day cash risk sits with Kate.</p></div>
+  </div>
+</section>
+
+<!-- ====== 03 · REVENUE ====== -->
+<section id="revenue">
+  <div class="kicker"><span class="dot"></span><span class="num">03</span> · How Revenue is Growing</div>
+  <h2>The numbers turned around in the second half of 2025.</h2>
+  <p style="margin-top:20px;max-width:68ch">Early 2025 was slow — about $1,900 a month, with deals averaging around $200. Starting Q3 the curve jumped. More importantly, you weren't just doing more deals — you were charging more for each one. That's a better kind of growth.</p>
+
+  <h3 style="margin-top:32px">Full year 2025, broken out by quarter</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Quarter</th><th class="n">Revenue</th><th class="n">Deals</th><th class="n">Avg Per Deal</th><th>What Happened</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Q1 2025</td><td class="n">$6,343</td><td class="n">28</td><td class="n">$227</td><td>Steady, small</td></tr>
+        <tr><td>Q2 2025</td><td class="n">$4,839</td><td class="n">26</td><td class="n">$186</td><td>Dip before summer</td></tr>
+        <tr><td>Q3 2025</td><td class="n">$15,969</td><td class="n">55</td><td class="n">$290</td><td>Breakout · the July ad spend worked</td></tr>
+        <tr><td>Q4 2025</td><td class="n">$23,848</td><td class="n">67</td><td class="n">$356</td><td>Growth held</td></tr>
+        <tr><td class="tot"><strong>Full Year 2025</strong></td><td class="n tot"><strong>$50,999</strong></td><td class="n tot"><strong>176</strong></td><td class="n tot"><strong>$290</strong></td><td class="tot"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:36px">Q1 2026 · separate snapshot</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Period</th><th class="n">Revenue</th><th class="n">Deals</th><th class="n">Avg Per Deal</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Q1 2026</td><td class="n">$25,985</td><td class="n">57</td><td class="n">$456</td><td>Price per deal at a new high · running ~$104K annual pace</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout big">Price per deal doubled — $227 at the start of 2025 to $456 by Q1 2026. That's the biggest thing working in your favor.</div>
+</section>
+
+<!-- ====== 04 · 2025 REAL P&L ====== -->
+<section id="pl-fy25">
+  <div class="kicker"><span class="dot"></span><span class="num">04</span> · 2025 · Real P&amp;L</div>
+  <h2>Same 2025 numbers, with the costs sorted correctly.</h2>
+  <p style="margin-top:18px">QuickBooks shows a 96% gross margin in 2025. That's because wages, supplies, tools, laundry, uniforms, and subs are all coded as overhead instead of as costs of delivering the service. Move them where they actually belong and the real margin is 9%. You finished 2025 with a real loss of $4,400.</p>
+
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr class="section-row"><td>Revenue</td><td class="n">$50,999.57</td><td class="n">100.0%</td></tr>
+        <tr><td>Service Income</td><td class="n">$50,999.57</td><td class="n">100.0%</td></tr>
+
+        <tr class="section-row"><td>Cost of Delivering the Service</td><td class="n">$46,423.63</td><td class="n">91.0%</td></tr>
+        <tr><td>Crew Wages</td><td class="n">$30,124.61</td><td class="n">59.1%</td></tr>
+        <tr><td>Payroll Taxes</td><td class="n">$3,328.79</td><td class="n">6.5%</td></tr>
+        <tr><td>Supplies &amp; Materials</td><td class="n">$4,540.54</td><td class="n">8.9%</td></tr>
+        <tr><td>Tools &amp; Equipment</td><td class="n">$4,395.47</td><td class="n">8.6%</td></tr>
+        <tr><td>Cost of Goods Sold (as booked)</td><td class="n">$2,707.48</td><td class="n">5.3%</td></tr>
+        <tr><td>Uniforms</td><td class="n">$849.64</td><td class="n">1.7%</td></tr>
+        <tr><td>Subcontractors</td><td class="n">$319.00</td><td class="n">0.6%</td></tr>
+        <tr><td>Laundry &amp; Cleaning</td><td class="n">$158.10</td><td class="n">0.3%</td></tr>
+
+        <tr><td class="tot">What's Left (Gross Profit)</td><td class="n tot">$4,575.94</td><td class="n tot">9.0%</td></tr>
+
+        <tr class="section-row"><td>Overhead (everything else)</td><td class="n">$10,243.03</td><td class="n">20.1%</td></tr>
+        <tr><td>Legal &amp; Professional</td><td class="n">$2,839.38</td><td class="n">5.6%</td></tr>
+        <tr><td>Advertising / Marketing</td><td class="n">$2,505.44</td><td class="n">4.9%</td></tr>
+        <tr><td>Insurance</td><td class="n">$2,008.08</td><td class="n">3.9%</td></tr>
+        <tr><td>Acuity</td><td class="n">$734.30</td><td class="n">1.4%</td></tr>
+        <tr><td>Employee Appreciation</td><td class="n">$556.96</td><td class="n">1.1%</td></tr>
+        <tr><td>Bank Charges</td><td class="n">$268.06</td><td class="n">0.5%</td></tr>
+        <tr><td>Employee Tips Paid</td><td class="n">$252.80</td><td class="n">0.5%</td></tr>
+        <tr><td>Canva</td><td class="n">$240.00</td><td class="n">0.5%</td></tr>
+        <tr><td>Business Hospitality</td><td class="n">$194.76</td><td class="n">0.4%</td></tr>
+        <tr><td>Google Voice</td><td class="n">$194.24</td><td class="n">0.4%</td></tr>
+        <tr><td>Google Workspace</td><td class="n">$182.31</td><td class="n">0.4%</td></tr>
+        <tr><td>Connecteam</td><td class="n">$148.12</td><td class="n">0.3%</td></tr>
+        <tr><td>Other (HubSpot, Hosting, Office, Gifts, Meals)</td><td class="n">$119.58</td><td class="n">0.2%</td></tr>
+
+        <tr><td class="tot">Operating Income</td><td class="n tot">$(5,667.09)</td><td class="n tot">(11.1%)</td></tr>
+
+        <tr class="section-row"><td>Other Income</td><td class="n">$1,270.59</td><td class="n">2.5%</td></tr>
+        <tr><td>Credit Card Rewards</td><td class="n">$1,270.58</td><td class="n">2.5%</td></tr>
+        <tr><td>Interest Earned</td><td class="n">$0.01</td><td class="n">0.0%</td></tr>
+
+        <tr><td class="tot">Bottom Line (Net Income)</td><td class="n tot">$(4,396.50)</td><td class="n tot">(8.6%)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:40px">2025 at a glance</h3>
+  <p>Three numbers tell the whole year. Wages alone ate 59% of revenue. Gross margin came in at 9%. The business finished 2025 with a real loss of about $4,400.</p>
+  <div class="monthly">
+    <div class="month">
+      <h4>First Half 2025</h4>
+      <div class="line"><span class="lbl">Revenue</span><span>$11,182</span></div>
+      <div class="line"><span class="lbl">Avg Per Deal</span><span>$207</span></div>
+      <div class="line"><span class="lbl">Monthly Pace</span><span>$1,864</span></div>
+    </div>
+    <div class="month">
+      <h4>Second Half 2025</h4>
+      <div class="line"><span class="lbl">Revenue</span><span>$39,817</span></div>
+      <div class="line"><span class="lbl">Avg Per Deal</span><span>$326</span></div>
+      <div class="line"><span class="lbl">Monthly Pace</span><span>$6,636</span></div>
+    </div>
+    <div class="month" style="outline:2px solid var(--flag);outline-offset:-2px">
+      <h4 style="color:var(--flag)">Q4 2025 · Warning</h4>
+      <div class="line"><span class="lbl">Revenue</span><span>$23,848</span></div>
+      <div class="line neg"><span class="lbl">Wages % Rev</span><span>85%</span></div>
+      <div class="line"><span class="lbl">Margin</span><span>~(1)%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 05 · ADJUSTED & Q1 2026 TURN ====== -->
+<section id="pl-norm">
+  <div class="kicker"><span class="dot"></span><span class="num">05</span> · Adjusted 2025 &amp; the Q1 2026 Turn</div>
+  <h2>Two views. Same business, fifteen months apart.</h2>
+  <p style="margin-top:18px;max-width:72ch">"Adjusted" just means "counting all the real costs, not only the ones that hit the checking account." For 2025, there's almost nothing to adjust — the truck and Santander loan didn't exist yet. For Q1 2026 it matters, because you bought the truck in February.</p>
+
+  <div class="dual">
+    <div class="view">
+      <div class="eyebrow">2025 · Adjusted</div>
+      <h3>The baseline year.</h3>
+      <div class="row"><span class="lbl">Revenue</span><span class="val">$50,999.57</span></div>
+      <div class="row"><span class="lbl">Cost of delivering the service (Section 4)</span><span class="val">$46,423.63</span></div>
+      <div class="row"><span class="lbl"><span class="new-badge">New</span>&nbsp;Laptop wear-and-tear (half year)</span><span class="val">$100.33</span></div>
+      <div class="row"><span class="lbl">Adjusted Gross Profit</span><span class="val">$4,475.61 · 8.8%</span></div>
+      <div class="row"><span class="lbl">Overhead (Section 4)</span><span class="val">$10,243.03</span></div>
+      <div class="row"><span class="lbl"><span class="new-badge">New</span>&nbsp;Tiny interest on K&amp;D loan</span><span class="val">$43.75</span></div>
+      <div class="row"><span class="lbl">Other Income (CC rewards)</span><span class="val">$1,270.59</span></div>
+      <div class="row big neg"><span class="lbl">Adjusted Bottom Line</span><span class="val">$(4,540.58)</span></div>
+      <div class="note">Basically no difference from the "real" 2025 P&amp;L. The business didn't own anything big enough to depreciate and had almost no interest-bearing debt.</div>
+    </div>
+
+    <div class="view q1">
+      <div class="eyebrow">Q1 2026 · Adjusted Snapshot</div>
+      <h3>The turn.</h3>
+      <div class="row"><span class="lbl">Revenue</span><span class="val">$25,985.21</span></div>
+      <div class="row"><span class="lbl">Cost of delivering the service</span><span class="val">$20,602.08</span></div>
+      <div class="row"><span class="lbl"><span class="new-badge">New</span>&nbsp;Truck wear-and-tear (2 months)</span><span class="val">$678.72</span></div>
+      <div class="row"><span class="lbl">Adjusted Gross Profit</span><span class="val" style="color:var(--emerald)">$4,704.41 · 18.1%</span></div>
+      <div class="row"><span class="lbl">Overhead</span><span class="val">$1,385.09</span></div>
+      <div class="row"><span class="lbl"><span class="new-badge">New</span>&nbsp;Insurance + laptop wear-and-tear</span><span class="val">$573.98</span></div>
+      <div class="row"><span class="lbl"><span class="new-badge">New</span>&nbsp;Interest on Santander + K&amp;D loans</span><span class="val">$364.00</span></div>
+      <div class="row big pos"><span class="lbl">Adjusted Profit</span><span class="val">$2,381.34</span></div>
+      <div class="note">After adjusting for the real costs, Q1 2026 still made money — about $2,381 (9.2% margin). The business went from a losing year to a profitable quarter.</div>
+    </div>
+  </div>
+
+  <div class="callout big" style="margin-top:36px">From <strong style="color:var(--flag)">$(4,541)</strong> across all of 2025 to <strong style="color:var(--emerald)">$2,381</strong> in just Q1 2026. The business didn't get smaller — it got priced right, and for one quarter the wage ratio finally dropped below the break-it line.</div>
+</section>
+
+<!-- ====== 06 · PATH TO 40% PAYROLL ====== -->
+<section id="path">
+  <div class="kicker"><span class="dot"></span><span class="num">06</span> · If Wages Are Sized Right</div>
+  <h2>$100K revenue · wages at 40% · the business actually makes money.</h2>
+  <p style="margin-top:18px;max-width:72ch">This isn't a fantasy scenario — it's the same $100K you're already running at Q1 2026 pace. The only change: wages sized like a healthy detailing shop (40% of revenue instead of 66 – 68%). Everything else holds steady, plus a normal marketing budget. Profit goes from basically zero to ~$27,500.</p>
+
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr class="section-row"><td>Revenue</td><td class="n">$100,000</td><td class="n">100.0%</td></tr>
+
+        <tr class="section-row"><td>Cost of Delivering the Service</td><td class="n">$55,054</td><td class="n">55.1%</td></tr>
+        <tr><td>Wages (36.0%)</td><td class="n">$36,036</td><td class="n">36.0%</td></tr>
+        <tr><td>Payroll Taxes (~11% of wages)</td><td class="n">$3,964</td><td class="n">4.0%</td></tr>
+        <tr style="background:rgba(0,230,118,.12)"><td><strong>Total Wage Cost</strong></td><td class="n"><strong>$40,000</strong></td><td class="n"><strong>40.0%</strong></td></tr>
+        <tr><td>Supplies &amp; Materials</td><td class="n">$4,965</td><td class="n">5.0%</td></tr>
+        <tr><td>Tools &amp; Equipment</td><td class="n">$3,143</td><td class="n">3.1%</td></tr>
+        <tr><td>Cellular (crew phones)</td><td class="n">$921</td><td class="n">0.9%</td></tr>
+        <tr><td>Laundry &amp; Cleaning</td><td class="n">$806</td><td class="n">0.8%</td></tr>
+        <tr><td>Cost of Goods Sold</td><td class="n">$465</td><td class="n">0.5%</td></tr>
+        <tr><td>Truck Maintenance</td><td class="n">$426</td><td class="n">0.4%</td></tr>
+        <tr><td>Uniforms</td><td class="n">$256</td><td class="n">0.3%</td></tr>
+        <tr><td>Truck wear-and-tear</td><td class="n">$4,072</td><td class="n">4.1%</td></tr>
+
+        <tr><td class="tot">Gross Profit</td><td class="n tot">$44,946</td><td class="n tot">44.9%</td></tr>
+
+        <tr class="section-row"><td>Overhead</td><td class="n">$15,463</td><td class="n">15.5%</td></tr>
+        <tr><td>Insurance</td><td class="n">$2,100</td><td class="n">2.1%</td></tr>
+        <tr><td>Legal &amp; Professional</td><td class="n">$2,505</td><td class="n">2.5%</td></tr>
+        <tr><td>Marketing (~$600/mo)</td><td class="n">$7,200</td><td class="n">7.2%</td></tr>
+        <tr><td>Connecteam</td><td class="n">$994</td><td class="n">1.0%</td></tr>
+        <tr><td>Acuity, Google Workspace/Voice, Canva, HubSpot, Hosting</td><td class="n">$1,898</td><td class="n">1.9%</td></tr>
+        <tr><td>Employee Appreciation</td><td class="n">$455</td><td class="n">0.5%</td></tr>
+        <tr><td>Bank Charges + Laptop wear + Office</td><td class="n">$311</td><td class="n">0.3%</td></tr>
+
+        <tr><td class="tot">Profit Before Interest</td><td class="n tot">$29,483</td><td class="n tot">29.5%</td></tr>
+        <tr><td>Interest on the loans</td><td class="n">$1,988</td><td class="n">2.0%</td></tr>
+        <tr><td class="tot">Profit Before Tax</td><td class="n tot">$27,495</td><td class="n tot">27.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout big">That single fix — wages from 66–68% down to 40% — is worth roughly <strong>$18,000 a year</strong> on the same $100K you're already doing. It's the single most valuable change in the business.</div>
+
+  <div class="callout caveat"><p><strong>One honest note.</strong> This scenario still doesn't pay Kate. Adding real W-2 pay for both of you will need revenue closer to $150K/year before wages can hit 40% <em>and</em> you both get paid properly.</p></div>
+</section>
+
+<!-- ====== 07 · MARGIN BANDS ====== -->
+<section id="bands">
+  <div class="kicker"><span class="dot"></span><span class="num">07</span> · Where You Are on the Margin Ladder</div>
+  <h2>2025 was breakeven-and-below. Q1 2026 climbed to "just-barely."</h2>
+  <p style="margin-top:18px;max-width:72ch">Mobile detailing runs thin. Here's the standard read on what different margin levels actually feel like when you're running the business day to day. You need to get to 12 – 15% before anything feels safe.</p>
+
+  <div class="bands">
+    <div class="band fy25" data-t="0">
+      <span class="marker">2025 · (8.6%)</span>
+      <div class="range">0%</div>
+      <div class="tier">Breakeven &amp; Below</div>
+      <p>Where 2025 landed. One rainy week or a blown pressure washer wipes the month. No paycheck for Kate, no cushion.</p>
+      <div class="bar"></div>
+    </div>
+    <div class="band" data-t="1">
+      <div class="range">3–5%</div>
+      <div class="tier">Still Tight</div>
+      <p>A bad week is survivable, a bad month isn't. One customer dispute or truck repair eats the quarter.</p>
+      <div class="bar"></div>
+    </div>
+    <div class="band current" data-t="2">
+      <span class="marker">Q1 2026 · 9.2%</span>
+      <div class="range">7–10%</div>
+      <div class="tier">Just Barely</div>
+      <p>Where Q1 2026 landed. A little slack but no real marketing, no hiring room, no savings. Where most detailers live — and burn out.</p>
+      <div class="bar"></div>
+    </div>
+    <div class="band target" data-t="3">
+      <span class="marker">Target →</span>
+      <div class="range">12–15%</div>
+      <div class="tier">Actually Safe</div>
+      <p>First real cushion. You can run marketing, replace a truck without panic, pay yourselves, absorb a weak month. Floor AWS needs to hit.</p>
+      <div class="bar"></div>
+    </div>
+    <div class="band" data-t="4">
+      <div class="range">15–20%</div>
+      <div class="tier">Healthy</div>
+      <p>Add a second rig, take quarterly distributions, savings actually build. "You made it" for mobile detailing.</p>
+      <div class="bar"></div>
+    </div>
+    <div class="band" data-t="5">
+      <div class="range">20–25%</div>
+      <div class="tier">Strong</div>
+      <p>Pricing power from fleet contracts or ceramic coatings. The business has real value if you ever sell.</p>
+      <div class="bar"></div>
+    </div>
+    <div class="band" data-t="6">
+      <div class="range">25–30%</div>
+      <div class="tier">Exceptional</div>
+      <p>Rare for detailing. Usually a luxury client base, fleet partner, or PPF/ceramic specialty.</p>
+      <div class="bar"></div>
+    </div>
+    <div class="band" data-t="7">
+      <div class="range">30%+</div>
+      <div class="tier">Unusual</div>
+      <p>Needs a product or franchise layer. Something that scales beyond hands-on labor.</p>
+      <div class="bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 08 · DEBT SNAPSHOT ====== -->
+<section id="bal">
+  <div class="kicker"><span class="dot"></span><span class="num">08</span> · Debt Snapshot</div>
+  <h2>Where the debt sits today.</h2>
+  <p style="margin-top:18px">Here's what the business actually owes. The "as booked" column is what QuickBooks currently shows. The "corrected" column is what's really true once the classification errors are fixed. The difference matters because about $7K of real debt is currently hiding in the wrong spots.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>What</th><th>Account</th><th class="n">As Booked</th><th class="n">Corrected</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Family loan</td><td>K&amp;D loan (truck)</td><td class="n">$18,750.00</td><td class="n">$20,000.00</td></tr>
+        <tr><td>Family loan</td><td>K&amp;D loan (working capital)</td><td class="n">$1,754.94</td><td class="n">$7,754.94</td></tr>
+        <tr><td>Credit card</td><td>Kate's (6086)</td><td class="n">$5,958.51</td><td class="n">—</td></tr>
+        <tr><td>Credit card</td><td>David's (6094)</td><td class="n">$(1,821.02)</td><td class="n">—</td></tr>
+        <tr><td>Payroll tax owed</td><td>Federal + state combined</td><td class="n">$1,608.04</td><td class="n">—</td></tr>
+        <tr><td class="tot"><strong>Total</strong></td><td class="tot"></td><td class="n tot"><strong>$26,250.47</strong></td><td class="n tot"><strong>~$33,500</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn"><p><strong>Red flag.</strong> There's a "Payroll Clearing" account sitting at <strong>$(51,105.81)</strong>. That isn't real debt — it's a clearing account that's never been reconciled, and it makes every payroll-tax report in QB untrustworthy until it gets cleaned up.</p></div>
+</section>
+
+<!-- ====== 09 · CLEANUP ====== -->
+<section id="cleanup">
+  <div class="kicker"><span class="dot"></span><span class="num">09</span> · Bookkeeping To-Do</div>
+  <h2>Nine things worth fixing · two focused hours of work.</h2>
+  <p style="margin-top:18px">None of these are scary. But together they make the numbers noisy, and every decision you make — pricing, tax, loans — leans on numbers being right.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Priority</th><th>What's Off</th><th>Why It Matters</th><th>Fix</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="pill hi">High</span></td><td>Six $1,000 savings transfers miscoded as loan payments</td><td>Loan balance looks $6K lower than it really is</td><td>Recode as account-to-account transfer</td></tr>
+        <tr><td><span class="pill hi">High</span></td><td>$8,219.64 "Opening Balance Equity" never cleared</td><td>Equity section is off</td><td>Journal entry to Retained Earnings</td></tr>
+        <tr><td><span class="pill hi">High</span></td><td>Direct costs (wages, supplies, tools, laundry) all coded as overhead</td><td>P&amp;L shows fake 96% margin</td><td>Restructure chart of accounts</td></tr>
+        <tr><td><span class="pill med">Medium</span></td><td>Two $170 deposits on 9/29/25 and 10/27/25 look like duplicates</td><td>Revenue maybe overstated by $340</td><td>Check against merchant statement</td></tr>
+        <tr><td><span class="pill med">Medium</span></td><td>Two $625 "truck loan payments" are actually savings transfers</td><td>Truck loan balance understated by $1,250</td><td>Find where Santander actually debits</td></tr>
+        <tr><td><span class="pill med">Medium</span></td><td>Owner Contributions contaminated ($2,547 returned Chase funds, $204 deposit)</td><td>Equity distorted by ~$2,750</td><td>Recode the entries</td></tr>
+        <tr><td><span class="pill low">Low</span></td><td>Ghost "K&amp;D Vehicle Loan" account from a non-breaking space typo</td><td>Two parallel ledgers for one loan</td><td>Merge the accounts</td></tr>
+        <tr><td><span class="pill low">Low</span></td><td>$(173) advertising refund in Jan 2026</td><td>Small thing</td><td>Confirm source, set up channel tracking</td></tr>
+        <tr><td><span class="pill low">Low</span></td><td>Customer names not saved on deposits</td><td>Can't see your biggest customers or churn</td><td>Enforce in Acuity / invoicing</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====== 10 · OWNER COMP ====== -->
+<section id="owner">
+  <div class="kicker"><span class="dot"></span><span class="num">10</span> · What You Two Actually Pull Out</div>
+  <h2>Paying everyone else first, hoping something's left.</h2>
+  <p style="margin-top:18px">Across the 15-month window, you two have taken about $13,700 out of the business combined. That's about $910/month between both of you.</p>
+
+  <div class="owner-grid">
+    <div class="owner-card">
+      <h4>David · Now on Payroll</h4>
+      <div class="name">David Randleman</div>
+      <div class="amt">$1,153.85</div>
+      <p>Started W-2 on 1/23/2026. $230.77 every two weeks. 5 paychecks in Q1 2026. That's $6,000/year at the current rate.</p>
+    </div>
+    <div class="owner-card kate">
+      <h4>Kate · Not Paid</h4>
+      <div class="name">Kate Randleman</div>
+      <div class="amt">$0.00</div>
+      <p>Carries the $20K truck loan personally, $5K+ working-capital loans, fronts business expenses on her Chase card. Hasn't taken a paycheck.</p>
+    </div>
+    <div class="owner-card">
+      <h4>Owner Draws · 2025</h4>
+      <div class="name">The Draws</div>
+      <div class="amt">~$12,500</div>
+      <p>Monthly draws of about $1,000 through August 2025, plus a few incidentals. Draws stopped completely in August 2025.</p>
+    </div>
+    <div class="owner-card total">
+      <h4>Combined · 15 Months</h4>
+      <div class="name">$13,654 total</div>
+      <div class="amt">$910 / month</div>
+      <p>What the family has actually taken out of the business across the whole 15-month window.</p>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:40px"><p><strong>One thing worth mentioning.</strong> The draws stopped in August 2025 and David's payroll started in January 2026 — that sounds like a CPA transition, maybe an S-corp election. If that's the case, $6K/year is almost certainly below what the IRS considers "reasonable compensation" for an active owner. Worth a conversation with your CPA.</p></div>
+</section>
+
+<!-- ====== 11 · RECS ====== -->
+<section id="recs">
+  <div class="kicker"><span class="dot"></span><span class="num">11</span> · Four Moves for the Next 60 Days</div>
+  <h2>In order of what'll move the needle most.</h2>
+  <p style="margin-top:18px">These are ranked by impact, not effort. Number one is the big one — it's worth more than the other three put together.</p>
+
+  <div class="rec-grid">
+    <div class="rec" data-n="1">
+      <h3>Get wages down to 45% of revenue</h3>
+      <p>Build a core crew of 3 – 4 people, stop rotating gig workers, use Connecteam to schedule and track job-level labor. Aim for 45% over the next two months, then work toward 40%.</p>
+      <span class="impact">Worth · +$18K/year at $100K</span>
+    </div>
+    <div class="rec" data-n="2">
+      <h3>Capture customer names on every deal</h3>
+      <p>You literally can't tell who your biggest customers are right now because most deposits don't have a name attached. Enforce it at the Acuity / invoicing step, not after.</p>
+      <span class="impact">Worth · actually knowing your book</span>
+    </div>
+    <div class="rec" data-n="3">
+      <h3>Restart marketing at $500 – $800/month</h3>
+      <p>The July 2025 ad spend is what triggered the Q3 breakout. Turn it back on, track by channel, measure cost per booked deal.</p>
+      <span class="impact">Worth · steady topline growth</span>
+    </div>
+    <div class="rec" data-n="4">
+      <h3>Put the K&amp;D loans in writing</h3>
+      <p>Written promissory notes with a stated interest rate and a monthly payment. Amortization schedule in QuickBooks. Keeps taxes clean, keeps the family separate from the business.</p>
+      <span class="impact">Worth · clean tax + family separation</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="mark">
+    <svg class="tk" viewBox="0 0 260 170" aria-hidden="true"><use href="#tkmark"/></svg>
+    Prepared by TurnkeyCFO
+  </div>
+  <div>Confidential · For K&amp;D Randleman · April 24, 2026</div>
+</footer>
+
+</main>
+
+<script>
+  const btn = document.getElementById('tocBtn');
+  const toc = document.getElementById('toc');
+  btn.addEventListener('click', () => {
+    const open = toc.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'Close' : 'Contents';
+  });
+  toc.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      toc.classList.remove('open');
+      btn.textContent = 'Contents';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Coffee Catering — Doxa Coffee Roasters | Austin & Central Texas</title>
+  <meta name="description" content="Austin-based mobile coffee cart catering for weddings, corporate events & private gatherings. Locally roasted beans, hand-crafted drinks, custom menus. Book your event today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --espresso:   #2C1810;
+      --roast:      #4A2518;
+      --caramel:    #C27A3A;
+      --amber:      #D4894A;
+      --cream:      #F5EFE6;
+      --linen:      #EDE5D8;
+      --parchment:  #FAF7F2;
+      --white:      #FFFFFF;
+      --ink:        #1A0F0A;
+      --muted:      #7A6050;
+      --border:     rgba(44,24,16,0.12);
+      --shadow:     rgba(44,24,16,0.1);
+      --radius:     16px;
+      --font-head:  'Cormorant Garamond', Georgia, serif;
+      --font-body:  'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--parchment);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--espresso);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 72px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(44,24,16,0.25);
+    }
+
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+    .nav-logo-box {
+      width: 42px;
+      height: 42px;
+      border: 2px solid var(--caramel);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo-sub {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--caramel);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .nav-cta {
+      background: var(--caramel);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      font-family: var(--font-body);
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--amber); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--espresso);
+      padding: 96px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(194,122,58,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 50%, rgba(194,122,58,0.08) 0%, transparent 55%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to top, rgba(44,24,16,0.6), transparent);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(194,122,58,0.15);
+      border: 1px solid rgba(194,122,58,0.3);
+      color: var(--amber);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--caramel);
+      border-radius: 50%;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(42px, 6vw, 80px);
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -1px;
+      line-height: 1.06;
+      max-width: 860px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--caramel);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: rgba(245,239,230,0.65);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      font-weight: 400;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: var(--caramel);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+      font-family: var(--font-body);
+      padding: 15px 34px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--amber); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(194,122,58,0.4); }
+
+    .btn-ghost {
+      background: rgba(245,239,230,0.08);
+      border: 1.5px solid rgba(245,239,230,0.2);
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 15px;
+      font-family: var(--font-body);
+      padding: 15px 34px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover { background: rgba(245,239,230,0.15); transform: translateY(-2px); }
+
+    .hero-trust {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 52px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(245,239,230,0.6);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .trust-icon {
+      width: 20px;
+      height: 20px;
+      background: rgba(194,122,58,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--caramel);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--white);
+      padding: 44px 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: -48px auto 0;
+      border-radius: 20px;
+      box-shadow: 0 4px 48px var(--shadow);
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 700;
+      color: var(--espresso);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .stat-num .accent { color: var(--caramel); }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 92px 40px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--caramel);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 700;
+      color: var(--espresso);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      background: var(--parchment);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .intro-img {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--espresso) 0%, var(--roast) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .intro-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M40 0C17.9 0 0 17.9 0 40s17.9 40 40 40 40-17.9 40-40S62.1 0 40 0zm0 70C25.6 70 14 58.4 14 44s11.6-26 26-26 26 11.6 26 26-11.6 26-26 26z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .intro-img-inner {
+      font-size: 80px;
+      position: relative;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    .intro-quote {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--espresso);
+      line-height: 1.55;
+      border-left: 3px solid var(--caramel);
+      padding-left: 24px;
+      margin-bottom: 24px;
+    }
+
+    .intro-quote cite {
+      display: block;
+      font-size: 13px;
+      font-style: normal;
+      color: var(--muted);
+      font-family: var(--font-body);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .intro-features { display: flex; flex-direction: column; gap: 14px; }
+
+    .intro-feature { display: flex; gap: 12px; align-items: flex-start; }
+
+    .intro-feature-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(194,122,58,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .intro-feature h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 1px;
+    }
+
+    .intro-feature p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included { background: var(--linen); }
+
+    .included-header { text-align: center; margin-bottom: 52px; }
+    .included-header .section-sub { margin: 0 auto; }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .included-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1.5px solid var(--border);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: all 0.2s;
+    }
+
+    .included-card:hover {
+      border-color: var(--caramel);
+      box-shadow: 0 8px 32px var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .included-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(194,122,58,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .included-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 4px;
+    }
+
+    .included-card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* ── CUSTOMIZATION ── */
+    .custom { background: var(--parchment); }
+
+    .custom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .custom-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1.5px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .custom-card:hover {
+      border-color: var(--caramel);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+
+    .custom-icon { font-size: 44px; margin-bottom: 18px; display: block; }
+
+    .custom-card h3 {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 10px;
+    }
+
+    .custom-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── SERVICES / EVENTS ── */
+    .events { background: var(--white); }
+
+    .events-header { text-align: center; margin-bottom: 52px; }
+    .events-header .section-sub { margin: 0 auto; }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .event-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      transition: all 0.25s;
+      background: var(--parchment);
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px var(--shadow);
+      border-color: var(--caramel);
+    }
+
+    .event-card-top {
+      padding: 32px 28px 24px;
+    }
+
+    .event-emoji { font-size: 40px; margin-bottom: 16px; display: block; }
+
+    .event-card h3 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 10px;
+    }
+
+    .event-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    .event-tag {
+      display: inline-block;
+      background: rgba(194,122,58,0.1);
+      color: var(--caramel);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-top: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .event-card-bottom {
+      background: var(--espresso);
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .event-card-bottom span {
+      font-size: 13px;
+      color: rgba(245,239,230,0.7);
+      font-weight: 500;
+    }
+
+    /* ── MENU ── */
+    .menu { background: var(--espresso); position: relative; overflow: hidden; }
+
+    .menu::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 10% 50%, rgba(194,122,58,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 50%, rgba(194,122,58,0.08) 0%, transparent 50%);
+    }
+
+    .menu-header { text-align: center; margin-bottom: 52px; position: relative; }
+    .menu-header .section-label { color: var(--amber); }
+    .menu-header .section-title { color: var(--cream); }
+    .menu-header .section-sub { color: rgba(245,239,230,0.55); margin: 0 auto; }
+
+    .drinks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      position: relative;
+    }
+
+    .drink-card {
+      background: rgba(245,239,230,0.04);
+      border: 1px solid rgba(245,239,230,0.08);
+      border-radius: 14px;
+      padding: 24px 20px;
+      transition: all 0.2s;
+    }
+
+    .drink-card:hover {
+      background: rgba(194,122,58,0.12);
+      border-color: rgba(194,122,58,0.3);
+      transform: translateY(-2px);
+    }
+
+    .drink-emoji { font-size: 32px; margin-bottom: 12px; display: block; }
+
+    .drink-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 5px;
+    }
+
+    .drink-card p { font-size: 13px; color: rgba(245,239,230,0.45); line-height: 1.4; }
+
+    /* ── AREAS ── */
+    .areas { background: var(--linen); }
+
+    .areas-header { text-align: center; margin-bottom: 48px; }
+    .areas-header .section-sub { margin: 0 auto; }
+
+    .areas-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .area-tag {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      color: var(--espresso);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 9px 20px;
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+
+    .area-tag:hover {
+      background: var(--caramel);
+      color: var(--white);
+      border-color: var(--caramel);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--parchment); }
+
+    .testi-header { text-align: center; margin-bottom: 48px; }
+    .testi-header .section-sub { margin: 0 auto; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px;
+      border: 1.5px solid var(--border);
+    }
+
+    .testi-stars { color: var(--caramel); font-size: 16px; letter-spacing: 3px; margin-bottom: 16px; }
+
+    .testi-text {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+
+    .testi-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--espresso), var(--caramel));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cream);
+      font-weight: 700;
+      font-size: 16px;
+      font-family: var(--font-body);
+    }
+
+    .testi-name { font-weight: 700; color: var(--espresso); font-size: 15px; }
+    .testi-role { font-size: 13px; color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq { background: var(--white); }
+
+    .faq-header { text-align: center; margin-bottom: 52px; }
+    .faq-header .section-sub { margin: 0 auto; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 16px; max-width: 760px; margin: 0 auto; }
+
+    .faq-item {
+      background: var(--parchment);
+      border-radius: 14px;
+      padding: 24px 28px;
+      border: 1.5px solid var(--border);
+    }
+
+    .faq-item h4 {
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 8px;
+    }
+
+    .faq-item p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--caramel) 0%, #a8622e 100%);
+      padding: 88px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.06'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-banner p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.82);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn-dark {
+      background: var(--espresso);
+      color: var(--cream);
+      font-weight: 700;
+      font-size: 15px;
+      font-family: var(--font-body);
+      padding: 15px 34px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-dark:hover { background: var(--roast); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(44,24,16,0.35); }
+
+    .btn-outline-light {
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+      font-family: var(--font-body);
+      padding: 15px 34px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      transition: all 0.2s;
+    }
+
+    .btn-outline-light:hover { background: rgba(255,255,255,0.2); transform: translateY(-3px); }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--parchment); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-head);
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-info > p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(194,122,58,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-row strong { display: block; color: var(--espresso); font-weight: 700; }
+    .contact-row span { color: var(--muted); font-size: 14px; }
+
+    form { display: flex; flex-direction: column; gap: 16px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--caramel);
+      box-shadow: 0 0 0 3px rgba(194,122,58,0.12);
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      background: var(--caramel);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 16px;
+      font-family: var(--font-body);
+      padding: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .form-submit:hover { background: #a8622e; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(194,122,58,0.3); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--espresso);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .footer-brand {
+      color: var(--caramel);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .footer-copy { color: rgba(245,239,230,0.3); font-size: 13px; margin-top: 16px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .intro-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .custom-grid { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); margin: -36px 20px 0; }
+    }
+
+    @media (max-width: 640px) {
+      nav, .hero, .section, footer { padding-left: 20px; padding-right: 20px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 32px 20px; }
+      .hero-trust { gap: 14px; }
+      .form-row { grid-template-columns: 1fr; }
+      .cta-banner { padding: 72px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <div class="nav-logo-box">
+        <span style="font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--caramel);">d</span>
+      </div>
+      <div>
+        <div class="nav-logo-text">Doxa Coffee</div>
+        <span class="nav-logo-sub">Roasters · Est. Austin</span>
+      </div>
+    </a>
+    <a href="#contact" class="nav-cta">Book Your Event</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Austin's Mobile Coffee Cart — Now Booking 2026
+    </div>
+    <h1>Coffee That Makes<br>Your Event <em>Matter.</em></h1>
+    <p class="hero-sub">We bring the full coffee bar to you — locally roasted, hand-crafted, and customized for your event. Weddings, corporate, private parties, and everything in between.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">☕ Book Your Event</a>
+      <a href="#services" class="btn-ghost">See Event Types →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="trust-icon">✓</span> Locally Roasted Beans</div>
+      <div class="trust-item"><span class="trust-icon">✓</span> House-Made Syrups</div>
+      <div class="trust-item"><span class="trust-icon">✓</span> Professional Baristas</div>
+      <div class="trust-item"><span class="trust-icon">✓</span> Austin & Central Texas</div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">500<span class="accent">+</span></div>
+      <div class="stat-label">Events Catered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.9<span class="accent">★</span></div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100<span class="accent">%</span></div>
+      <div class="stat-label">In-House Bakery</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6x6<span class="accent">ft</span></div>
+      <div class="stat-label">Space Needed</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="section intro" id="about">
+    <div class="intro-grid">
+      <div class="intro-img">
+        <div class="intro-img-inner">☕</div>
+      </div>
+      <div>
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">We Like Coffee.<br>We <em>Love</em> People.</h2>
+        <blockquote class="intro-quote">
+          "At Doxa we want everything we do to be done with excellence so that people know they matter. That's why we take extra steps from roasting to hand-crafting each drink."
+          <cite>— Doxa Coffee Roasters</cite>
+        </blockquote>
+        <p class="section-sub" style="margin-bottom: 24px;">Doxa Coffee Roasters is an Austin-based specialty coffee company with two walk-in locations and a fully mobile coffee cart for events. We're not just a catering company — we're specialty coffee professionals who happen to come to you.</p>
+        <div class="intro-features">
+          <div class="intro-feature">
+            <div class="intro-feature-icon">🌱</div>
+            <div>
+              <h4>Locally Roasted Specialty Beans</h4>
+              <p>We roast our own beans in Austin. You taste the difference — and so will your guests.</p>
+            </div>
+          </div>
+          <div class="intro-feature">
+            <div class="intro-feature-icon">🎂</div>
+            <div>
+              <h4>Fresh Baked Goods, In-House</h4>
+              <p>Our in-house bakery provides fresh pastries — sweet, savory, and gluten-free options available.</p>
+            </div>
+          </div>
+          <div class="intro-feature">
+            <div class="intro-feature-icon">🎨</div>
+            <div>
+              <h4>Fully Customized to Your Event</h4>
+              <p>Custom cups and stickers, personalized menu, and a setup that matches your aesthetic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section included">
+    <div class="included-header">
+      <div class="section-label">Every Booking Includes</div>
+      <h2 class="section-title">Everything Your Event Needs</h2>
+      <p class="section-sub">One booking. Fully equipped mobile café. Professional baristas. Zero stress.</p>
+    </div>
+    <div class="included-grid">
+      <div class="included-card">
+        <div class="included-icon">☕</div>
+        <div>
+          <h4>Locally Roasted Specialty Coffee</h4>
+          <p>Our own in-house roasted beans — not commodity coffee. The difference is in every sip.</p>
+        </div>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🥛</div>
+        <div>
+          <h4>Hand-Crafted Drinks</h4>
+          <p>Espresso, lattes, cappuccinos, americanos — all made to order by trained baristas.</p>
+        </div>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🍯</div>
+        <div>
+          <h4>House-Made Syrups</h4>
+          <p>Vanilla, lavender, hazelnut, mocha, caramel — all crafted in-house. Seasonal specials too.</p>
+        </div>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🥛</div>
+        <div>
+          <h4>Milk & Alt-Milk Options</h4>
+          <p>Whole milk, oat milk, almond milk — every guest gets exactly what they want.</p>
+        </div>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">📦</div>
+        <div>
+          <h4>All Equipment & Supplies</h4>
+          <p>Cups, lids, napkins, straws, sleeves — we bring everything. Just point us to the outlet.</p>
+        </div>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🔌</div>
+        <div>
+          <div>
+            <h4>Setup & Breakdown Included</h4>
+            <p>We arrive early, set up the full cart, and handle teardown. You enjoy your event.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMIZATION -->
+  <section class="section custom">
+    <div style="text-align:center;">
+      <div class="section-label">Make It Yours</div>
+      <h2 class="section-title">Customized to Fit Your Event</h2>
+      <p class="section-sub" style="margin: 12px auto 0;">We work with you to design the perfect coffee experience — from cups to menu to setup.</p>
+    </div>
+    <div class="custom-grid">
+      <div class="custom-card">
+        <span class="custom-icon">🧋</span>
+        <h3>Custom Cups & Stickers</h3>
+        <p>Your logo, event name, or custom design on every cup. Branded takeaway your guests will keep.</p>
+      </div>
+      <div class="custom-card">
+        <span class="custom-icon">📋</span>
+        <h3>Custom Drink Menu</h3>
+        <p>We design a menu around your event — signature cocktails, seasonal specials, or classic favorites.</p>
+      </div>
+      <div class="custom-card">
+        <span class="custom-icon">🥐</span>
+        <h3>Pastry Add-Ons</h3>
+        <p>Fresh baked goods from our own bakery — mini pastries, full-size, sweet or savory, gluten-free available.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / EVENTS -->
+  <section class="section events" id="services">
+    <div class="events-header">
+      <div class="section-label">Event Types</div>
+      <h2 class="section-title">Any Event Is Better<br>With Great Coffee</h2>
+      <p class="section-sub">From intimate gatherings to large conferences, we bring the coffee bar to your venue.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-card-top">
+          <span class="event-emoji">💒</span>
+          <h3>Weddings</h3>
+          <p>Receptions, rehearsal dinners, cocktail hours, morning brunches, or late-night coffee bars. Custom menu to match your day.</p>
+          <span class="event-tag">Receptions · Brunches · Late-Night</span>
+        </div>
+        <div class="event-card-bottom">
+          <span>📍 Austin · Dripping Springs · Hill Country</span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-top">
+          <span class="event-emoji">🏢</span>
+          <h3>Corporate Events</h3>
+          <p>Office meetings, client appreciation, conferences, trade shows, product launches, executive breakfasts, and holiday parties.</p>
+          <span class="event-tag">Team Events · Client Events · Retreats</span>
+        </div>
+        <div class="event-card-bottom">
+          <span>📍 Austin · Round Rock · Cedar Park</span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-top">
+          <span class="event-emoji">🎂</span>
+          <h3>Private Parties</h3>
+          <p>Birthday parties, anniversaries, graduations, bridal & baby showers, reunions, and any excuse to celebrate together.</p>
+          <span class="event-tag">Backyard · Venues · Outdoor</span>
+        </div>
+        <div class="event-card-bottom">
+          <span>📍 Buda · Kyle · San Marcos · New Braunfels</span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-top">
+          <span class="event-emoji">🎪</span>
+          <h3>Festivals & Markets</h3>
+          <p>Farmers markets, pop-ups, community events, church fundraisers, school events, and large-scale festivals.</p>
+          <span class="event-tag">Outdoor · Markets · Community</span>
+        </div>
+        <div class="event-card-bottom">
+          <span>📍 Georgetown · Leander · Taylor</span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-top">
+          <span class="event-emoji">🎬</span>
+          <h3>Film & Photo Shoots</h3>
+          <p>Production teams, cast & crew, location shoots — we keep everyone caffeinated on set with minimal footprint.</p>
+          <span class="event-tag">Film Sets · Productions · Sets</span>
+        </div>
+        <div class="event-card-bottom">
+          <span>📍 All Austin Area & Surrounding</span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-top">
+          <span class="event-emoji">🏠</span>
+          <h3>Intimate Gatherings</h3>
+          <p>Brunches, book clubs, baby showers, small celebrations — we scale our service to fit events of any size.</p>
+          <span class="event-tag">Brunches · Showers · Small Groups</span>
+        </div>
+        <div class="event-card-bottom">
+          <span>📍 South Austin · Manchaca · Monterey Oaks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section menu" id="menu">
+    <div class="menu-header">
+      <div class="section-label">On The Bar</div>
+      <h2 class="section-title">Hand-Crafted. Made to Order.</h2>
+      <p class="section-sub">Every drink is built fresh for your event — not pre-made, not批量.</p>
+    </div>
+    <div class="drinks-grid">
+      <div class="drink-card">
+        <span class="drink-emoji">☕</span>
+        <h4>Espresso</h4>
+        <p>Double shot, pulled fresh. The foundation of everything we do.</p>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🥛</span>
+        <h4>Lattes & Cappuccinos</h4>
+        <p>Velvety microfoam, perfectly extracted espresso, your choice of milk.</p>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🍊</span>
+        <h4>Cortados</h4>
+        <p>Equal parts espresso and steamed milk — bold, smooth, and underrated.</p>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🍯</span>
+        <h4>House Syrup Lattes</h4>
+        <p>Vanilla, lavender, hazelnut, caramel, mocha — all house-made, all exceptional.</p>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🧊</span>
+        <h4>Cold Brew & Drip</h4>
+        <p>Slow-steeped in small batches. Smooth, bold, and perfect for Texas heat.</p>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🍵</span>
+        <h4>Matcha & Chai</h4>
+        <p>Ceremonial-grade matcha, house-brewed masala chai. Premium non-espresso options.</p>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🍫</span>
+        <h4>Hot Chocolate</h4>
+        <p>Rich Belgian chocolate, steamed milk, house-made whipped cream.</p>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🍋</span>
+        <h4>Fresh Lemonade</h4>
+        <p>House-squeezed lemonade — tart, sweet, and refreshing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section class="section areas">
+    <div class="areas-header">
+      <div class="section-label">Service Area</div>
+      <h2 class="section-title">Serving Greater Austin<br>& Central Texas</h2>
+      <p class="section-sub">We travel to your venue — whether it's downtown, the suburbs, or out in the Hill Country.</p>
+    </div>
+    <div class="areas-grid">
+      <span class="area-tag">Austin</span>
+      <span class="area-tag">Manchaca</span>
+      <span class="area-tag">Dripping Springs</span>
+      <span class="area-tag">Round Rock</span>
+      <span class="area-tag">Georgetown</span>
+      <span class="area-tag">Cedar Park</span>
+      <span class="area-tag">Leander</span>
+      <span class="area-tag">Buda</span>
+      <span class="area-tag">Kyle</span>
+      <span class="area-tag">San Marcos</span>
+      <span class="area-tag">New Braunfels</span>
+      <span class="area-tag">San Antonio</span>
+      <span class="area-tag">Lake Travis</span>
+      <span class="area-tag">Fredericksburg</span>
+      <span class="area-tag">Marble Falls</span>
+      <span class="area-tag">Pflugerville</span>
+      <span class="area-tag">Hutto</span>
+      <span class="area-tag">Taylor</span>
+    </div>
+    <p style="text-align:center; margin-top: 24px; font-size: 14px; color: var(--muted);">Destination events considered — just reach out and we'll work it out.</p>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials">
+    <div class="testi-header">
+      <div class="section-label">What People Say</div>
+      <h2 class="section-title">Loved by Hosts & Guests Alike</h2>
+      <p class="section-sub">Don't take our word for it — here's what real events look like with Doxa.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Our guests are STILL talking about the coffee bar at our wedding. Doxa was professional, beautifully presented, and the espresso was legitimately the best we've ever had at an event. They even brought custom cups with our wedding date on them. Worth every penny."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div>
+            <div class="testi-name">Jessica & Marcus</div>
+            <div class="testi-role">Wedding — Dripping Springs, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"We hired Doxa for our company's annual summit — 350 attendees. They ran two stations seamlessly, the cold brew was incredible, and their team handled every request with grace. Already booked for next year. Nothing else comes close."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RL</div>
+          <div>
+            <div class="testi-name">Rebecca Lewis</div>
+            <div class="testi-role">Events Director — Austin, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"As a wedding planner, I have a short list of vendors I trust completely. Doxa is on that list. They're reliable, the drinks are exceptional, and they show up looking professional every single time. My clients are always thrilled."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AT</div>
+          <div>
+            <div class="testi-name">Amanda Torres</div>
+            <div class="testi-role">Lead Planner — Hill Country Events</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq">
+    <div class="faq-header">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title">Questions We Get a Lot</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>What do you need to set up?</h4>
+        <p>Just a 6x6-foot space for the cart, one standard power outlet (15–20 amp dedicated circuit), and wheelchair-accessible entry. If your event is outdoors or lacks power, we can bring a generator — just let us know ahead of time.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What types of events do you cater?</h4>
+        <p>All of them — weddings, corporate events, private parties, birthdays, showers, festivals, film sets, community events, and more. If you have a gathering, we can caffeinate it. Just reach out and we'll let you know what we can do.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do you only serve Austin?</h4>
+        <p>We're based in Austin and primarily serve the Greater Austin area, including Dripping Springs, the Hill Country, Round Rock, Georgetown, San Marcos, and down to San Antonio. If your event is outside that area, reach out — we're happy to provide a custom quote for travel.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can you serve outdoors?</h4>
+        <p>Absolutely. Our cart is fully mobile and perfect for outdoor events. If power isn't available on-site, we bring a generator. Whether it's a backyard brunch, an outdoor wedding, or an open-air market, we've got you covered.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How far in advance should I book?</h4>
+        <p>We recommend reaching out at least 3–4 weeks before your event, though we've worked with shorter timelines when needed. Peak wedding season (spring and fall) fills up fast — the earlier the better.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2>Let's Build Your Event Menu</h2>
+    <p>Free custom quotes within 24 hours. Tell us your event date, guest count, and vision — we'll handle the rest.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn-dark">☕ Request a Custom Quote</a>
+      <a href="tel:+15128179190" class="btn-outline-light">📞 (512) 817-9190</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">Get In Touch</div>
+        <h3>Tell Us About Your Event</h3>
+        <p>Whether it's a backyard brunch for 20 or a 500-person corporate conference, we'll design a coffee experience that fits perfectly.</p>
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong>(512) 817-9190</strong>
+            <span>Mon–Sat 8am–7pm</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>catering@doxacoffeeroasters.com</strong>
+            <span>Fast response — same day</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>Based in Austin, TX</strong>
+            <span>Serving all of Central Texas</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📱</div>
+          <div>
+            <strong>@doxacoffeeroasters</strong>
+            <span>Follow us on Instagram</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form action="#" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your Name *" required>
+            <input type="tel" name="phone" placeholder="Phone Number *" required>
+          </div>
+          <input type="email" name="email" placeholder="Email Address *" required>
+          <div class="form-row">
+            <input type="text" name="event_type" placeholder="Event Type (e.g. Wedding, Corporate)">
+            <input type="date" name="date" placeholder="Event Date">
+          </div>
+          <input type="number" name="guests" placeholder="Expected Guest Count" min="1">
+          <select name="service_type">
+            <option value="" disabled selected>Interested In</option>
+            <option>Full Coffee Cart Service</option>
+            <option>Espresso & Lattes Only</option>
+            <option>Cold Brew Station</option>
+            <option>Pastry Add-On</option>
+            <option>Custom Cups & Branding</option>
+            <option>Not Sure — Need Guidance</option>
+          </select>
+          <textarea name="message" placeholder="Tell us about your event — venue, vision, special requests..."></textarea>
+          <button type="submit" class="form-submit">Send Inquiry →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Doxa Coffee Roasters</div>
+    <div class="footer-brand">A TurnkeyCFO Company</div>
+    <p class="footer-copy">© 2026 Doxa Coffee Roasters. All rights reserved. Licensed in Texas. Insured up to $2M.</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '✓ Inquiry Sent! We\'ll be in touch within 24 hours.';
+      btn.style.background = '#4A2518';
+      setTimeout(() => {
+        btn.textContent = 'Send Inquiry →';
+        btn.style.background = '';
+        e.target.reset();
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>

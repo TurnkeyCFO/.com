@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnkey CFO | March 2026 Financial Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#00263A;--navy2:#003A56;--navy3:#0A4A6A;--green:#00C85A;--green2:#05DD69;--ice:#EEF1F5;--bg:#F2F5F8;--white:#fff;--text:#0D1F2D;--soft:#36576A;--muted:#7A909F;--warn:#E8920A;--danger:#E03A52;--shadow:0 18px 40px rgba(7,47,69,.10);--shadow2:0 24px 48px rgba(7,47,69,.14);--r:24px;--font:"Plus Jakarta Sans",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--font);color:var(--text);background:radial-gradient(circle at top right,rgba(0,200,90,.16),transparent 28%),radial-gradient(circle at left center,rgba(0,58,86,.08),transparent 30%),linear-gradient(180deg,var(--bg) 0%,var(--white) 100%);min-height:100vh}body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.54) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.42) 1px,transparent 1px);background-size:46px 46px;opacity:.24;z-index:0}
+    .shell{position:relative;z-index:1;width:min(1360px,calc(100% - 28px));margin:18px auto 46px}.hero,.card{box-shadow:var(--shadow)}.hero{position:relative;overflow:hidden;padding:28px;border-radius:30px;color:#fff;background:linear-gradient(135deg,rgba(0,38,58,.98),rgba(10,74,106,.96))}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.24;animation:drift 14s ease-in-out infinite alternate}.hero:before{width:320px;height:320px;right:-110px;top:-90px;background:rgba(0,200,90,.34)}.hero:after{width:260px;height:260px;left:-80px;bottom:-100px;background:rgba(218,225,233,.18);animation-delay:2s}
+    .top,.copy,.metrics,.section-head,.grid4,.grid3,.grid2{display:grid;gap:16px}.top{grid-template-columns:1fr auto;align-items:flex-start;margin-bottom:22px}.brandlock{display:grid;gap:8px}.eyebrow,.kicker,.label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.68)}.eyebrow:before{content:"";width:8px;height:8px;border-radius:999px;background:var(--green);box-shadow:0 0 18px rgba(5,221,105,.8)}.brand{text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:800;color:rgba(255,255,255,.84)}.actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px}.btn,.btn2{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 16px;font-size:12px;font-weight:800;letter-spacing:.04em;text-decoration:none;white-space:nowrap;transition:transform .18s ease,box-shadow .18s ease}.btn{color:var(--navy);background:linear-gradient(135deg,var(--green2),#5DD870);box-shadow:0 12px 26px rgba(0,200,90,.22)}.btn2{color:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08)}.btn:hover,.btn2:hover{transform:translateY(-1px);box-shadow:var(--shadow2)}
+    .copy{grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr);align-items:end}h1{margin:0 0 12px;font-size:clamp(34px,5vw,58px);line-height:.98;letter-spacing:-.05em}h1 span{color:#5DD870}.copy p{margin:0;max-width:760px;font-size:15px;line-height:1.75;color:rgba(255,255,255,.80)}.summary{padding:18px;border-radius:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px)}.summary .label{color:rgba(255,255,255,.62)}.summary .value{font-size:34px;line-height:1;font-weight:800;color:#dfffe9;margin:8px 0}.summary .note{font-size:13px;line-height:1.65;color:rgba(255,255,255,.72)}
+    .metrics{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px}.metric{padding:16px 17px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}.metric .k{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:rgba(255,255,255,.64);margin-bottom:8px}.metric .v{font-size:20px;font-weight:800;letter-spacing:-.03em;color:#fff}.metric .n{margin-top:6px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.72)}
+    .section{margin-top:22px}.head{display:grid;grid-template-columns:1fr auto;align-items:end;margin:26px 2px 14px}.head h2,.head h3,h3{margin:0;letter-spacing:-.03em}.head h2{font-size:24px}.head p{margin:4px 0 0;color:var(--soft);line-height:1.65;max-width:760px;font-size:14px}
+    .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .card{position:relative;background:rgba(255,255,255,.88);border:1px solid rgba(0,38,58,.08);border-radius:var(--r);padding:22px;backdrop-filter:blur(8px);transition:transform .18s ease,box-shadow .18s ease}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow2)}.card:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:4px;background:linear-gradient(90deg,var(--green),var(--navy3))}.value2{font-size:30px;line-height:1;font-weight:800;letter-spacing:-.04em;color:var(--text);margin-bottom:10px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-top:14px}.greenP{color:#006b31;background:rgba(0,200,90,.10);border:1px solid rgba(0,200,90,.16)}.navyP{color:var(--navy);background:rgba(0,38,58,.08);border:1px solid rgba(0,38,58,.10)}.amberP{color:var(--warn);background:rgba(232,146,10,.10);border:1px solid rgba(232,146,10,.16)}
+    .bars{display:grid;gap:10px;margin-top:14px}.bar{display:grid;grid-template-columns:100px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:13px}.track{height:12px;border-radius:999px;background:var(--ice);overflow:hidden}.fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--navy2),var(--green))}.fillR{background:linear-gradient(90deg,var(--green),#5DD870)}.fillN{background:linear-gradient(90deg,var(--navy2),var(--navy3))}.fillA{background:linear-gradient(90deg,var(--warn),#F2B35E)}
+    .insights,.actions-list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px}.insights li,.actions-list li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;align-items:start;font-size:13px;line-height:1.65;color:var(--soft)}.dot{width:10px;height:10px;border-radius:999px;margin-top:6px}.g{background:var(--green)}.n{background:var(--navy3)}.a{background:var(--warn)}.r{background:var(--danger)}
+    .microgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:4px}.micro{padding:16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(242,245,248,.82));border:1px solid rgba(0,38,58,.08)}.slabel{color:var(--muted);margin-bottom:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800}.svalue{font-size:24px;font-weight:800;letter-spacing:-.04em;color:var(--text);margin-bottom:6px}.snote{font-size:12px;line-height:1.55;color:var(--soft)}
+    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px;font-variant-numeric:tabular-nums}th,td{padding:13px 10px;border-bottom:1px solid rgba(0,38,58,.08);text-align:left;vertical-align:top}th{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:800}td.num,th.num{text-align:right}tbody tr:last-child td{border-bottom:0;font-weight:800;color:var(--text)}.conf{margin:20px 2px 0;padding:14px 18px;border-radius:18px;background:rgba(0,38,58,.04);border:1px solid rgba(0,38,58,.08);color:var(--soft);font-size:12px;line-height:1.65}
+    .reveal{animation:fade-up .45s ease}@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(12px,-10px,0) scale(1.04)}}@keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @media (max-width:1080px){.copy,.grid4,.grid3,.grid2,.metrics{grid-template-columns:1fr 1fr}.copy{grid-template-columns:1fr}}
+    @media (max-width:768px){.shell{width:min(100% - 18px,100%);margin:10px auto 28px}.hero,.card{padding:18px;border-radius:24px}.top,.head{grid-template-columns:1fr}.actions{width:100%}.btn,.btn2{width:100%}.grid4,.grid3,.grid2,.metrics,.microgrid{grid-template-columns:1fr}.bar{grid-template-columns:1fr;gap:6px}table,thead,tbody,th,td,tr{display:block}thead{display:none}tbody tr{border:1px solid rgba(0,38,58,.08);border-radius:18px;overflow:hidden;margin-bottom:10px;background:rgba(255,255,255,.86)}td{display:flex;justify-content:space-between;gap:14px}td:before{content:attr(data-label);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800}td.num{text-align:left}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero reveal">
+      <div class="top">
+        <div class="brandlock">
+          <div class="eyebrow">March financials</div>
+          <div class="brand">Turnkey CFO company portal</div>
+        </div>
+        <div class="actions">
+          <div class="pill greenP" style="margin-top:0;">Updated April 13, 2026</div>
+          <a class="btn" href="#march-dashboard">March Financials</a>
+          <a class="btn2" href="#ytd-summary">YTD Summary</a>
+        </div>
+      </div>
+      <div class="copy">
+        <div>
+          <h1><span>March 2026</span> dashboard for Turnkey CFO</h1>
+          <p>March was the first profitable month in Q1. Revenue climbed to $2,875.05, gross profit finished at $1,021.01, and the month closed with net income of $779.56. January and February losses still outweigh the rebound, but the run rate is cleaner going into April.</p>
+          <div class="metrics" aria-label="March headline metrics">
+            <div class="metric"><div class="k">March revenue</div><div class="v" id="marchRevenue">$2,875.05</div><div class="n">Service work drove all March revenue.</div></div>
+            <div class="metric"><div class="k">March net income</div><div class="v" id="marchNet">$779.56</div><div class="n">A $2,976.29 swing versus February.</div></div>
+            <div class="metric"><div class="k">YTD net income</div><div class="v" id="ytdNet">-$3,611.00</div><div class="n">Q1 is still underwater after two early losses.</div></div>
+            <div class="metric"><div class="k">March net margin</div><div class="v" id="marchMargin">27.1%</div><div class="n">The strongest margin in the quarter.</div></div>
+          </div>
+        </div>
+        <aside class="summary">
+          <div class="label">March bottom line</div>
+          <div class="value" id="heroBottomLine">$779.56</div>
+          <div class="note">Gross profit closed at $1,021.01, operating expenses stayed restrained at $361.68, and other income added $120.23.</div>
+        </aside>
+      </div>
+    </header>
+    <section class="section" id="march-dashboard">
+      <div class="head">
+        <div>
+          <div class="kicker">March focus</div>
+          <h2>March operating dashboard</h2>
+          <p>This view centers on the March turnaround while keeping the Q1 context visible. The biggest story is the return to profitability, not a perfect quarter.</p>
+        </div>
+        <div class="pill navyP">Quarter in context</div>
+      </div>
+
+      <div class="grid4">
+        <article class="card"><div class="label">March Revenue</div><div class="value2" id="marchRevenueCard">$2,875</div><div class="subtext">Bookkeeping, cleanup, and fractional CFO work all landed in March.</div><div class="pill greenP">Revenue recovered</div></article>
+        <article class="card"><div class="label">Gross Profit</div><div class="value2" id="marchGrossProfit">$1,021</div><div class="subtext">Revenue exceeded direct delivery costs after two negative months.</div><div class="pill navyP">35.5% gross margin</div></article>
+        <article class="card"><div class="label">March Net Income</div><div class="value2" id="marchNetCard">$780</div><div class="subtext">The month finished positive after other income and lean overhead.</div><div class="pill greenP">First profitable month</div></article>
+        <article class="card"><div class="label">YTD Recovery Needed</div><div class="value2" id="recoveryNeeded">$3,611</div><div class="subtext">This is the remaining amount needed to get Q1 back to breakeven.</div><div class="pill amberP">Q1 still negative</div></article>
+      </div>
+
+      <div class="grid3" style="margin-top:18px;">
+        <article class="card">
+          <h3>March revenue mix</h3>
+          <p class="card-intro">March revenue was concentrated in three service lines, with fractional CFO work carrying the largest share.</p>
+          <div class="bars">
+            <div class="bar"><div class="name">Bookkeeping</div><div class="track"><div class="fillR" style="width:27.3%"></div></div><div id="bookkeepingValue">$784.19</div></div>
+            <div class="bar"><div class="name">Cleanup</div><div class="track"><div class="fillR" style="width:17.4%"></div></div><div id="cleanupValue">$499.56</div></div>
+            <div class="bar"><div class="name">Fractional CFO</div><div class="track"><div class="fillR" style="width:55.3%"></div></div><div id="cfoValue">$1,591.30</div></div>
+          </div>
+          <div class="pill greenP">Service mix healthy</div>
+        </article>
+
+        <article class="card">
+          <h3>March cost structure</h3>
+          <p class="card-intro">Direct labor remained the primary cost driver, while operating expenses stayed light enough to preserve the month.</p>
+          <div class="bars">
+            <div class="bar"><div class="name">Direct labor</div><div class="track"><div class="fillN" style="width:81.4%"></div></div><div>$1,509.65</div></div>
+            <div class="bar"><div class="name">Ops manager</div><div class="track"><div class="fillN" style="width:10.6%"></div></div><div>$196.19</div></div>
+            <div class="bar"><div class="name">Analyst</div><div class="track"><div class="fillN" style="width:8.0%"></div></div><div>$148.20</div></div>
+          </div>
+          <div class="pill navyP">COGS contained</div>
+        </article>
+
+        <article class="card">
+          <h3>Operating expenses</h3>
+          <p class="card-intro">Sales and marketing remained the largest expense bucket, but total overhead stayed contained in March.</p>
+          <div class="bars">
+            <div class="bar"><div class="name">Sales &amp; marketing</div><div class="track"><div class="fillA" style="width:67.4%"></div></div><div>$243.68</div></div>
+            <div class="bar"><div class="name">Software</div><div class="track"><div class="fillA" style="width:29.6%"></div></div><div>$107.23</div></div>
+            <div class="bar"><div class="name">Travel / G&amp;A</div><div class="track"><div class="fillA" style="width:3.0%"></div></div><div>$10.77</div></div>
+          </div>
+          <div class="pill amberP">Lean overhead</div>
+        </article>
+      </div>
+
+      <div class="grid2" style="margin-top:18px;">
+        <article class="card">
+          <h3>What changed in March</h3>
+          <ul class="insights" id="marchInsights"></ul>
+        </article>
+        <article class="card">
+          <h3>Interpretation</h3>
+          <p>March delivered the operating turn. Revenue came back, gross profit turned positive, expenses stayed in check, and other income helped finish the month in the black. The caution is still Q1: January and February losses are larger than the March recovery.</p>
+          <div class="microgrid">
+            <div class="micro"><div class="slabel">February to March swing</div><div class="svalue" id="swingValue">$2,976.29</div><div class="snote">Net income improved by this amount month over month.</div></div>
+            <div class="micro"><div class="slabel">Run-rate recovery</div><div class="svalue" id="runRateValue">4.6 months</div><div class="snote">Roughly this long to erase the Q1 deficit if March repeats.</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="head">
+        <div>
+          <div class="kicker">Q1 trend</div>
+          <h2>Quarter trend line</h2>
+          <p>January and February were loss months. March broke the pattern and reset the direction of the quarter.</p>
+        </div>
+      </div>
+      <div class="grid3" id="trendCards"></div>
+    </section>
+
+    <section class="section" id="ytd-summary">
+      <div class="head">
+        <div>
+          <div class="kicker">YTD summary</div>
+          <h2>Quarter close and context</h2>
+          <p>The quarter is still negative, but March gave the business its first profitable month and the clearest forward path.</p>
+        </div>
+        <div class="pill greenP">YTD focus</div>
+      </div>
+      <div class="grid2">
+        <article class="card">
+          <h3>Quarterly totals</h3>
+          <div class="grid4" style="margin-top:16px;">
+            <div class="micro"><div class="slabel">YTD revenue</div><div class="svalue" id="ytdRevenue">$3,125.05</div><div class="snote">Revenue came entirely from service work in Q1.</div></div>
+            <div class="micro"><div class="slabel">YTD COGS</div><div class="svalue" id="ytdCogs">$4,941.43</div><div class="snote">Direct delivery costs outpaced revenue for the quarter.</div></div>
+            <div class="micro"><div class="slabel">YTD expenses</div><div class="svalue" id="ytdExpenses">$1,914.85</div><div class="snote">Operating expenses stayed relatively contained.</div></div>
+            <div class="micro"><div class="slabel">YTD net income</div><div class="svalue" id="ytdNet2">-$3,611.00</div><div class="snote">March recovered a meaningful slice of the deficit.</div></div>
+          </div>
+        </article>
+        <article class="card">
+          <h3>YTD table</h3>
+          <table>
+            <thead><tr><th>Metric</th><th class="num">Jan 2026</th><th class="num">Feb 2026</th><th class="num">Mar 2026</th><th class="num">YTD</th></tr></thead>
+            <tbody id="ytdTableBody"></tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h3>Bottom-line takeaways</h3>
+        <ul class="actions-list" id="finalInsights"></ul>
+        <div class="conf">Confidential client-use reporting prepared by TurnkeyCFO. This dashboard is intended for internal review of March 2026 performance and the Q1 context around it.</div>
+      </div>
+    </section>
+  </div>
+  <script>
+    const months = [
+      { label: "Jan 2026", revenue: 250.00, cogs: 1713.58, expenses: 730.25, otherIncome: 0.00, net: -2193.83 },
+      { label: "Feb 2026", revenue: 0.00, cogs: 1373.81, expenses: 822.92, otherIncome: 0.00, net: -2196.73 },
+      { label: "Mar 2026", revenue: 2875.05, cogs: 1854.04, expenses: 361.68, otherIncome: 120.23, net: 779.56 }
+    ];
+    const mix = [
+      { name: "Bookkeeping", value: 784.19 },
+      { name: "Cleanup", value: 499.56 },
+      { name: "Fractional CFO", value: 1591.30 }
+    ];
+    const fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const pct = new Intl.NumberFormat("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    const sum = (key) => months.reduce((t, m) => t + m[key], 0);
+    const ytd = { revenue: sum("revenue"), cogs: sum("cogs"), expenses: sum("expenses"), otherIncome: sum("otherIncome"), net: sum("net") };
+    ytd.grossProfit = ytd.revenue - ytd.cogs; ytd.noi = ytd.grossProfit - ytd.expenses;
+    const march = months[2], feb = months[1], jan = months[0];
+    const signed = (v) => v < 0 ? `-${fmt.format(Math.abs(v))}` : fmt.format(v);
+    const set = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
+    const gp = march.revenue - march.cogs;
+    const gm = (gp / march.revenue) * 100;
+    const nm = (march.net / march.revenue) * 100;
+
+    set("marchRevenue", fmt.format(march.revenue)); set("marchNet", fmt.format(march.net)); set("ytdNet", signed(ytd.net)); set("marchMargin", `${pct.format(nm)}%`);
+    set("heroBottomLine", fmt.format(march.net)); set("marchRevenueCard", fmt.format(march.revenue)); set("marchGrossProfit", fmt.format(gp)); set("marchNetCard", fmt.format(march.net));
+    set("recoveryNeeded", fmt.format(Math.abs(ytd.net))); set("swingValue", fmt.format(march.net - feb.net)); set("runRateValue", `${pct.format(Math.abs(ytd.net) / march.net)} months`);
+    set("bookkeepingValue", fmt.format(mix[0].value)); set("cleanupValue", fmt.format(mix[1].value)); set("cfoValue", fmt.format(mix[2].value));
+    set("ytdRevenue", fmt.format(ytd.revenue)); set("ytdCogs", fmt.format(ytd.cogs)); set("ytdExpenses", fmt.format(ytd.expenses)); set("ytdNet2", signed(ytd.net));
+
+    const rows = [
+      ["Revenue", jan.revenue, feb.revenue, march.revenue, ytd.revenue],
+      ["COGS", jan.cogs, feb.cogs, march.cogs, ytd.cogs],
+      ["Gross profit", jan.revenue - jan.cogs, feb.revenue - feb.cogs, gp, ytd.grossProfit],
+      ["Expenses", jan.expenses, feb.expenses, march.expenses, ytd.expenses],
+      ["Other income", jan.otherIncome, feb.otherIncome, march.otherIncome, ytd.otherIncome],
+      ["Net income", jan.net, feb.net, march.net, ytd.net]
+    ];
+    document.getElementById("ytdTableBody").innerHTML = rows.map(([label, a, b, c, d]) => `
+      <tr><td data-label="Metric">${label}</td><td class="num" data-label="Jan 2026">${signed(a)}</td><td class="num" data-label="Feb 2026">${signed(b)}</td><td class="num" data-label="Mar 2026">${signed(c)}</td><td class="num" data-label="YTD">${signed(d)}</td></tr>
+    `).join("");
+
+    const maxRev = Math.max(...months.map(m => m.revenue), 1);
+    const maxNet = Math.max(...months.map(m => Math.abs(m.net)), 1);
+    document.getElementById("trendCards").innerHTML = months.map(m => {
+      const h1 = m.revenue === 0 ? 0 : Math.max(6, (m.revenue / maxRev) * 100);
+      const h2 = Math.max(6, (Math.abs(m.net) / maxNet) * 100);
+      const cls = m.net >= 0 ? "net-positive" : "net-negative";
+      return `<article class="trend-item reveal"><div class="trend-top"><strong>${m.label}</strong><span>${signed(m.net)}</span></div><div class="trend-bar"><div class="trend-layer" style="height:${h1}%;"></div><div class="trend-layer alt ${cls}" style="height:${h2}%;"></div></div><div class="trend-caption">Revenue ${fmt.format(m.revenue)} | COGS ${fmt.format(m.cogs)} | Expenses ${fmt.format(m.expenses)}</div></article>`;
+    }).join("");
+
+    const marchInsights = [
+      `March was the first profitable month in Q1, with net income of ${fmt.format(march.net)} and a ${pct.format(nm)}% net margin.`,
+      `Revenue rebounded by ${fmt.format(march.revenue - feb.revenue)} versus February, while expenses fell by ${fmt.format(feb.expenses - march.expenses)} month over month.`,
+      `Gross profit landed at ${fmt.format(gp)}, which is a ${pct.format(gm)}% gross margin for the month.`,
+      `YTD net income is still negative at ${fmt.format(ytd.net)}, so March recovered part of the quarter but did not erase the earlier drag.`
+    ];
+    document.getElementById("marchInsights").innerHTML = marchInsights.map((text, i) => `<li><span class="dot ${["g","a","n","r"][i]}"></span><span>${text}</span></li>`).join("");
+
+    const finalInsights = [
+      `March delivered the turnaround: revenue rose to ${fmt.format(march.revenue)} and the business finished the month with positive net income.`,
+      `The quarter is still underwater by ${fmt.format(Math.abs(ytd.net))}, so the next priority is converting March's rebound into repeatable monthly execution.`,
+      `The largest March revenue stream was Fractional CFO services at ${fmt.format(mix[2].value)}, which accounted for ${pct.format((mix[2].value / march.revenue) * 100)}% of March revenue.`,
+      `Within delivery costs, direct labor made up the bulk of March COGS at ${fmt.format(march.cogs)} and remained the main operating constraint.`
+    ];
+    document.getElementById("finalInsights").innerHTML = finalInsights.map((text, i) => `<li><span class="dot ${["g","a","n","r"][i]}"></span><span>${text}</span></li>`).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>TurnkeyCFO — Fractional CFO for Real Estate Agents, Brokers & Investors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== ROOT & TYPOGRAPHY ===== */
+        :root {
+            --navy: #00263A;
+            --green: #00C85A;
+            --green-bright: #05DD69;
+            --bg-light: #F2F5F8;
+            --white: #FFFFFF;
+            --text: #0D1F2D;
+            --text-soft: #36576A;
+            --text-muted: #7A909F;
+            --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== STICKY NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(0px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(200, 200, 200, 0.2);
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-cta {
+            background: var(--green);
+            color: var(--white);
+            padding: 0.65rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--green-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 200, 90, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            .nav-logo {
+                font-size: 1.1rem;
+            }
+            .nav-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-light) 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .hero-content h2 {
+            font-size: 0.95rem;
+            color: var(--green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideInUp 0.6s ease 0.1s forwards;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            opacity: 0;
+            animation: slideInUp 0.6s ease 0.2s forwards;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            opacity: 0;
+            animation: slideInUp 0.6s ease 0.3s forwards;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: slideInUp 0.6s ease 0.4s forwards;
+        }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .btn-primary:hover {
+            background: var(--green-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 200, 90, 0.3);
+            animation: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--green);
+            border: 2px solid var(--green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--green);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: slideInUp 0.6s ease 0.5s forwards;
+        }
+
+        .stat-chip {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 200, 90, 0.2);
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: slideInRight 0.7s ease 0.3s forwards;
+        }
+
+        .hero-svg {
+            width: 100%;
+            height: 100%;
+            max-width: 450px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .hero-ctas {
+                flex-direction: column;
+            }
+            .btn {
+                text-align: center;
+            }
+            .hero-visual {
+                height: 300px;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== TRUST STRIP ===== */
+        .trust-strip {
+            background: var(--navy);
+            color: var(--white);
+            padding: 2rem;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .trust-item {
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.2s forwards;
+        }
+
+        @media (max-width: 768px) {
+            .trust-strip {
+                flex-direction: column;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== PAIN POINTS ===== */
+        .pain-points {
+            padding: 80px 2rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pain-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .pain-card:nth-child(1) { animation-delay: 0.1s; }
+        .pain-card:nth-child(2) { animation-delay: 0.2s; }
+        .pain-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .pain-card:hover {
+            transform: translateY(-8px);
+            background: var(--white);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .pain-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            opacity: 0.9;
+        }
+
+        .pain-card h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pain-card p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .pain-points {
+                padding: 60px 1.5rem;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .pain-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 80px 2rem;
+            background: var(--bg-light);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .step {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--green);
+            opacity: 0;
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+
+        .step-number {
+            font-size: 2.5rem;
+            color: var(--green);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .how-it-works {
+                padding: 60px 1.5rem;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 80px 2rem;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 0.6s ease forwards;
+            border-top: 3px solid var(--green);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 200, 90, 0.1);
+            background: var(--white);
+        }
+
+        .service-checkmark {
+            font-size: 1.5rem;
+            color: var(--green);
+            margin-right: 0.5rem;
+            font-weight: 700;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 60px 1.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison {
+            padding: 80px 2rem;
+            background: var(--bg-light);
+        }
+
+        .comparison-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .comparison-header h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-header p {
+            font-size: 1rem;
+            color: var(--text-soft);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+
+        .comparison-table td:first-child {
+            color: var(--text);
+            font-weight: 500;
+            background: var(--bg-light);
+        }
+
+        .comparison-table tr:nth-child(even) td:first-child {
+            background: var(--bg-light);
+        }
+
+        .comparison-table .highlighted {
+            background: rgba(0, 200, 90, 0.08);
+            font-weight: 600;
+            color: var(--green);
+        }
+
+        .comparison-table .checkmark {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .comparison-table .x {
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .comparison-cta {
+            text-align: center;
+        }
+
+        .comparison-cta a {
+            display: inline-block;
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .comparison-cta a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .comparison {
+                padding: 60px 1.5rem;
+            }
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.8rem;
+            }
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 80px 2rem;
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--green);
+            opacity: 0;
+            animation: slideInUp 0.6s ease forwards;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+        .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 200, 90, 0.1);
+        }
+
+        .testimonial-stars {
+            color: var(--green);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--text-soft);
+        }
+
+        @media (max-width: 768px) {
+            .testimonials {
+                padding: 60px 1.5rem;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ABOUT RICKY ===== */
+        .about {
+            padding: 80px 2rem;
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .credential-badge::before {
+            content: "✓";
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .about-photo {
+            width: 100%;
+            max-width: 300px;
+            height: 350px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 700;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 60px 1.5rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-text h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ===== STATS STRIP ===== */
+        .stats-strip {
+            padding: 80px 2rem;
+            background: var(--navy);
+            color: var(--white);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .stats-strip {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 60px 1.5rem;
+            }
+            .stat-number {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            padding: 80px 2rem;
+            background: var(--white);
+        }
+
+        .faq-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+        .faq-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .faq-question {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 200, 90, 0.08);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            background: var(--white);
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .faq {
+                padding: 60px 1.5rem;
+            }
+        }
+
+        /* ===== BOTTOM CTA ===== */
+        .bottom-cta {
+            padding: 80px 2rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .bottom-cta h2 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            opacity: 0;
+            animation: slideInUp 0.6s ease 0.1s forwards;
+        }
+
+        .bottom-cta .btn {
+            opacity: 0;
+            animation: slideInUp 0.6s ease 0.2s forwards;
+        }
+
+        @media (max-width: 768px) {
+            .bottom-cta {
+                padding: 60px 1.5rem;
+            }
+            .bottom-cta h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== STICKY NAV ===== -->
+<nav>
+    <div class="nav-logo">TurnkeyCFO</div>
+    <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Fractional CFO for Real Estate & Property</h2>
+        <h1>Lumpy revenue, entity complexity, and tight cash cycles. We get it.</h1>
+        <p>Commission-based businesses run on deal flow and timing — not steady monthly revenue. Most real estate operators don't have financial infrastructure built for that reality. TurnkeyCFO does.</p>
+        <div class="hero-ctas">
+            <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="btn btn-primary">Book a 15-Min Intro Call</a>
+            <a href="https://turnkeycfo.com/estimate" class="btn btn-secondary">Get an Instant Estimate →</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-chip">10+ Active Clients</div>
+            <div class="stat-chip">100% Retention</div>
+            <div class="stat-chip">3.1 hrs Saved/Week</div>
+            <div class="stat-chip">24hr Response</div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <svg class="hero-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid background -->
+            <defs>
+                <pattern id="grid-re" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#F2F5F8" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect width="400" height="500" fill="url(#grid-re)" opacity="0.3"/>
+
+            <!-- Skyline buildings -->
+            <rect x="40" y="220" width="50" height="200" fill="#00263A" stroke="#00263A" stroke-width="2"/>
+            <rect x="110" y="180" width="60" height="240" fill="#00263A" stroke="#00263A" stroke-width="2"/>
+            <rect x="190" y="150" width="70" height="270" fill="#00263A" stroke="#00263A" stroke-width="2"/>
+            <rect x="280" y="190" width="55" height="230" fill="#00263A" stroke="#00263A" stroke-width="2"/>
+
+            <!-- Green accent windows -->
+            <rect x="50" y="250" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="70" y="280" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="50" y="320" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="70" y="350" width="12" height="12" fill="#05DD69" rx="2"/>
+
+            <rect x="125" y="210" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="145" y="250" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="125" y="300" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="145" y="360" width="12" height="12" fill="#05DD69" rx="2"/>
+
+            <rect x="210" y="180" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="230" y="220" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="210" y="280" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="230" y="340" width="12" height="12" fill="#05DD69" rx="2"/>
+
+            <rect x="300" y="230" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="320" y="280" width="12" height="12" fill="#05DD69" rx="2"/>
+            <rect x="300" y="330" width="12" height="12" fill="#05DD69" rx="2"/>
+
+            <!-- Deal pipeline arrows -->
+            <defs>
+                <marker id="arrowhead-re" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#00C85A"/>
+                </marker>
+            </defs>
+            <path d="M 20 320 Q 100 310 150 300" stroke="#00C85A" stroke-width="2.5" fill="none" marker-end="url(#arrowhead-re)" stroke-dasharray="5,5"/>
+            <path d="M 20 380 Q 150 360 200 340" stroke="#00C85A" stroke-width="2.5" fill="none" marker-end="url(#arrowhead-re)" stroke-dasharray="5,5"/>
+
+            <!-- Closed deal badge -->
+            <circle cx="320" cy="120" r="35" fill="#00C85A" opacity="0.9"/>
+            <text x="320" y="130" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">Closed</text>
+
+            <!-- Floating accent circle -->
+            <circle cx="360" cy="80" r="15" fill="#05DD69" opacity="0.6"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<div class="trust-strip">
+    <div class="trust-item">QuickBooks ProAdvisor Certified</div>
+    <div class="trust-item">Austin, TX Based</div>
+    <div class="trust-item">No Long-Term Contracts</div>
+    <div class="trust-item">Entity Structure Expertise</div>
+</div>
+
+<!-- ===== PAIN POINTS ===== -->
+<section class="pain-points">
+    <div class="section-header">
+        <h2>Sound familiar?</h2>
+    </div>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="30" r="18" fill="none" stroke="#00263A" stroke-width="2"/>
+                <path d="M 50 48 L 50 70 M 30 60 L 50 70 L 70 60" stroke="#00263A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M 20 85 Q 50 92 80 85" stroke="#00C85A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <text x="50" y="88" text-anchor="middle" font-size="32" fill="#00C85A">$</text>
+            </svg>
+            <h3>Commission Revenue Is Lumpy</h3>
+            <p>A great quarter followed by two slow ones makes cash flow unpredictable. Without a rolling forecast, you're always reacting, never planning.</p>
+        </div>
+        <div class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="25" width="28" height="50" fill="none" stroke="#00263A" stroke-width="2" rx="2"/>
+                <rect x="52" y="20" width="28" height="55" fill="none" stroke="#00263A" stroke-width="2" rx="2"/>
+                <circle cx="34" cy="38" r="4" fill="#00C85A"/>
+                <circle cx="34" cy="55" r="4" fill="#00C85A"/>
+                <circle cx="66" cy="35" r="4" fill="#00C85A"/>
+                <circle cx="66" cy="52" r="4" fill="#00C85A"/>
+                <circle cx="66" cy="65" r="4" fill="#00C85A"/>
+                <path d="M 48 30 L 52 30 M 48 50 L 52 50 M 48 70 L 52 70" stroke="#05DD69" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>Entity Structure Chaos</h3>
+            <p>LLCs, S-corps, partnerships — real estate operators accumulate entities without a coordinated financial strategy. Tax efficiency and reporting suffer.</p>
+        </div>
+        <div class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect x="15" y="25" width="70" height="55" fill="none" stroke="#00263A" stroke-width="2" rx="3"/>
+                <line x1="25" y1="35" x2="75" y2="35" stroke="#00263A" stroke-width="1.5"/>
+                <circle cx="30" cy="50" r="6" fill="none" stroke="#00C85A" stroke-width="2"/>
+                <circle cx="50" cy="50" r="6" fill="none" stroke="#00C85A" stroke-width="2"/>
+                <circle cx="70" cy="50" r="6" fill="none" stroke="#00C85A" stroke-width="2"/>
+                <path d="M 30 60 L 50 75 L 70 65" stroke="#05DD69" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Scaling Without Visibility</h3>
+            <p>Adding agents, new markets, or acquiring properties adds financial complexity. Most owners don't know their true operating cost until it's too late.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works">
+    <div class="section-header">
+        <h2>How it works</h2>
+    </div>
+    <div class="steps-grid">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Book a 15-Min Call</h3>
+            <p>We talk through your deal structure, entity setup, and where cash flow is unpredictable.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>We Map Your Numbers</h3>
+            <p>Week one: entity-level reporting, deal pipeline integration, and a cash flow baseline.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Monthly CFO Layer</h3>
+            <p>Clean close, rolling forecast, and strategic input on every acquisition or expansion decision.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services">
+    <div class="section-header">
+        <h2>What we deliver</h2>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3><span class="service-checkmark">✓</span>Monthly Close by Entity</h3>
+            <p>Clean financials per LLC, per property, per team — whatever view helps you make faster decisions.</p>
+        </div>
+        <div class="service-card">
+            <h3><span class="service-checkmark">✓</span>Cash Flow Forecasting</h3>
+            <p>13-week rolling model built around your deal pipeline and commission timing so you're never caught between closings.</p>
+        </div>
+        <div class="service-card">
+            <h3><span class="service-checkmark">✓</span>Entity & Tax Coordination</h3>
+            <p>We work alongside your CPA to make sure your entity structure actually serves your growth, not just your past deals.</p>
+        </div>
+        <div class="service-card">
+            <h3><span class="service-checkmark">✓</span>Agent & Acquisition Profitability</h3>
+            <p>Cost per agent, margin by deal type, ROI on acquisitions — before you commit capital.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="comparison">
+    <div class="comparison-content">
+        <div class="comparison-header">
+            <h2>How we stack up</h2>
+            <p>For real estate operators who've outgrown their CPA's quarterly check-in.</p>
+        </div>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>CPA / Bookkeeper</th>
+                    <th>Full-Time CFO</th>
+                    <th class="highlighted">TurnkeyCFO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monthly Close</td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td class="highlighted checkmark">✓✓✓</td>
+                </tr>
+                <tr>
+                    <td>Entity-Level Reporting</td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td class="highlighted checkmark">✓✓</td>
+                </tr>
+                <tr>
+                    <td>Cash Flow Forecasting</td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td class="highlighted checkmark">✓✓</td>
+                </tr>
+                <tr>
+                    <td>Deal Profitability Analysis</td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td class="highlighted checkmark">✓✓</td>
+                </tr>
+                <tr>
+                    <td>Agent Performance Reporting</td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td class="highlighted checkmark">✓✓</td>
+                </tr>
+                <tr>
+                    <td>Strategic CFO Advisory</td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td class="highlighted checkmark">✓✓</td>
+                </tr>
+                <tr>
+                    <td>No Long-Term Contract</td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td class="highlighted checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>Founder-Focused</td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td class="highlighted checkmark">✓</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="comparison-cta">
+            <a href="https://turnkeycfo.com/estimate">See what it costs →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials">
+    <div class="section-header">
+        <h2>Real estate operators trust us</h2>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"We had three LLCs and no consolidated view. Ricky built entity-level reporting in the first month. I finally understand which properties are actually making money."</p>
+            <div class="testimonial-author">Brian T.</div>
+            <div class="testimonial-role">Real Estate Investor & Broker</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Commission income is impossible to forecast without the right model. TurnkeyCFO built us a 13-week cash flow projection that's been accurate within 5% every month."</p>
+            <div class="testimonial-author">Lisa M.</div>
+            <div class="testimonial-role">Brokerage Owner</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I was treating my brokerage like a side hustle financially. Ricky helped me see it as the real business it is — and cleaned up two years of entity chaos in the process."</p>
+            <div class="testimonial-author">Derek S.</div>
+            <div class="testimonial-role">Independent Broker</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Ricky built us a giving analytics dashboard that blew our board away. We went from zero financial visibility to complete transparency overnight."</p>
+            <div class="testimonial-author">Marcus P.</div>
+            <div class="testimonial-role">Lead Pastor, Austin, TX</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT RICKY ===== -->
+<section class="about">
+    <div class="about-content">
+        <div class="about-text">
+            <h2>Built for operators like you</h2>
+            <p>I built TurnkeyCFO because I kept meeting serious real estate operators — brokers, investors, property managers — who were running complex multi-entity businesses with basic bookkeeping and a CPA they talked to once a year. Deal flow was strong. Financial infrastructure was not. They needed a CFO layer, not another bookkeeper. So I built a fractional model around that: real CFO engagement, fractional pricing, no lock-in. Based in Austin. Here to actually move the needle.</p>
+            <div class="about-credentials">
+                <div class="credential-badge">QuickBooks ProAdvisor Certified</div>
+                <div class="credential-badge">10+ Years Accounting & Finance</div>
+                <div class="credential-badge">Multi-Entity Real Estate Background</div>
+                <div class="credential-badge">24/7 Slack Support</div>
+            </div>
+        </div>
+        <div class="about-photo">Ricky</div>
+    </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<section class="stats-strip">
+    <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Active Clients</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Retention Rate</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Entities Integrated</div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+    <div class="section-header">
+        <h2>Common questions</h2>
+    </div>
+    <div class="faq-content">
+        <div class="faq-item">
+            <div class="faq-question">
+                What does this cost?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Pricing depends on the complexity of your entity structure and reporting needs. We typically quote monthly retainers from $2,000 to $5,000+. <a href="https://turnkeycfo.com/estimate">Get an instant estimate</a> based on your deal flow and entity count.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you work with investors or just brokerages?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Both. We work with real estate investors managing multi-property portfolios, brokers running teams and managing commission splits, and everything in between. Deal-level and entity-level reporting, whatever fits your structure.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Can you help with our entity structure?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                We don't do tax filings, but we work alongside your CPA to make sure your structure serves your financial reporting and growth strategy. We advise on reporting needs, consolidation opportunities, and entity efficiency.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How fast can we start?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Typical onboarding is 2 weeks. We get QuickBooks access, map your entities, pull historical data, and deliver your first consolidated close within that window. From there, we're live on a 15th/EOM close schedule.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BOTTOM CTA ===== -->
+<section class="bottom-cta">
+    <h2>Ready to build financial infrastructure that scales with your deals?</h2>
+    <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="btn btn-primary">Book a 15-Min Intro Call</a>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>&copy; 2026 TurnkeyCFO. All rights reserved.</p>
+    <p>Austin, TX | <a href="https://turnkeycfo.com" style="color: var(--green); text-decoration: none;">turnkeycfo.com</a></p>
+</footer>
+
+<script>
+    // Sticky nav on scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            item.classList.toggle('active');
+        });
+    });
+
+    // Counter animation for stats
+    function animateCounters() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            const text = stat.textContent;
+            const target = parseInt(text.replace(/\D/g, ''));
+            const suffix = text.replace(/[0-9]/g, '');
+            let current = 0;
+            const increment = target / 30;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                stat.textContent = Math.floor(current) + suffix;
+            }, 50);
+        });
+    }
+
+    // Trigger animation on scroll into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target.classList.contains('stats-strip')) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    document.querySelectorAll('.stats-strip').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>

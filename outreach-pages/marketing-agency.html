@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>TurnkeyCFO — Fractional CFO for Marketing & Advertising Agencies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #00263A;
+            --green: #00C85A;
+            --green-bright: #05DD69;
+            --bg-light: #F2F5F8;
+            --white: #FFFFFF;
+            --text: #0D1F2D;
+            --text-soft: #36576A;
+            --text-muted: #7A909F;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ===== 1. STICKY NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(0px);
+            transition: all 0.3s ease;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 200, 90, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-cta {
+            background: var(--green);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--green-bright);
+            transform: translateY(-2px);
+        }
+
+        /* ===== 2. HERO ===== */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--green);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--navy);
+        }
+
+        .hero-subhead {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-soft);
+            max-width: 550px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 1rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-primary {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .cta-primary:hover {
+            background: var(--green-bright);
+            transform: translateY(-3px);
+        }
+
+        .cta-secondary {
+            background: var(--bg-light);
+            color: var(--text);
+            border: 2px solid var(--green);
+        }
+
+        .cta-secondary:hover {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-chip {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            font-weight: 500;
+        }
+
+        .stat-chip strong {
+            color: var(--navy);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            animation: slideInRight 0.8s ease-out 0.2s backwards;
+        }
+
+        /* ===== 3. TRUST STRIP ===== */
+        .trust-strip {
+            background: var(--bg-light);
+            padding: 2rem;
+            margin: 4rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            font-weight: 500;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .trust-item::before {
+            content: "✓";
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* ===== 4. PAIN POINTS ===== */
+        .pain-points {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pain-points h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            color: var(--navy);
+        }
+
+        .pain-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .pain-card {
+            background: var(--white);
+            border: 2px solid var(--bg-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .pain-card:nth-child(1) { animation-delay: 0.1s; }
+        .pain-card:nth-child(2) { animation-delay: 0.2s; }
+        .pain-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .pain-card:hover {
+            border-color: var(--green);
+            box-shadow: 0 12px 32px rgba(0, 200, 90, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .pain-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 200, 90, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pain-card h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .pain-card p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        /* ===== 5. HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            color: var(--navy);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .step {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--green);
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 0 auto;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .step p {
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        /* ===== 6. SERVICES ===== */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            color: var(--navy);
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 2px solid var(--bg-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .service-card:hover {
+            border-color: var(--green);
+            box-shadow: 0 12px 32px rgba(0, 200, 90, 0.1);
+        }
+
+        .service-check {
+            font-size: 1.5rem;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== 7. COMPARISON TABLE ===== */
+        .comparison {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .comparison-header h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-header p {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .comparison-table th:first-child, .comparison-table td:first-child {
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-turnkey {
+            background: rgba(0, 200, 90, 0.08);
+        }
+
+        .compare-check {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .compare-x {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* ===== 8. TESTIMONIALS ===== */
+        .testimonials {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            color: var(--navy);
+        }
+
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 2px solid var(--bg-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+        .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .stars {
+            color: var(--green);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        /* ===== 9. ABOUT RICKY ===== */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-photo {
+            width: 280px;
+            height: 320px;
+            background: linear-gradient(135deg, var(--navy), var(--green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .about-photo::after {
+            content: "Photo";
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-soft);
+            margin-bottom: 2rem;
+        }
+
+        .credentials {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            border: 1px solid var(--bg-light);
+        }
+
+        /* ===== 10. STATS STRIP ===== */
+        .stats-strip {
+            padding: 4rem 2rem;
+            background: var(--navy);
+            color: var(--white);
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--green);
+            animation: countUp 0.6s ease-out backwards;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* ===== 11. FAQ ===== */
+        .faq {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            color: var(--navy);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--bg-light);
+            padding: 2rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-soft);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+
+        /* ===== 12. BOTTOM CTA ===== */
+        .bottom-cta {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy), var(--navy) 50%, var(--green));
+            text-align: center;
+            color: var(--white);
+        }
+
+        .bottom-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .bottom-cta-btn {
+            background: var(--white);
+            color: var(--navy);
+            padding: 1.25rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .bottom-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== 13. FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 5rem 1.5rem 3rem;
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-visual {
+                min-height: 300px;
+            }
+
+            .hero-ctas {
+                gap: 1rem;
+            }
+
+            .cta-primary, .cta-secondary {
+                padding: 0.85rem 1.25rem;
+                font-size: 0.9rem;
+            }
+
+            .trust-strip {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .pain-points, .how-it-works, .services, .testimonials, .faq {
+                padding: 3rem 1.5rem;
+            }
+
+            .pain-points h2, .how-it-works h2, .services h2, .testimonials h2, .faq h2 {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .comparison {
+                padding: 3rem 1.5rem;
+            }
+
+            .comparison-table th, .comparison-table td {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-photo {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .about-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .stats-strip {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .bottom-cta {
+                padding: 4rem 1.5rem;
+            }
+
+            .bottom-cta h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes drawSVG {
+            from {
+                stroke-dashoffset: 1000;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .svg-draw {
+            stroke-dasharray: 1000;
+            animation: drawSVG 2.5s ease-out forwards;
+        }
+
+        .svg-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== 1. STICKY NAV ===== -->
+    <nav id="nav">
+        <div class="nav-logo">TurnkeyCFO</div>
+        <button class="nav-cta" onclick="scrollToBookCall()">Book a Call</button>
+    </nav>
+
+    <!-- ===== 2. HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">Fractional CFO for Marketing & Advertising Agencies</div>
+            <h1>You grow your clients' revenue. Who's watching yours?</h1>
+            <p class="hero-subhead">Retainer recognition, contractor cost creep, and scope bleed drain agency margins quietly. TurnkeyCFO gives you the financial clarity to price confidently and scale profitably.</p>
+            <div class="hero-ctas">
+                <button class="cta-primary" onclick="scrollToBookCall()">Book a 15-Min Intro Call</button>
+                <button class="cta-secondary" onclick="scrollToEstimate()">Get an Instant Estimate →</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-chip"><strong>10+</strong> Active Clients</div>
+                <div class="stat-chip"><strong>100%</strong> Retention</div>
+                <div class="stat-chip"><strong>3.1 hrs</strong> Saved/Week</div>
+                <div class="stat-chip"><strong>24hr</strong> Response</div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <svg width="400" height="400" viewBox="0 0 400 400" class="svg-float">
+                <g class="svg-draw">
+                    <path d="M 50 80 L 150 80 L 140 120 L 60 120 Z" fill="rgba(0, 200, 90, 0.3)" stroke="#00C85A" stroke-width="2"/>
+                    <path d="M 60 120 L 140 120 L 125 160 L 75 160 Z" fill="rgba(0, 200, 90, 0.5)" stroke="#00C85A" stroke-width="2"/>
+                    <path d="M 75 160 L 125 160 L 110 200 L 90 200 Z" fill="#00C85A" stroke="#00C85A" stroke-width="2"/>
+                </g>
+                <g class="svg-draw">
+                    <rect x="200" y="60" width="40" height="30" fill="rgba(0, 38, 58, 0.4)" stroke="#00263A" stroke-width="2" rx="4"/>
+                    <rect x="250" y="90" width="40" height="30" fill="rgba(0, 38, 58, 0.6)" stroke="#00263A" stroke-width="2" rx="4"/>
+                    <rect x="300" y="120" width="40" height="30" fill="rgba(0, 38, 58, 0.8)" stroke="#00263A" stroke-width="2" rx="4"/>
+                </g>
+                <g class="svg-draw">
+                    <circle cx="150" cy="260" r="35" fill="var(--green)" stroke="#05DD69" stroke-width="2"/>
+                    <text x="150" y="258" font-size="14" font-weight="700" fill="white" text-anchor="middle">31%</text>
+                    <text x="150" y="275" font-size="11" font-weight="600" fill="white" text-anchor="middle">Margin</text>
+                </g>
+                <g class="svg-draw">
+                    <polyline points="220,320 260,290 300,260 340,210" fill="none" stroke="#00C85A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="220" cy="320" r="4" fill="#00C85A"/>
+                    <circle cx="260" cy="290" r="4" fill="#00C85A"/>
+                    <circle cx="300" cy="260" r="4" fill="#00C85A"/>
+                    <circle cx="340" cy="210" r="4" fill="#00C85A"/>
+                </g>
+                <g class="svg-draw">
+                    <circle cx="100" cy="340" r="6" fill="#00263A"/>
+                    <circle cx="130" cy="340" r="6" fill="#00C85A"/>
+                    <circle cx="160" cy="340" r="6" fill="#05DD69"/>
+                    <circle cx="190" cy="340" r="6" fill="rgba(0, 200, 90, 0.6)"/>
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== 3. TRUST STRIP ===== -->
+    <section class="trust-strip">
+        <div class="trust-item">QuickBooks ProAdvisor Certified</div>
+        <div class="trust-item">Austin, TX Based</div>
+        <div class="trust-item">No Long-Term Contracts</div>
+        <div class="trust-item">Retainer Revenue Experts</div>
+    </section>
+
+    <!-- ===== 4. PAIN POINTS ===== -->
+    <section class="pain-points">
+        <h2>Sound familiar?</h2>
+        <div class="pain-cards">
+            <div class="pain-card">
+                <div class="pain-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M 10 8 L 30 8 L 28 20 L 12 20 Z" fill="none" stroke="#00C85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 12 20 L 14 32 Q 20 35 26 32 L 28 20" fill="none" stroke="#00C85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Retainer Revenue Recognition</h3>
+                <p>Monthly retainers look predictable until a client churns mid-month or you over-deliver scope. Are you recognizing revenue correctly — or creating phantom income that inflates your picture?</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <g stroke="#00C85A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="28" cy="12" r="4"/>
+                            <circle cx="12" cy="28" r="4"/>
+                            <circle cx="28" cy="28" r="4"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Contractor Cost vs. FTE Decision</h3>
+                <p>Freelancers seem cheap until you stack the hours. Most agency owners don't know their true blended cost per deliverable or when to hire vs. contract.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <g stroke="#00C85A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="10" width="24" height="20" rx="2"/>
+                            <path d="M 14 18 L 18 22 L 28 12"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Scope Creep & Margin Erosion</h3>
+                <p>Every 'quick add' to a client project eats into margin without showing up anywhere obvious. You can't manage what you can't measure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. HOW IT WORKS ===== -->
+    <section class="how-it-works">
+        <h2>How it works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Book a 15-Min Call</h3>
+                <p>We talk through your retainer structure, team mix, and where margin is leaking.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>We Map Your Numbers</h3>
+                <p>Week one: per-client P&L baseline, contractor cost analysis, and revenue recognition review.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Monthly CFO Layer</h3>
+                <p>Clean close, client-level profitability every month, and strategic input on pricing and hiring decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. SERVICES ===== -->
+    <section class="services">
+        <h2>Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <div class="service-check">✓</div>
+                <h3>Monthly Close & Client P&L</h3>
+                <p>Per-client profitability every month so you know exactly which retainers are making money and which are subsidizing others.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-check">✓</div>
+                <h3>Revenue Recognition</h3>
+                <p>Deferred revenue schedules and retainer recognition that reflect when work is performed — not just when it's billed.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-check">✓</div>
+                <h3>Labor & Contractor Analysis</h3>
+                <p>Blended rate analysis, utilization tracking, and FTE vs. contractor decision models built around your real delivery structure.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-check">✓</div>
+                <h3>Pricing & Packaging Strategy</h3>
+                <p>Target margin modeling for new service tiers so every offer you bring to market is built to be profitable from day one.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 7. COMPARISON TABLE ===== -->
+    <section class="comparison">
+        <div class="comparison-header">
+            <h2>How we stack up</h2>
+            <p>For agencies that have moved past "we're profitable... I think" and want to actually know.</p>
+        </div>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Bookkeeper</th>
+                    <th>Full-Time CFO</th>
+                    <th>TurnkeyCFO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monthly Close</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+                <tr>
+                    <td>Per-Client P&L</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+                <tr>
+                    <td>Revenue Recognition</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+                <tr>
+                    <td>Contractor vs FTE Analysis</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+                <tr>
+                    <td>Pricing Margin Models</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+                <tr>
+                    <td>Strategic CFO Advisory</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+                <tr>
+                    <td>No Long-Term Contract</td>
+                    <td class="compare-check">✓</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+                <tr>
+                    <td>Founder-Focused</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-x">✗</td>
+                    <td class="compare-turnkey compare-check">✓</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ===== 8. TESTIMONIALS ===== -->
+    <section class="testimonials">
+        <h2>Trusted by agency founders</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"We thought we were profitable. TurnkeyCFO built per-client P&Ls and we found out two of our top 'revenue' clients were actually margin negative. Fired them in 60 days and margin went from 18% to 31%."</p>
+                <div class="testimonial-author">— Rachel T., Agency Founder</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Finally someone who understands retainer recognition. I was booking revenue the wrong way for two years. The cleanup was painful but the clarity was worth it."</p>
+                <div class="testimonial-author">— Kevin M., Creative Agency Owner</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Ricky helped us model a new service tier before we launched it. We knew the margin profile before the first client signed. That's a different way to run a business."</p>
+                <div class="testimonial-author">— Stephanie L., Digital Marketing Agency</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Ricky built us a giving analytics dashboard that blew our board away. We went from zero financial visibility to complete transparency overnight."</p>
+                <div class="testimonial-author">— Marcus P., Lead Pastor, Austin, TX</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 9. ABOUT RICKY ===== -->
+    <section class="about">
+        <div class="about-photo"></div>
+        <div class="about-content">
+            <h2>About Ricky</h2>
+            <p>I built TurnkeyCFO because I kept meeting agency founders who were working 60-hour weeks growing their clients while their own finances were a black box. Retainers looked profitable. Blended costs were invisible. Scope was leaking everywhere. They deserved a CFO layer that understood how agencies actually operate — not just a generalist accountant who files the return. So I built a fractional model around that: real CFO engagement, fractional pricing, no lock-in. Based in Austin. Here to actually move the needle.</p>
+            <div class="credentials">
+                <div class="badge">QuickBooks ProAdvisor</div>
+                <div class="badge">Certified Fractional CFO</div>
+                <div class="badge">10+ Years Experience</div>
+                <div class="badge">Austin, TX</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 10. STATS STRIP ===== -->
+    <section class="stats-strip">
+        <div class="stat">
+            <div class="stat-value" data-count="10">10+</div>
+            <div class="stat-label">Active Clients</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" data-count="100">100%</div>
+            <div class="stat-label">Retention Rate</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" data-count="18">18+</div>
+            <div class="stat-label">Hours Saved/Month</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value" data-count="24">24hr</div>
+            <div class="stat-label">Response Time</div>
+        </div>
+    </section>
+
+    <!-- ===== 11. FAQ ===== -->
+    <section class="faq">
+        <h2>Frequently asked</h2>
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What does this cost?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">We provide an instant estimate based on your agency structure, revenue, and current financial visibility. Most agencies invest between $1,500–$3,500/month depending on complexity. No setup fees, no long-term contracts. You can start with a 3-month pilot and scale from there.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>We already have a bookkeeper — do we need this?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">A bookkeeper records what happened. TurnkeyCFO tells you what it means — per-client margin, pricing strategy, and whether your cost structure actually supports your growth. Most of our clients keep their bookkeeper and add us as the strategic layer on top.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do you handle retainer vs. project revenue?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">We build the recognition schedules and reporting structure to handle both accurately, regardless of how your billing is structured. Many agencies mix retainer and project work. We create clean separation so you can see profitability by revenue model.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How fast to get started?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">Typically 2 weeks. Week one is a 15-minute call plus document gathering. Week two we deliver your baseline P&L, preliminary per-client profitability, and a roadmap. Then we transition into ongoing monthly engagements.</div>
+        </div>
+    </section>
+
+    <!-- ===== 12. BOTTOM CTA ===== -->
+    <section class="bottom-cta">
+        <h2>Ready to know your true agency margin?</h2>
+        <button class="bottom-cta-btn" onclick="scrollToBookCall()">Book a 15-Min Call Today</button>
+    </section>
+
+    <!-- ===== 13. FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 TurnkeyCFO. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p>
+        <p>Fractional CFO services for growing agencies. Austin, TX.</p>
+    </footer>
+
+    <script>
+        // Sticky nav scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ toggle
+        function toggleFaq(element) {
+            element.parentElement.classList.toggle('active');
+        }
+
+        // Smooth scroll functions
+        function scrollToBookCall() {
+            alert('Book a call CTA clicked. In production, this would open a calendar or contact form.');
+        }
+
+        function scrollToEstimate() {
+            alert('Get instant estimate CTA clicked. In production, this would open an estimate calculator.');
+        }
+
+        // Animate counters on scroll
+        function animateCounters() {
+            const stats = document.querySelectorAll('.stat-value');
+            let hasAnimated = false;
+
+            window.addEventListener('scroll', function() {
+                if (hasAnimated) return;
+
+                const statsSection = document.querySelector('.stats-strip');
+                const sectionTop = statsSection.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight) {
+                    hasAnimated = true;
+                    stats.forEach(stat => {
+                        const target = stat.getAttribute('data-count');
+                        let current = 0;
+                        const increment = Math.ceil(target / 60);
+
+                        const interval = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(interval);
+                            }
+                            if (target === '100') {
+                                stat.textContent = current + '%';
+                            } else if (target === '24') {
+                                stat.textContent = '24hr';
+                            } else if (target === '18') {
+                                stat.textContent = '18+';
+                            } else {
+                                stat.textContent = current + '+';
+                            }
+                        }, 50);
+                    });
+                }
+            });
+        }
+
+        animateCounters();
+    </script>
+</body>
+</html>
