@@ -3,203 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Your P&L Says You're Profitable. Your Bank Account Says Otherwise. — Turnkey CFO</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>PROFIT ≠ CASH IN BANK - Turnkey CFO</title>
 <style>
-:root{
-  --accent:#00E676; --accent-deep:#00B050; --accent-dark:#007A33;
-  --ink:#0A0A0A; --ink-soft:#3A3A3A; --bg:#FBFAF7; --surface:#FFFFFF;
-  --hairline:#E7E5DF;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,sans-serif;
-  background:var(--bg); color:var(--ink);
-  overflow:hidden; -webkit-font-smoothing:antialiased;
-}
-#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-.slide{
-  position:absolute;inset:0;display:none;
-  flex-direction:column;justify-content:center;
-  padding:6.5vh 9vw;
-}
-.slide.active{display:flex;animation:fade .42s ease}
-@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.kicker{
-  font-size:clamp(13px,1.5vw,18px);font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--accent-deep);margin-bottom:2.4vh;
-  display:flex;align-items:center;gap:.7em;
-}
-.kicker::before{content:"";width:2.4em;height:3px;background:var(--accent);border-radius:3px}
-h1{
-  font-size:clamp(34px,6.2vw,82px);font-weight:800;line-height:1.06;
-  letter-spacing:-.02em;max-width:20ch;
-}
-.subhead{
-  font-size:clamp(17px,2.3vw,30px);font-weight:500;color:var(--ink-soft);
-  margin-top:2.6vh;max-width:34ch;line-height:1.4;
-}
-ul{list-style:none;margin-top:4vh;display:flex;flex-direction:column;gap:1.9vh}
-li{
-  font-size:clamp(18px,2.45vw,33px);font-weight:600;line-height:1.3;
-  padding-left:1.5em;position:relative;max-width:30ch;
-}
-li::before{
-  content:"";position:absolute;left:0;top:.55em;width:.6em;height:.6em;
-  background:var(--accent);border-radius:2px;transform:rotate(45deg);
-}
-/* title slide */
-.slide.title{justify-content:center}
-.slide.title h1{font-size:clamp(40px,7vw,96px);max-width:18ch}
-.brandmark{
-  display:flex;align-items:center;gap:.6em;font-weight:800;
-  font-size:clamp(15px,1.8vw,22px);letter-spacing:-.01em;margin-bottom:4vh;
-}
-.brandmark .dot{width:.85em;height:.85em;background:var(--accent);
-  border-radius:3px;transform:rotate(45deg)}
-/* section divider */
-.slide.section{background:var(--ink);color:var(--surface)}
-.slide.section h1{font-size:clamp(40px,7.4vw,104px);max-width:16ch}
-.slide.section .kicker{color:var(--accent)}
-/* metric slide */
-.metric-row{display:flex;gap:5vw;margin-top:5vh;flex-wrap:wrap}
-.metric-card{
-  background:var(--surface);border:1px solid var(--hairline);
-  border-radius:18px;padding:4vh 3.4vw;min-width:300px;flex:1;
-  box-shadow:0 16px 40px -28px rgba(0,0,0,.35);
-}
-.metric-card.lead{border-color:var(--accent);border-width:2px}
-.metric-val{
-  font-size:clamp(40px,6vw,86px);font-weight:800;letter-spacing:-.03em;
-  color:var(--accent-dark);line-height:1;
-}
-.metric-card.muted .metric-val{color:var(--ink)}
-.metric-lab{
-  font-size:clamp(15px,1.9vw,24px);font-weight:600;color:var(--ink-soft);
-  margin-top:1.6vh;line-height:1.35;max-width:22ch;
-}
-/* close slide */
-.slide.close{background:var(--ink);color:var(--surface);justify-content:center}
-.slide.close h1{font-size:clamp(38px,6.6vw,90px);max-width:19ch}
-.slide.close .tagline{
-  font-size:clamp(17px,2.2vw,28px);color:var(--accent);font-weight:700;
-  margin-top:4.5vh;
-}
-.slide.close .byline{
-  font-size:clamp(14px,1.6vw,19px);color:#9AA09C;font-weight:500;margin-top:1.4vh;
-}
-/* chrome */
-#bar{position:fixed;top:0;left:0;height:5px;background:var(--accent);
-  transition:width .42s ease;z-index:30}
-#counter{
-  position:fixed;bottom:3.2vh;right:3.5vw;font-size:14px;font-weight:700;
-  color:var(--ink-soft);letter-spacing:.04em;z-index:30;
-}
-.slide.section ~ #counter,.slide.close ~ #counter{color:#fff}
-#hint{
-  position:fixed;bottom:3.2vh;left:3.5vw;font-size:12.5px;font-weight:600;
-  color:var(--ink-soft);opacity:.62;z-index:30;letter-spacing:.02em;
-}
-#notes{
-  position:fixed;left:0;right:0;bottom:0;z-index:40;
-  background:rgba(10,10,10,.95);color:#F4F4F2;padding:22px 6vw 26px;
-  font-size:clamp(15px,1.7vw,21px);line-height:1.5;font-weight:500;
-  border-top:3px solid var(--accent);display:none;
-}
-#notes.show{display:block}
-#notes .nl{font-size:11.5px;font-weight:800;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--accent);margin-bottom:7px}
-@media print{#bar,#counter,#hint,#notes{display:none}}
+  html,body{margin:0;height:100%;background:#fbfaf7;
+    font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+  #app{position:fixed;inset:0}
+  #loading{position:fixed;inset:0;display:flex;align-items:center;
+    justify-content:center;color:#868e96;font-size:15px}
 </style>
 </head>
 <body>
-<!-- generated 2026-05-18 20:37 | shoot 2026-05-18__profitable-but-broke -->
-<div id="bar"></div>
-<div id="stage"></div>
-<div id="counter"></div>
-<div id="hint">← → navigate &nbsp;·&nbsp; N notes &nbsp;·&nbsp; F fullscreen</div>
-<div id="notes"></div>
+<!-- generated 2026-05-18 21:33 | shoot 2026-05-18__profitable-but-broke -->
+<div id="loading">Loading diagram...</div>
+<div id="app"></div>
+<script>window.EXCALIDRAW_ASSET_PATH="https://unpkg.com/@excalidraw/excalidraw@0.17.6/dist/";</script>
+<script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@excalidraw/excalidraw@0.17.6/dist/excalidraw.production.min.js"></script>
 <script>
-const DECK = {"deck_title": "Your P&L Says You're Profitable. Your Bank Account Says Otherwise.", "slides": [{"type": "title", "headline": "Your P&L Says You're Profitable. Your Bank Account Says Otherwise.", "subhead": "That gap has a name — and a fix.", "note": "Open with the tension: the books look healthy but the checking account doesn't. Tell them this is a pattern, not a glitch, and you're going to walk through exactly why it happens and what to do this week."}, {"type": "section", "kicker": "Why Now", "headline": "Two things made this more common recently.", "note": "Credit is tighter than it used to be, so owners can't paper over a cash shortfall with a quick line-of-credit draw. And tools like QuickBooks Online default to accrual-basis reporting, which means revenue hits the P&L the moment you send an invoice — not when the customer pays."}, {"type": "content", "kicker": "Accrual Accounting", "headline": "Revenue records when you invoice, not when you're paid.", "points": ["QBO defaults to accrual-basis reporting", "Invoice sent = revenue on the books", "Cash in hand is a separate question", "Books look healthy; checking account may not"], "note": "This is the core mechanic behind the gap. Accrual accounting is standard and correct — it just means the P&L and the bank balance are measuring different things, and owners often don't realize that until it stings."}, {"type": "section", "kicker": "Three Root Causes", "headline": "Profit and cash diverge for three main reasons.", "note": "Transition into the meat of the talk. Profit is an accounting concept; cash is what pays your team on Friday. Walk through each cause one at a time."}, {"type": "content", "kicker": "Cause 1", "headline": "Unpaid invoices inflate your P&L.", "points": ["Revenue is recorded; cash has not arrived", "60- and 90-day balances add up fast", "Run AR Aging Summary in QBO now", "Anything past 30 days needs follow-up today"], "note": "Walk them to the report: Reports, then Accounts Receivable Aging Summary. If they invoiced $40,000 last month and $30,000 is still unpaid, that revenue is on the P&L but not in the bank. Don't wait until end of week to follow up."}, {"type": "metric", "kicker": "Cause 2", "headline": "Loan payments don't appear on your P&L.", "metric": {"value": "$8,000", "label": "net profit shown on P&L", "contrast_value": "$6,000", "contrast_label": "loan payment that never shows there"}, "note": "Debt repayment runs through the balance sheet, not the income statement. So you can show a healthy profit and still be writing a large check every month that the P&L never reflects. This catches a lot of owners off guard — it's not a bookkeeping error, it's just how it works."}, {"type": "content", "kicker": "Cause 3", "headline": "Prepaid costs leave the bank before the P&L feels them.", "points": ["Inventory purchased = cash out now", "Expense hits P&L only when inventory sells", "Same logic for prepaid software or insurance", "Profitable on paper; lighter in the bank"], "note": "If you bought $15,000 in inventory or paid six months of software licenses upfront, that cash is already gone. But it won't show as an expense until you sell the goods or the subscription period runs. The P&L looks fine; the bank balance tells a different story."}, {"type": "section", "kicker": "The Fix", "headline": "Three things you can start this week.", "note": "Shift from diagnosis to action. All three steps are practical and can be done inside QBO or with a simple policy decision — no outside tools required."}, {"type": "content", "kicker": "Fix 1", "headline": "Run a cash flow statement, not just your P&L.", "points": ["In QBO: Reports > Statement of Cash Flows", "Shows where cash came from and where it went", "Separate from profit — that's the point", "If you've never pulled this report, start now"], "note": "The Statement of Cash Flows is the report that reconciles profit to actual cash movement. Most owners only look at the P&L. This one report changes the conversation."}, {"type": "content", "kicker": "Fix 2 & 3", "headline": "Set a cash floor. Enforce your payment terms.", "points": ["Cash floor: minimum balance you will not go below", "Two weeks of operating expenses is a starting point", "Send AR reminders on day 28, not day 45", "QBO can automate payment reminders in customer settings"], "note": "A cash floor turns a vague worry into a clear signal — when you approach that number, act. On AR, net-30 terms only work if you enforce them. The QBO automation takes about ten minutes to set up and removes the awkwardness of manual follow-up."}, {"type": "close", "kicker": "Turnkey CFO", "headline": "Manage the profit number and the cash number — both.", "subhead": "Bookkeeping and financial clarity for small businesses.", "points": ["P&L and bank account tell different stories", "Understanding why is how you close the gap", "Link below if you want a second set of eyes"], "note": "Land the core message: profit matters, but cash is what keeps the business running between now and the end of the month. The answer isn't to trust one report and ignore the other — it's to understand why they differ and manage both. Invite them to reach out to Turnkey CFO if they want help working through this."}]};
-const BRAND = {"name": "Turnkey CFO", "tagline": "Modern bookkeeping for small business.", "audience": "small-business owners and founders", "accent": "#00E676", "accent_deep": "#00B050", "accent_dark": "#007A33", "ink": "#0A0A0A", "ink_soft": "#3A3A3A", "bg": "#FBFAF7", "surface": "#FFFFFF", "hairline": "#E7E5DF", "font": "Plus Jakarta Sans", "google_font": "Plus+Jakarta+Sans:wght@400;500;600;700;800"};
-let i = 0;
-const stage = document.getElementById('stage');
-const slides = DECK.slides;
-
-function esc(s){return (s==null?'':String(s)).replace(/[&<>]/g,
-  c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
-
-function slideHTML(s, idx){
-  const t = s.type || 'content';
-  let inner = '';
-  if(t === 'title'){
-    inner += '<div class="brandmark"><span class="dot"></span>'+esc(BRAND.name)+'</div>';
-    if(s.kicker) inner += '<div class="kicker">'+esc(s.kicker)+'</div>';
-    inner += '<h1>'+esc(s.headline)+'</h1>';
-    if(s.subhead) inner += '<div class="subhead">'+esc(s.subhead)+'</div>';
-  } else if(t === 'close'){
-    inner += '<h1>'+esc(s.headline)+'</h1>';
-    inner += '<div class="tagline">'+esc(BRAND.tagline)+'</div>';
-    inner += '<div class="byline">'+esc(BRAND.name)+
-             ' \u2014 bookkeeping and financial clarity for small businesses.</div>';
-  } else {
-    if(s.kicker) inner += '<div class="kicker">'+esc(s.kicker)+'</div>';
-    inner += '<h1>'+esc(s.headline)+'</h1>';
-    if(s.subhead) inner += '<div class="subhead">'+esc(s.subhead)+'</div>';
-    if(t === 'metric' && s.metric){
-      const m = s.metric;
-      inner += '<div class="metric-row">';
-      inner += '<div class="metric-card lead"><div class="metric-val">'+
-        esc(m.value)+'</div><div class="metric-lab">'+esc(m.label)+'</div></div>';
-      if(m.contrast_value){
-        inner += '<div class="metric-card muted"><div class="metric-val">'+
-          esc(m.contrast_value)+'</div><div class="metric-lab">'+
-          esc(m.contrast_label)+'</div></div>';
-      }
-      inner += '</div>';
+(function(){
+  var SCENE = {"type": "excalidraw", "version": 2, "source": "https://turnkeycfo.com", "elements": [{"type": "text", "id": "p6ycz5tw5qx0mn5d", "x": 599.9, "y": 36, "width": 560.3, "height": 57.5, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1492980242, "version": 1, "versionNonce": 399693104, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 46, "fontFamily": 1, "text": "PROFIT ≠ CASH IN BANK", "originalText": "PROFIT ≠ CASH IN BANK", "textAlign": "center", "verticalAlign": "top", "containerId": null, "lineHeight": 1.25, "baseline": 41.4}, {"type": "text", "id": "4tik078jmxx7t8wa", "x": 548.2, "y": 104, "width": 663.5, "height": 27.5, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 977272914, "version": 1, "versionNonce": 1850747720, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 22, "fontFamily": 1, "text": "Why your P&L and bank account tell different stories", "originalText": "Why your P&L and bank account tell different stories", "textAlign": "center", "verticalAlign": "top", "containerId": null, "lineHeight": 1.25, "baseline": 19.8}, {"type": "rectangle", "id": "5kn0td367h2xicdv", "x": 70, "y": 158, "width": 600, "height": 180, "angle": 0, "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1101519920, "version": 1, "versionNonce": 1030000403, "isDeleted": false, "boundElements": [{"type": "text", "id": "i27dhycnj6e221w9"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "i27dhycnj6e221w9", "x": 78, "y": 166, "width": 584, "height": 164, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1191634729, "version": 1, "versionNonce": 1101043975, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 23, "fontFamily": 1, "text": "P&L View\n\nShows $8,000 net profit\nRevenue booked at invoice", "originalText": "P&L View\n\nShows $8,000 net profit\nRevenue booked at invoice", "textAlign": "center", "verticalAlign": "middle", "containerId": "5kn0td367h2xicdv", "lineHeight": 1.25, "baseline": 20.7}, {"type": "rectangle", "id": "iw9szi1zy7ca4hjx", "x": 1090, "y": 158, "width": 600, "height": 180, "angle": 0, "strokeColor": "#e03131", "backgroundColor": "#ffc9c9", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1979861981, "version": 1, "versionNonce": 1405553954, "isDeleted": false, "boundElements": [{"type": "text", "id": "udvi1sjed6a9v41u"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "udvi1sjed6a9v41u", "x": 1098, "y": 166, "width": 584, "height": 164, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 96724415, "version": 1, "versionNonce": 1559383846, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 23, "fontFamily": 1, "text": "Bank Reality\n\nAccount looks thin\nCash not actually received", "originalText": "Bank Reality\n\nAccount looks thin\nCash not actually received", "textAlign": "center", "verticalAlign": "middle", "containerId": "iw9szi1zy7ca4hjx", "lineHeight": 1.25, "baseline": 20.7}, {"type": "text", "id": "kqjn3ht5masbe72n", "x": 859.7, "y": 200.0, "width": 40.6, "height": 87.5, "angle": 0, "strokeColor": "#e03131", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 361748258, "version": 1, "versionNonce": 294343926, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 70, "fontFamily": 1, "text": "≠", "originalText": "≠", "textAlign": "center", "verticalAlign": "top", "containerId": null, "lineHeight": 1.25, "baseline": 63.0}, {"type": "text", "id": "csgi7yxkjrpn1v35", "x": 744.3, "y": 384, "width": 271.4, "height": 32.5, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 67486626, "version": 1, "versionNonce": 1408657965, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 26, "fontFamily": 1, "text": "WHY THE GAP EXISTS", "originalText": "WHY THE GAP EXISTS", "textAlign": "center", "verticalAlign": "top", "containerId": null, "lineHeight": 1.25, "baseline": 23.4}, {"type": "arrow", "id": "dooqu0xtop75xpvo", "x": 880.0, "y": 342, "width": 0.0, "height": 34, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2.5, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 2}, "seed": 864543566, "version": 1, "versionNonce": 398395896, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "points": [[0, 0], [0.0, 34]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"type": "rectangle", "id": "1i2qsee2nr2zoa0c", "x": 70.0, "y": 432, "width": 250.0, "height": 220, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1217637169, "version": 1, "versionNonce": 1342359180, "isDeleted": false, "boundElements": [{"type": "text", "id": "dh2pervlbka149vs"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "dh2pervlbka149vs", "x": 78.0, "y": 440, "width": 234.0, "height": 204, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1352414904, "version": 1, "versionNonce": 361306614, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 16, "fontFamily": 1, "text": "Accrual Reporting\n\nRevenue posts when invoiced\nNot when customer pays", "originalText": "Accrual Reporting\n\nRevenue posts when invoiced\nNot when customer pays", "textAlign": "center", "verticalAlign": "middle", "containerId": "1i2qsee2nr2zoa0c", "lineHeight": 1.25, "baseline": 14.4}, {"type": "rectangle", "id": "j1dzx2y8urd1yu65", "x": 344.0, "y": 432, "width": 250.0, "height": 220, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 283560576, "version": 1, "versionNonce": 251614689, "isDeleted": false, "boundElements": [{"type": "text", "id": "5q24c56yty5iaftg"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "5q24c56yty5iaftg", "x": 352.0, "y": 440, "width": 234.0, "height": 204, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 937067211, "version": 1, "versionNonce": 590249968, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 16, "fontFamily": 1, "text": "Unpaid Invoices\n\n$30K sitting in AR\n60–90 days outstanding", "originalText": "Unpaid Invoices\n\n$30K sitting in AR\n60–90 days outstanding", "textAlign": "center", "verticalAlign": "middle", "containerId": "j1dzx2y8urd1yu65", "lineHeight": 1.25, "baseline": 14.4}, {"type": "rectangle", "id": "h9w2bnt1sr3x3evr", "x": 618.0, "y": 432, "width": 250.0, "height": 220, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1552019322, "version": 1, "versionNonce": 248009272, "isDeleted": false, "boundElements": [{"type": "text", "id": "mgd8pb53qh6mhjyt"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "mgd8pb53qh6mhjyt", "x": 626.0, "y": 440, "width": 234.0, "height": 204, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 197928295, "version": 1, "versionNonce": 1542448988, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 16, "fontFamily": 1, "text": "Loan Repayments\n\nPayments hit balance sheet\nNever appear on P&L", "originalText": "Loan Repayments\n\nPayments hit balance sheet\nNever appear on P&L", "textAlign": "center", "verticalAlign": "middle", "containerId": "h9w2bnt1sr3x3evr", "lineHeight": 1.25, "baseline": 14.4}, {"type": "rectangle", "id": "c7yap80xri43drui", "x": 892.0, "y": 432, "width": 250.0, "height": 220, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1155202457, "version": 1, "versionNonce": 532503033, "isDeleted": false, "boundElements": [{"type": "text", "id": "c241y2b9vjzrrj7l"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "c241y2b9vjzrrj7l", "x": 900.0, "y": 440, "width": 234.0, "height": 204, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1412933586, "version": 1, "versionNonce": 198498495, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 16, "fontFamily": 1, "text": "Prepaid Expenses\n\nCash paid upfront\nP&L expense comes later", "originalText": "Prepaid Expenses\n\nCash paid upfront\nP&L expense comes later", "textAlign": "center", "verticalAlign": "middle", "containerId": "c7yap80xri43drui", "lineHeight": 1.25, "baseline": 14.4}, {"type": "rectangle", "id": "kdrf3lva5ebrc5xf", "x": 1166.0, "y": 432, "width": 250.0, "height": 220, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 535496504, "version": 1, "versionNonce": 1056056617, "isDeleted": false, "boundElements": [{"type": "text", "id": "cxzqmp92mm2kigkb"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "cxzqmp92mm2kigkb", "x": 1174.0, "y": 440, "width": 234.0, "height": 204, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1283497206, "version": 1, "versionNonce": 1363222984, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 16, "fontFamily": 1, "text": "Inventory Purchases\n\nCash leaves immediately\nCost recognized at sale", "originalText": "Inventory Purchases\n\nCash leaves immediately\nCost recognized at sale", "textAlign": "center", "verticalAlign": "middle", "containerId": "kdrf3lva5ebrc5xf", "lineHeight": 1.25, "baseline": 14.4}, {"type": "rectangle", "id": "k4cuyz0j6sybi7cp", "x": 1440.0, "y": 432, "width": 250.0, "height": 220, "angle": 0, "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 684924805, "version": 1, "versionNonce": 1568251630, "isDeleted": false, "boundElements": [{"type": "text", "id": "ikiyczevanw6vt6v"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "ikiyczevanw6vt6v", "x": 1448.0, "y": 440, "width": 234.0, "height": 204, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 237342078, "version": 1, "versionNonce": 220297907, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 16, "fontFamily": 1, "text": "Tighter Credit\n\nLines of credit harder\nNo buffer for shortfalls", "originalText": "Tighter Credit\n\nLines of credit harder\nNo buffer for shortfalls", "textAlign": "center", "verticalAlign": "middle", "containerId": "k4cuyz0j6sybi7cp", "lineHeight": 1.25, "baseline": 14.4}, {"type": "text", "id": "5rwc4albb9xymn3l", "x": 729.2, "y": 698, "width": 301.6, "height": 32.5, "angle": 0, "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1172065885, "version": 1, "versionNonce": 215217585, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 26, "fontFamily": 1, "text": "WHAT TO DO THIS WEEK", "originalText": "WHAT TO DO THIS WEEK", "textAlign": "center", "verticalAlign": "top", "containerId": null, "lineHeight": 1.25, "baseline": 23.4}, {"type": "arrow", "id": "lyzkirmruj8cvvf3", "x": 880.0, "y": 656, "width": 0.0, "height": 34, "angle": 0, "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2.5, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 2}, "seed": 420644933, "version": 1, "versionNonce": 1273160554, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "points": [[0, 0], [0.0, 34]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"type": "rectangle", "id": "aqd84fcn7xmnvg7r", "x": 70.0, "y": 746, "width": 516.0, "height": 190, "angle": 0, "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1123878951, "version": 1, "versionNonce": 1186145401, "isDeleted": false, "boundElements": [{"type": "text", "id": "k4pfnqjhiewrh6lb"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "k4pfnqjhiewrh6lb", "x": 78.0, "y": 754, "width": 500.0, "height": 174, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1910289241, "version": 1, "versionNonce": 191488143, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 19, "fontFamily": 1, "text": "Run Cash Flow Report\n\nPull Statement of Cash Flows\nQBO: Reports section", "originalText": "Run Cash Flow Report\n\nPull Statement of Cash Flows\nQBO: Reports section", "textAlign": "center", "verticalAlign": "middle", "containerId": "aqd84fcn7xmnvg7r", "lineHeight": 1.25, "baseline": 17.1}, {"type": "rectangle", "id": "1gyrxbm54hyegwxx", "x": 622.0, "y": 746, "width": 516.0, "height": 190, "angle": 0, "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 698485899, "version": 1, "versionNonce": 444368669, "isDeleted": false, "boundElements": [{"type": "text", "id": "0wtw92tzeolpvgvf"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "0wtw92tzeolpvgvf", "x": 630.0, "y": 754, "width": 500.0, "height": 174, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 1027615515, "version": 1, "versionNonce": 278906262, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 19, "fontFamily": 1, "text": "Set a Cash Floor\n\nMinimum: two weeks expenses\nAct when you approach it", "originalText": "Set a Cash Floor\n\nMinimum: two weeks expenses\nAct when you approach it", "textAlign": "center", "verticalAlign": "middle", "containerId": "1gyrxbm54hyegwxx", "lineHeight": 1.25, "baseline": 17.1}, {"type": "rectangle", "id": "fqz9fyocfuvatds1", "x": 1174.0, "y": 746, "width": 516.0, "height": 190, "angle": 0, "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 720875065, "version": 1, "versionNonce": 700678160, "isDeleted": false, "boundElements": [{"type": "text", "id": "7fxsh8jlit6qyhg3"}], "updated": 1779158037429, "link": null, "locked": false}, {"type": "text", "id": "7fxsh8jlit6qyhg3", "x": 1182.0, "y": 754, "width": 500.0, "height": 174, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 503027692, "version": 1, "versionNonce": 1853208295, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 19, "fontFamily": 1, "text": "Tighten AR Follow-Up\n\nRemind customers on day 28\nAutomate in QBO settings", "originalText": "Tighten AR Follow-Up\n\nRemind customers on day 28\nAutomate in QBO settings", "textAlign": "center", "verticalAlign": "middle", "containerId": "fqz9fyocfuvatds1", "lineHeight": 1.25, "baseline": 17.1}, {"type": "text", "id": "r6ly7yqgnwu6fq5c", "x": 564.5, "y": 970, "width": 631.0, "height": 20.0, "angle": 0, "strokeColor": "#868e96", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": null, "seed": 969588249, "version": 1, "versionNonce": 1152963909, "isDeleted": false, "boundElements": [], "updated": 1779158037429, "link": null, "locked": false, "fontSize": 16, "fontFamily": 1, "text": "Turnkey CFO -- bookkeeping and financial clarity for small business.", "originalText": "Turnkey CFO -- bookkeeping and financial clarity for small business.", "textAlign": "center", "verticalAlign": "top", "containerId": null, "lineHeight": 1.25, "baseline": 14.4}], "appState": {"gridSize": null, "viewBackgroundColor": "#fbfaf7"}, "files": {}};
+  function mount(){
+    if(!window.ExcalidrawLib||!window.React||!window.ReactDOM){
+      document.getElementById('loading').textContent=
+        'Diagram failed to load. Refresh the page.';
+      return;
     }
-    if(s.points && s.points.length){
-      inner += '<ul>'+s.points.map(p=>'<li>'+esc(p)+'</li>').join('')+'</ul>';
+    var e=React.createElement;
+    var loading=document.getElementById('loading');
+    if(loading) loading.remove();
+    function App(){
+      return e(ExcalidrawLib.Excalidraw,{
+        initialData:{
+          elements:SCENE.elements,
+          appState:{viewBackgroundColor:"#fbfaf7"},
+          scrollToContent:true
+        },
+        viewModeEnabled:true,
+        UIOptions:{canvasActions:{
+          export:false,loadScene:false,saveToActiveFile:false,
+          toggleTheme:false,changeViewBackgroundColor:false
+        }}
+      });
     }
+    ReactDOM.createRoot(document.getElementById('app')).render(e(App));
   }
-  return '<section class="slide '+t+(idx===0?' active':'')+'">'+inner+'</section>';
-}
-
-stage.innerHTML = slides.map(slideHTML).join('');
-const els = [...document.querySelectorAll('.slide')];
-
-function show(n){
-  i = Math.max(0, Math.min(slides.length-1, n));
-  els.forEach((e,x)=>e.classList.toggle('active', x===i));
-  document.getElementById('bar').style.width =
-    ((i+1)/slides.length*100)+'%';
-  document.getElementById('counter').textContent =
-    (i+1)+' / '+slides.length;
-  const note = slides[i].note || 'No speaker note for this slide.';
-  document.getElementById('notes').innerHTML =
-    '<div class="nl">Speaker note</div>'+esc(note);
-}
-function next(){show(i+1);}
-function prev(){show(i-1);}
-
-document.addEventListener('keydown', e=>{
-  if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();next();}
-  else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();prev();}
-  else if(e.key==='Home'){show(0);}
-  else if(e.key==='End'){show(slides.length-1);}
-  else if(e.key==='n'||e.key==='N'){document.getElementById('notes').classList.toggle('show');}
-  else if(e.key==='f'||e.key==='F'){
-    if(document.fullscreenElement) document.exitFullscreen();
-    else document.documentElement.requestFullscreen();
-  }
-});
-stage.addEventListener('click', e=>{
-  (e.clientX < window.innerWidth*0.34) ? prev() : next();
-});
-show(0);
+  if(document.readyState!=='loading') setTimeout(mount,60);
+  else window.addEventListener('DOMContentLoaded',function(){setTimeout(mount,60);});
+})();
 </script>
 </body>
 </html>
