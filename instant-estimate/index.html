@@ -897,7 +897,11 @@ function calculateEstimate(data) {
   const tenNinetyNineAdj = data.needs1099 === 'yes' ? 25 : 0;
   const addOnsCost = payrollAdj + billAdj + tenNinetyNineAdj;
 
-  // Minimum-tier floor: $200 if truly minimal, else $350
+  // Absolute price floor: $300/mo is the lowest price we will EVER show — for any
+  // business, including a church (the -$100 church discount and the minimal-client
+  // path reduce price toward this floor but can never cross it). Standard (non-minimal)
+  // clients floor higher at $350.
+  const ABS_MIN = 300;
   const isMinimalClient = (
     data.revenue === 'lt250' &&
     data.accountCount === 'le5' &&
@@ -907,7 +911,7 @@ function calculateEstimate(data) {
     data.inventory !== 'yes' &&
     !(data.industry === 'construction' && data.jobCosting === 'yes')
   );
-  const floor = isMinimalClient ? 200 : 350;
+  const floor = Math.max(ABS_MIN, isMinimalClient ? ABS_MIN : 350);
 
   // Input-driven tier deltas (scale with core complexity)
   const brDelta  = core <= 450 ? 125 : core <= 700 ? 175 : 250;
